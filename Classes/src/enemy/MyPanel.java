@@ -37,7 +37,7 @@ public class MyPanel extends JPanel implements ActionListener{
             {0,2,1,1,2,0,0,0,0,0,0,0,2,1,2,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 
-    };
+    };*/
 	
 	MyPanel(){
 		this.setPreferredSize(new Dimension(PANEL_WIDTH,PANEL_HEIGHT));
@@ -137,7 +137,7 @@ public class MyPanel extends JPanel implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (map[a][b] == 1 || map[a][b] == 3) {
+		/*if (map[a][b] == 1 || map[a][b] == 3) {
 			if (!(nronder == 0) && !((map[a+1][b] == 0) || (map[a+1][b] == 4)) && nrboven == 0) {
 				hulp = 1;
 				onder(32);
@@ -235,5 +235,130 @@ public class MyPanel extends JPanel implements ActionListener{
 		y = y + verplaatseny*snelheid;
 		x = x + verplaatsenx*snelheid;
 		repaint();
+	*/
+		enemy_movement(1,)}
+void enemy_movement(int snelheid, int startvak_a, int startvak_b, int[][] map) {
+	int a = startvak_a;   //a en b voor de het pad in de map af te lopen
+	int b = startvak_b;   //moeten nog wat visual changes gebeuren
+	int x = b*32 + 16;
+	int y = a*32;
+	int verplaatsenx = 0;
+	int verplaatseny = 0;
+	int nrboven = 1;
+	int nronder = 1;
+	int nrrechts = 1;
+	int nrlinks = 1;
+	int hulp = 0;
+	int go = 0;
+	if (a == 0) {
+		nrboven = 0;
 	}
+	if (b == 0) {
+		nrlinks = 0;
+	}
+	if (a == 9) {
+		nronder = 0;
+		}
+	if (b == 16) {
+		nrrechts = 0;
+	}
+	if (map[a][b] == 1 || map[a][b] == 3) {
+		if (!(nronder == 0) && !((map[a+1][b] == 0) || (map[a+1][b] == 4)) && nrboven == 0) {
+			hulp = 1;
+			onder(32);
+		}
+		if (a > 0) {
+		if (!(nrboven == 0) && !((map[a-1][b] == 0) || (map[a-1][b] == 4)) && nronder == 0) {
+			hulp = 1;
+			boven(32);
+		}}
+		if (!(nrrechts == 0) && !((map[a][b+1] == 0) || (map[a][b+1] == 4)) && nrlinks == 0) {
+			hulp = 1;
+			rechts(32);
+		}
+		if (b > 0) {
+		if (!(nrlinks == 0) && !((map[a][b-1] == 0) || (map[a][b-1] == 4)) && nrrechts == 0) {
+			hulp = 1;
+			links(32);
+		}}
+	}
+	if (map[a][b] == 2) {
+		if (!(nrrechts == 0) && !((map[a][b+1] == 0) || (map[a][b+1] == 4)) && nrboven == 0) {
+			hulp = 0;
+			onder(16);
+			if (go == 1) {
+				hulp = 1;
+				rechts(16);
+			}
+			
+		}
+		if (b > 0) {
+		if (!(nrlinks == 0) && !((map[a][b-1] == 0) || (map[a][b-1] == 4)) && nronder == 0) {
+			hulp = 0;
+			boven(16);
+			if (go == 1) {
+				hulp = 1;
+				links(16);
+			}
+		}}
+		if (a > 0) {
+		if (!(nrboven == 0) && !((map[a-1][b] == 0) || (map[a-1][b] == 4)) && nrlinks == 0) {
+			hulp = 0;
+			rechts(16);
+			if (go == 1) {
+				hulp = 1;
+				boven(16);
+			}
+		}}
+		if (!(nronder == 0) && !((map[a+1][b] == 0) || (map[a+1][b] == 4)) && nrrechts == 0) {
+			hulp = 0;
+			links(16);
+			if (go == 1) {
+				hulp = 1;
+				onder(16);
+			}
+		}
+		if (b > 0) {
+		if (!(nrlinks == 0) && !((map[a][b-1] == 0) || (map[a][b-1] == 4)) && nrboven == 0) {
+			hulp = 0;
+			onder(16);
+			if (go == 1) {
+				hulp = 1;
+				links(16);
+			}
+		}}
+		if (!(nrrechts == 0) && !((map[a][b+1] == 0) || (map[a][b+1] == 4)) && nronder == 0) {
+			hulp = 0;
+			boven(16);
+			if (go == 1) {
+				hulp = 1;
+				rechts(16);
+			}
+		}
+		if (!(nronder == 0) && !((map[a+1][b] == 0) || (map[a+1][b] == 4)) && nrlinks == 0) {
+			hulp = 0;
+			rechts(16);
+			if (go == 1) {
+				hulp = 1;
+				onder(16);	
+			}
+		}
+		if (a > 0) {
+		if (!(nrboven == 0) && !((map[a-1][b] == 0) || (map[a-1][b] == 4)) && nrrechts == 0) {
+			hulp = 0;
+			links(16);
+			if (go == 1) {
+				hulp = 1;
+				boven(16);
+			}
+		}}
+	}
+	if (map[a][b] == 5) {
+		verplaatsenx = 0;
+		verplaatseny = 0;
+	}
+	y = y + verplaatseny*snelheid;
+	x = x + verplaatsenx*snelheid;
+	repaint();
+}
 }

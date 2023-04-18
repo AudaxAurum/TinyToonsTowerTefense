@@ -11,6 +11,9 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
+import inputs.KeyboardListener;
+import inputs.MyMouseListener;
+
 
 public class GameScreen extends JPanel{
 	
@@ -32,6 +35,8 @@ public class GameScreen extends JPanel{
 	
 	private Dimension size;
 	
+	private MyMouseListener myMouselistener;
+	private KeyboardListener keyboardlistener;
 	
 	public GameScreen(Game game) {
 		this.game = game;
@@ -41,6 +46,19 @@ public class GameScreen extends JPanel{
 		
 		
 	}
+	
+	public void initInputs(){
+		myMouselistener= new MyMouseListener(game);
+		keyboardlistener= new KeyboardListener();
+		
+		addMouseListener(myMouselistener);
+		addMouseMotionListener(myMouselistener);
+		addKeyListener(keyboardlistener); 
+		
+		requestFocus();
+		
+	}
+
 	
 	private void setPanelSize() {
 		size = new Dimension(16*32,9*32);

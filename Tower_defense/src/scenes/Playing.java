@@ -11,11 +11,14 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 import main.Game;
+import managers.EnemyManager;
 
 public class Playing extends GameScene implements SceneMethods {
 
 	private BufferedImage img;
 	private ArrayList<BufferedImage> sprites = new ArrayList<>();
+	private EnemyManager enemyManager;
+	
 	int[][] Level1 = {
     		//1: gras, 2: rechte baan, 3: bocht, 4: kruispunt, 5: torenplek, 6: poort kasteel
     		{0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -61,13 +64,16 @@ public class Playing extends GameScene implements SceneMethods {
 		super(game);
 		importImg();
 		loadSprites();
+		
+		enemyManager = new EnemyManager(this);
 	}
 
 	@Override
 	public void render(Graphics g) {
+		enemyManager.draw(g);
 		for (int y = 0; y < 9; y++) {
 			for (int x = 0; x < 16; x++) {
-				
+
 				int i = Level1[y][x];
 				
 				if (i == 1) {

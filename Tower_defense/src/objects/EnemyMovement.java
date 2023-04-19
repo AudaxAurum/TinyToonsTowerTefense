@@ -12,14 +12,13 @@ public class EnemyMovement {
 	Image enemy;
 	Image backgroundImage; //voor de achtergrond
 	Timer timer;
-	int a = 0;   //a en b voor de het pad in de map af te lopen
-	int b = 3;
+	int a;   //a en b voor de het pad in de map af te lopen
+	int b;
 	int x = b*32 + 16;
 	int y = a*32;
-	int snelheid = 1;
 	int verplaatsenx = 0;
 	int verplaatseny = 0;
-	int nrboven = 0;
+	int nrboven = 1;
 	int nronder = 1;
 	int nrrechts = 1;
 	int nrlinks = 1;
@@ -117,9 +116,6 @@ public class EnemyMovement {
 		}
 		
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		enemy_movement(1,0,3,map);
 		/*
 		if (map[a][b] == 1 || map[a][b] == 3) {
 			if (!(nronder == 0) && !((map[a+1][b] == 0) || (map[a+1][b] == 4)) && nrboven == 0) {
@@ -219,20 +215,9 @@ public class EnemyMovement {
 		y = y + verplaatseny*snelheid;
 		x = x + verplaatsenx*snelheid;
 		repaint();*/
-	}
 		void enemy_movement(int snelheid, int startvak_a, int startvak_b, int[][] map) {
-			int a = startvak_a;   //a en b voor de het pad in de map af te lopen
-			int b = startvak_b;   //moeten nog wat visual changes gebeuren
-			int x = b*32 + 16;
-			int y = a*32;
-			int verplaatsenx = 0;
-			int verplaatseny = 0;
-			int nrboven = 1;
-			int nronder = 1;
-			int nrrechts = 1;
-			int nrlinks = 1;
-			int hulp = 0;
-			int go = 0;
+			a = startvak_a;   //a en b voor de het pad in de map af te lopen
+			b = startvak_b;   //moeten nog wat visual changes gebeuren
 			if (a == 0) {
 				nrboven = 0;
 			}
@@ -339,6 +324,7 @@ public class EnemyMovement {
 			if (map[a][b] == 5) {
 				verplaatsenx = 0;
 				verplaatseny = 0;
+				System.out.println("einde");
 			}
 			y = y + verplaatseny*snelheid;
 			x = x + verplaatsenx*snelheid;

@@ -12,26 +12,13 @@ import javax.imageio.ImageIO;
 
 import main.Game;
 import managers.EnemyManager;
+import maplayers.MapLayer1;
 
 public class Playing extends GameScene implements SceneMethods {
 
 	private BufferedImage img;
 	private ArrayList<BufferedImage> sprites = new ArrayList<>();
 	private EnemyManager enemyManager;
-	
-	int[][] Level1 = {
-    		//1: gras, 2: rechte baan, 3: bocht, 4: kruispunt, 5: torenplek, 6: poort kasteel
-    		{0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0},
-    		{0,0,0,1,0,0,0,0,4,0,0,0,2,1,2,0},
-    		{0,2,1,2,0,0,0,0,1,0,0,0,1,4,1,0},
-    		{0,1,0,0,0,0,0,0,2,1,1,1,3,1,2,0},
-    		{0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-    		{0,1,0,0,2,1,1,1,1,1,1,1,3,1,2,0},
-    		{0,1,0,0,1,0,0,0,0,0,0,0,1,4,1,0},
-    		{0,2,1,1,2,0,0,0,0,0,0,0,2,1,2,0},
-    		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-    		
-	};
 	
 	public static BufferedImage rotateImage(BufferedImage src, int rotationAngle) {
 	    double theta = (Math.PI * 2) / 360 * rotationAngle;
@@ -74,10 +61,10 @@ public class Playing extends GameScene implements SceneMethods {
 		for (int y = 0; y < 9; y++) {
 			for (int x = 0; x < 16; x++) {
 
-				int i = Level1[y][x];
+				int i = MapLayer1.Level1[y][x];
 				
 				if (i == 1) {
-					if (Level1[y][x+1] == 0 || Level1[y][x+1] == 4) {
+					if (MapLayer1.Level1[y][x+1] == 0 || MapLayer1.Level1[y][x+1] == 4) {
 						BufferedImage j = rotateImage(sprites.get(i), 90);
 						g.drawImage(j, x*32, y*32, null);
 					}
@@ -88,15 +75,15 @@ public class Playing extends GameScene implements SceneMethods {
 				}
 				
 				else if (i == 2) {
-					if ((Level1[y-1][x] != 0 && Level1[y-1][x] != 4) && (Level1[y][x+1] != 0 && Level1[y][x+1] != 4)) {
+					if ((MapLayer1.Level1[y-1][x] != 0 && MapLayer1.Level1[y-1][x] != 4) && (MapLayer1.Level1[y][x+1] != 0 && MapLayer1.Level1[y][x+1] != 4)) {
 						BufferedImage j = rotateImage(sprites.get(i), 90);
 						g.drawImage(j, x*32, y*32, null);
 					}
-					else if ((Level1[y+1][x] != 0 && Level1[y+1][x] != 4) && (Level1[y][x+1] != 0 && Level1[y][x+1] != 4)) {
+					else if ((MapLayer1.Level1[y+1][x] != 0 && MapLayer1.Level1[y+1][x] != 4) && (MapLayer1.Level1[y][x+1] != 0 && MapLayer1.Level1[y][x+1] != 4)) {
 						BufferedImage j = rotateImage(sprites.get(i), 180);
 						g.drawImage(j, x*32, y*32, null);
 					}
-					else if ((Level1[y+1][x] != 0 && Level1[y+1][x] != 4) && (Level1[y][x-1] != 0 && Level1[y][x-1] != 4)) {
+					else if ((MapLayer1.Level1[y+1][x] != 0 && MapLayer1.Level1[y+1][x] != 4) && (MapLayer1.Level1[y][x-1] != 0 && MapLayer1.Level1[y][x-1] != 4)) {
 						BufferedImage j = rotateImage(sprites.get(i), 270);
 						g.drawImage(j, x*32, y*32, null);
 					}

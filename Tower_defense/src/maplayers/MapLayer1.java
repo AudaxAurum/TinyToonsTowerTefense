@@ -3,7 +3,7 @@ package maplayers;
 
 public class MapLayer1 {
 	
-    int [][] Level1 = {
+    public static int [][] Level1 = {
     		//1: gras, 2: rechte baan, 3: bocht, 4: kruispunt, 5: torenplek, 6: poort kasteel
     		{2,2,2,0,2,2,2,2,2,2,2,2,2,2,2,2},
     		{2,2,2,0,2,2,2,2,4,2,2,2,1,0,1,2},

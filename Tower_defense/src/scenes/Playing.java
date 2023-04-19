@@ -19,7 +19,6 @@ public class Playing extends GameScene implements SceneMethods {
 	private BufferedImage img;
 	private ArrayList<BufferedImage> sprites = new ArrayList<>();
 	private EnemyManager enemyManager;
-	
 	public static BufferedImage rotateImage(BufferedImage src, int rotationAngle) {
 	    double theta = (Math.PI * 2) / 360 * rotationAngle;
 	    int width = src.getWidth();

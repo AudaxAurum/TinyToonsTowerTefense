@@ -18,7 +18,7 @@ public class EnemyManager {
 	public EnemyManager(Playing playing) {
 		this.playing = playing;
 		enemyImgs = new BufferedImage[4];
-		addEnemy(3*32,0);
+		addEnemy(3*64,0);
 		loadEnemyImgs();
 	}
 	
@@ -50,7 +50,7 @@ public class EnemyManager {
 	}
 
 	private void drawEnemy(Enemy e, Graphics g) {
-		g.drawImage(enemyImgs[0], (int) e.getX(), (int) e.getY(), null);
+		g.drawImage(enemyImgs[2], (int) e.getX(), (int) e.getY(), null);
 	}
 	
 	

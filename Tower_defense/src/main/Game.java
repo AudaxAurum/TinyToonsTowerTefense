@@ -115,7 +115,18 @@ public class Game extends JFrame implements Runnable{
 
 
 	private void updateGame() {
-		//doet nog niks
+		switch(GameStates.gameState) {
+		case MENU:
+			break;
+		case PLAYING:
+			playing.update();
+			break;
+		case SETTINGS:
+			break;
+		default:
+			break;
+		
+		}
 	}
 	
 	public Menu getMenu() {

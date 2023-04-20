@@ -118,7 +118,7 @@ public class Enemy {
 				b = 0;
 				a = a + 1;
 				x = (b * 64) - 64;
-				y = (a * 64);
+				y = (a * 64) - 22;
 			}
 			if (map[a][b] == 0 & a == ymatrix) {
 				a = 0;

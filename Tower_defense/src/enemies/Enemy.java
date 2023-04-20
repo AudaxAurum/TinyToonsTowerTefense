@@ -117,7 +117,7 @@ public class Enemy {
 			if (map[a][b] == 0 & startcheck == 1 & a < ymatrix) {
 				b = 0;
 				a = a + 1;
-				x = (b * 64);
+				x = (b * 64) - 64;
 				y = (a * 64);
 			}
 			if (map[a][b] == 0 & a == ymatrix) {
@@ -127,7 +127,7 @@ public class Enemy {
 			if (map[a][b] == 0 & b < xmatrix & startcheck == 0) {
 				b = b + 1;
 				x = (b * 64);
-				y = (a * 64);
+				y = (a * 64) - 64;
 			}
 			if (a == 0) {
 				nrboven = 0;

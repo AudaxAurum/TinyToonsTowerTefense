@@ -41,7 +41,7 @@ public class Playing extends GameScene implements SceneMethods {
 		towerManager = new TowerManager(this);
 	}
 	public void update() {
-		enemyManager.update(); //no idea why dees een fout geeft 
+		enemyManager.update();
 		towerManager.update();
 	}
 
@@ -76,7 +76,7 @@ private void loadSprites() {
 
 @Override
 public void mouseClicked(int x, int y) {
-	// TODO Auto-generated method stub
+	// doet nog niks
 	
 }
 

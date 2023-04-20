@@ -6,9 +6,9 @@ import java.awt.event.KeyListener;
 import static main.GameStates.*;
 
 import main.GameStates;
+import managers.EnemyManager;
 
 public class KeyboardListener implements KeyListener {
-
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub

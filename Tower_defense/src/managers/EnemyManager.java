@@ -28,15 +28,13 @@ public class EnemyManager {
 		enemyImgs[1] = atlas.getSubimage(1*64, 2*64, 64, 64);
 		enemyImgs[2] = atlas.getSubimage(2* 64, 2*64, 64, 64);
 		//enemyImgs[3] = atlas.getSubimage(3* 64, 2*64, 64, 64);
-				// coordinaten van afbeeldingen invullen
-		//berten moet eerst nog toevoegen
-		
+		// coordinaten van afbeeldingen invullen
 	}
 
 	public void update() {
 		
 		for (Enemy e : enemies)
-			e.movement(0.5, MapLayer1.Level1);
+			e.movement(2, MapLayer1.Level1);
 		
 	}
 	public void addEnemy() {

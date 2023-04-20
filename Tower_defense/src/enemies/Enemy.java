@@ -112,8 +112,6 @@ public class Enemy {
 		}
 		//hieronder de echte movement
 		public void movement(double snelheid, int[][] map) { //vragen hoe zei tit zouden aanpakken
-			System.out.println(x);
-			System.out.println(y);
 			//a = startvak_a;   //a en b voor de het pad in de map af te lopen
 			//b = startvak_b;   //moeten nog wat visual changes gebeuren
 			if (map[a][b] == 0 & startcheck == 1 & a < ymatrix) {

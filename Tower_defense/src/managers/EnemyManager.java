@@ -36,7 +36,7 @@ public class EnemyManager {
 	public void update() {
 		
 		for (Enemy e : enemies)
-			e.movement(3, MapLayer1.Level1);
+			e.movement(0.5, MapLayer1.Level1);
 		
 	}
 	public void addEnemy() {

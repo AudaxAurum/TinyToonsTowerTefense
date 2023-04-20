@@ -9,9 +9,9 @@ public class Enemy {
 	private int ID;
 	// algemene variablen voor de movement
 		int a = 0;   //a en b voor de het pad in de map af te lopen
-		int b = 3;
-		float x;
-		float y;
+		int b = 0;
+		double x;
+		double y;
 		int verplaatsenx = 0;
 		int verplaatseny = 0;
 		int nrboven = 1;
@@ -20,11 +20,12 @@ public class Enemy {
 		int nrlinks = 1;
 		int hulp = 0;
 		int go = 0;
+		int ymatrix = 8;
+		int xmatrix = 15;
+		int startcheck = 1;//vatriable die eig in algemene variable moet
 		// tot hier algemene variablen voor de movenemnt
 	
-	public Enemy(float x, float y, int Id, int enemyType) {
-		this.x = x;
-		this.y =y;
+	public Enemy(int Id, int enemyType) {
 		this.ID = ID;
 		this.enemyType = enemyType;
 		bounds = new Rectangle((int) x, (int) y , 32, 32);	
@@ -33,7 +34,7 @@ public class Enemy {
 		void onder(float hoeveel) {
 			this.verplaatsenx = 0;
 			this.verplaatseny = 0;
-			if (y < a*64 + hoeveel) {
+			if (y < a*64 + hoeveel - 52) {
 				verplaatseny = 1;
 				go = 0;
 			} 
@@ -50,10 +51,10 @@ public class Enemy {
 
 			}
 		}
-		void boven(float hoeveel) {
+		void boven() {
 			this.verplaatsenx = 0;
 			this.verplaatseny = 0;
-			if (y > a*64) {
+			if (y > a*64 - 18) {
 				verplaatseny = -1;
 				go = 0;
 			} 
@@ -72,7 +73,7 @@ public class Enemy {
 		void rechts(float hoeveel) {
 			this.verplaatsenx = 0;
 			this.verplaatseny = 0;
-			if (x < b*64 + hoeveel) {
+			if (x < b*64 + hoeveel - 32) {
 				verplaatsenx = 1;
 				go = 0;
 			} 
@@ -89,7 +90,7 @@ public class Enemy {
 			}
 			
 		}
-		void links(float hoeveel) {
+		void links() {
 			this.verplaatsenx = 0;
 			this.verplaatseny = 0;
 			if (x > b*64) {
@@ -110,20 +111,36 @@ public class Enemy {
 			
 		}
 		//hieronder de echte movement
-		public void movement(float snelheid, int startvak_a, int startvak_b, int[][] map) { //vragen hoe zei tit zouden aanpakken
-			
+		public void movement(double snelheid, int[][] map) { //vragen hoe zei tit zouden aanpakken
+			System.out.println(x);
+			System.out.println(y);
 			//a = startvak_a;   //a en b voor de het pad in de map af te lopen
 			//b = startvak_b;   //moeten nog wat visual changes gebeuren
+			if (map[a][b] == 0 & startcheck == 1 & a < ymatrix) {
+				b = 0;
+				a = a + 1;
+				x = (b * 64);
+				y = (a * 64);
+			}
+			if (map[a][b] == 0 & a == ymatrix) {
+				a = 0;
+				startcheck = 0;
+			}
+			if (map[a][b] == 0 & b < xmatrix & startcheck == 0) {
+				b = b + 1;
+				x = (b * 64);
+				y = (a * 64);
+			}
 			if (a == 0) {
 				nrboven = 0;
 			}
 			if (b == 0) {
 				nrlinks = 0;
 			}
-			if (a == 9) {
+			if (a == 8) {
 				nronder = 0;
 				}
-			if (b == 16) {
+			if (b == 15) {
 				nrrechts = 0;
 			}
 			if (map[a][b] == 1 || map[a][b] == 3) {
@@ -134,7 +151,7 @@ public class Enemy {
 				if (a > 0) {
 				if (!(nrboven == 0) && !((map[a-1][b] == 0) || (map[a-1][b] == 4)) && nronder == 0) {
 					hulp = 1;
-					boven(64);
+					boven();
 				}}
 				if (!(nrrechts == 0) && !((map[a][b+1] == 0) || (map[a][b+1] == 4)) && nrlinks == 0) {
 					hulp = 1;
@@ -143,7 +160,7 @@ public class Enemy {
 				if (b > 0) {
 				if (!(nrlinks == 0) && !((map[a][b-1] == 0) || (map[a][b-1] == 4)) && nrrechts == 0) {
 					hulp = 1;
-					links(64);
+					links();
 				}}
 			}
 			if (map[a][b] == 2) {
@@ -159,10 +176,10 @@ public class Enemy {
 				if (b > 0) {
 				if (!(nrlinks == 0) && !((map[a][b-1] == 0) || (map[a][b-1] == 4)) && nronder == 0) {
 					hulp = 0;
-					boven(32);
+					boven();
 					if (go == 1) {
 						hulp = 1;
-						links(32);
+						links();
 					}
 				}}
 				if (a > 0) {
@@ -171,12 +188,12 @@ public class Enemy {
 					rechts(32);
 					if (go == 1) {
 						hulp = 1;
-						boven(32);
+						boven();
 					}
 				}}
 				if (!(nronder == 0) && !((map[a+1][b] == 0) || (map[a+1][b] == 4)) && nrrechts == 0) {
 					hulp = 0;
-					links(32);
+					links();
 					if (go == 1) {
 						hulp = 1;
 						onder(32);
@@ -188,12 +205,12 @@ public class Enemy {
 					onder(32);
 					if (go == 1) {
 						hulp = 1;
-						links(32);
+						links();
 					}
 				}}
 				if (!(nrrechts == 0) && !((map[a][b+1] == 0) || (map[a][b+1] == 4)) && nronder == 0) {
 					hulp = 0;
-					boven(32);
+					boven();
 					if (go == 1) {
 						hulp = 1;
 						rechts(32);
@@ -210,10 +227,10 @@ public class Enemy {
 				if (a > 0) {
 				if (!(nrboven == 0) && !((map[a-1][b] == 0) || (map[a-1][b] == 4)) && nrrechts == 0) {
 					hulp = 0;
-					links(32);
+					links();
 					if (go == 1) {
 						hulp = 1;
-						boven(32);
+						boven();
 					}
 				}}
 			}
@@ -227,7 +244,7 @@ public class Enemy {
 			
 		}
 
-	public float getX() {
+	public double getX() {
 		return x;
 	}
 
@@ -235,7 +252,7 @@ public class Enemy {
 		this.x = x;
 	}
 
-	public float getY() {
+	public double getY() {
 		return y;
 	}
 

@@ -18,7 +18,7 @@ public class EnemyManager {
 	public EnemyManager(Playing playing) {
 		this.playing = playing;
 		enemyImgs = new BufferedImage[4];
-		addEnemy(3*64,0);
+		addEnemy();
 		loadEnemyImgs();
 	}
 	
@@ -36,11 +36,11 @@ public class EnemyManager {
 	public void update() {
 		
 		for (Enemy e : enemies)
-			e.movement(1, 0, 3, MapLayer1.Level1);
+			e.movement(3, MapLayer1.Level1);
 		
 	}
-	public void addEnemy(int x, int y) {
-		enemies.add (new Enemy(x ,y , 0 ,0));
+	public void addEnemy() {
+		enemies.add (new Enemy(0,0));
 	}
 	
 	public void draw(Graphics g) {

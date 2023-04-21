@@ -22,8 +22,10 @@ public class Enemy {
 		int go = 0;
 		int ymatrix = 8;
 		int xmatrix = 15;
-		int startcheck = 1;//vatriable die eig in algemene variable moet
+		int startcheck = 1;
 		// tot hier algemene variablen voor de movenemnt
+		int timer = 0;
+		public int timerhelp = 1;
 	
 	public Enemy(int Id, int enemyType) {
 		this.ID = ID;
@@ -37,6 +39,7 @@ public class Enemy {
 			if (y < a*64 + hoeveel - 52) {
 				verplaatseny = 1;
 				go = 0;
+				timer++;
 			} 
 			else {
 				go = 1;
@@ -57,6 +60,7 @@ public class Enemy {
 			if (y > a*64 - 18) {
 				verplaatseny = -1;
 				go = 0;
+				timer++;
 			} 
 			else {
 				go = 1;
@@ -76,6 +80,7 @@ public class Enemy {
 			if (x < b*64 + hoeveel - 32) {
 				verplaatsenx = 1;
 				go = 0;
+				timer++;
 			} 
 			else {
 				go = 1;
@@ -96,6 +101,7 @@ public class Enemy {
 			if (x > b*64) {
 				verplaatsenx = -1;
 				go = 0;
+				timer++;
 			} 
 			else {
 				go = 1;
@@ -112,8 +118,13 @@ public class Enemy {
 		}
 		//hieronder de echte movement
 		public void movement(double snelheid, int[][] map) { //vragen hoe zei tit zouden aanpakken
-			//a = startvak_a;   //a en b voor de het pad in de map af te lopen
-			//b = startvak_b;   //moeten nog wat visual changes gebeuren
+			if (timer % 32 == 0 & timerhelp == 1) {
+				timerhelp--;
+			}
+			else if (timer % 32 == 0 & timerhelp == 0) {
+					timerhelp++;
+				}
+			
 			if (map[a][b] == 0 & startcheck == 1 & a < ymatrix) {
 				b = 0;
 				a = a + 1;

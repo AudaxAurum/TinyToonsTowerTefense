@@ -48,9 +48,13 @@ public class EnemyManager {
 	}
 
 	private void drawEnemy(Enemy e, Graphics g) {
-		g.drawImage(enemyImgs[2], (int) e.getX(), (int) e.getY(), null);
+		if (e.timerhelp == 0) {
+		g.drawImage(enemyImgs[1], (int) e.getX(), (int) e.getY(), null);
+		}
+		if (e.timerhelp == 1) {
+		g.drawImage(enemyImgs[1 + 1], (int) e.getX(), (int) e.getY(), null);
+		}
 	}
-	
 	
 
 

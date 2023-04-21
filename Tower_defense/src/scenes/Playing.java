@@ -79,6 +79,10 @@ public void mouseClicked(int x, int y) {
 	// doet nog niks
 	
 }
+public void mouseMoved(int x, int y) {
+	// doet nog niks
+	}
+
 
 
 }

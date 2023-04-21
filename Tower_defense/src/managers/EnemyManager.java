@@ -24,9 +24,9 @@ public class EnemyManager {
 	
 	private void loadEnemyImgs() {
 		BufferedImage atlas  =  LoadSave.getSpriteAtlas();
-		enemyImgs[0] = atlas.getSubimage(0*64, 2*64, 64, 64);
-		enemyImgs[1] = atlas.getSubimage(1*64, 2*64, 64, 64);
-		enemyImgs[2] = atlas.getSubimage(2* 64, 2*64, 64, 64);
+		enemyImgs[0] = atlas.getSubimage(2*64, 2*64, 64, 64);
+		enemyImgs[1] = atlas.getSubimage(3*64, 2*64, 64, 64);
+		enemyImgs[2] = atlas.getSubimage(4* 64, 2*64, 64, 64);
 		//enemyImgs[3] = atlas.getSubimage(3* 64, 2*64, 64, 64);
 		// coordinaten van afbeeldingen invullen
 	}

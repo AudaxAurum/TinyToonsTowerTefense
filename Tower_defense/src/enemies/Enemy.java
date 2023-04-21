@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 public class Enemy {
 	private Rectangle bounds;
 	private int health;
-	private int enemyType;
+	private int enemyType;   // wss is oververving beter verschillen in subclasses 
 	private int ID;
 	// algemene variablen voor de movement
 		int a = 0;   //a en b voor de het pad in de map af te lopen
@@ -257,7 +257,7 @@ public class Enemy {
 			y = y + verplaatseny*snelheid;
 			x = x + verplaatsenx*snelheid;
 			
-		}
+		}  // kan simpeler
 
 	public double getX() {
 		return x;

@@ -15,3 +15,4 @@ public class GameScene {
 		return game;
 	}
 }
+// wss waardeloos

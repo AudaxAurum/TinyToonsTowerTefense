@@ -20,3 +20,4 @@ public class Tile {
 
 
 }
+// wss verwijderen

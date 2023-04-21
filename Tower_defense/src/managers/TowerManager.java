@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import enemies.Enemy;
 import helpz.LoadSave;
+import maplayers.MapLayer1;
 import objects.Tower;
 import scenes.Playing;
 
@@ -14,6 +15,7 @@ public class TowerManager {
 	private Playing playing;
 	private BufferedImage[] towerImgs;
 	private Tower tower;
+	private ArrayList<Tower> towers = new ArrayList<>();
 	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
@@ -23,7 +25,15 @@ public class TowerManager {
 	}
 
 	private void initTowers() {
-		tower = new Tower(3*64, 6*64, 0, 0);// geef de benodigdheden voor de toren in
+		for(int y = 0; y < 9; y++) {
+			for(int x = 0; x < 16; x++) {
+				int i = MapLayer1.Level1[y][x];
+				if (i==4) {
+					towers.add(tower = new Tower(x*64, y*64, 0, 0));
+				}
+			}
+		}
+		//tower = new Tower(3*64, 6*64, 0, 0);// geef de benodigdheden voor de toren in
 		
 	}
 

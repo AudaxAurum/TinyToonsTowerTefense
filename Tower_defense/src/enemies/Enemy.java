@@ -25,7 +25,7 @@ public class Enemy {
 		int startcheck = 1;
 		// tot hier algemene variablen voor de movenemnt
 		int timer = 0;
-		public int timerhelp = 1;
+		public int timerhelp = 0;
 	
 	public Enemy(int Id, int enemyType) {
 		this.ID = ID;
@@ -118,12 +118,18 @@ public class Enemy {
 		}
 		//hieronder de echte movement
 		public void movement(double snelheid, int[][] map) { //vragen hoe zei tit zouden aanpakken
-			if (timer % 32 == 0 & timerhelp == 1) {
-				timerhelp--;
+			if (timer % 25 == 0 & timerhelp == 0) {
+				timerhelp ++;
 			}
-			else if (timer % 32 == 0 & timerhelp == 0) {
-					timerhelp++;
+			else if (timer % 25 == 0 & timerhelp == 1) {
+				timerhelp++;
 				}
+			else if (timer % 25 == 0 & timerhelp == 2) {
+				timerhelp++;
+			}
+			else if (timer % 25 == 0 & timerhelp == 3) {
+				timerhelp = 0;
+			}
 			
 			if (map[a][b] == 0 & startcheck == 1 & a < ymatrix) {
 				b = 0;

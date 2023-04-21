@@ -67,7 +67,7 @@ private void importImg() {
 
 private void loadSprites() {
 	
-	for (int y = 0; y < 1; y++) {
+	for (int y = 0; y < 3; y++) {
 		for (int x = 0; x < 5; x++) {
 			sprites.add(img.getSubimage(x*DimSprite, y*DimSprite, DimSprite, DimSprite));
 		}

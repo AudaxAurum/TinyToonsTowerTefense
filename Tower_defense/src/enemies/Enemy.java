@@ -33,8 +33,8 @@ public class Enemy {
 		bounds = new Rectangle((int) x, (int) y , 32, 32);	
 	}
 	//nog functies voor de movement
-		void onder(float hoeveel) {
-			if (y < a*64 + hoeveel - 52) {
+		void onder(boolean hulp) {
+			if (y < a*64 - 20) {
 				verplaatseny = 1;
 				go = false;
 				timer++;
@@ -52,7 +52,7 @@ public class Enemy {
 
 			}
 		}
-		void boven() {
+		void boven(boolean hulp) {
 			if (y > a*64 - 18) {
 				verplaatseny = -1;
 				go = false;
@@ -70,8 +70,8 @@ public class Enemy {
 				verplaatseny = 0;
 			}
 		}
-		void rechts(float hoeveel) {
-			if (x < b*64 + hoeveel - 32) {
+		void rechts(boolean hulp) {
+			if (x < b*64) {
 				verplaatsenx = 1;
 				go = false;
 				timer++;
@@ -89,7 +89,7 @@ public class Enemy {
 			}
 			
 		}
-		void links() {
+		void links(boolean hulp) {
 			if (x > b*64) {
 				verplaatsenx = -1;
 				go = false;
@@ -110,6 +110,8 @@ public class Enemy {
 		}
 		//hieronder de echte movement
 		public void movement(double snelheid, int[][] map) { //vragen hoe zei tit zouden aanpakken
+			
+			// temaken met de animation
 			if (timer % 25 == 0 & timerhelp == 0) {
 				timerhelp ++;
 			}
@@ -151,7 +153,7 @@ public class Enemy {
 			}
 			if (a == ymatrix) {
 				nronder = false;
-				}
+			}
 			if (b == xmatrix) {
 				nrrechts = false;
 			}
@@ -161,23 +163,19 @@ public class Enemy {
 			
 			if (map[a][b] == 1 || map[a][b] == 3) {
 				if (nrboven == false && !((map[a+1][b] == 0) || (map[a+1][b] == 4))) {
-					hulp = true;
-					onder(64);
+					onder(true);
 				}
 				if (a > 0) {
 					if (nronder == false && !((map[a-1][b] == 0) || (map[a-1][b] == 4))) {
-						hulp = true;
-						boven();
+						boven(true);
 					}
 				}
 				if (nrlinks == false && !((map[a][b+1] == 0) || (map[a][b+1] == 4))) {
-					hulp = true;
-					rechts(64);
+					rechts(true);
 				}
 				if (b > 0) {
 					if (nrrechts == false && !((map[a][b-1] == 0) || (map[a][b-1] == 4))) {
-						hulp = true;
-						links();
+						links(true);
 					}
 				}
 			}
@@ -186,76 +184,64 @@ public class Enemy {
 			
 			if (map[a][b] == 2) {
 				if (nrboven == false) {
-					hulp = false;
-					onder(32);
+					onder(false);
 					if (nrrechts == true && !((map[a][b+1] == 0) || (map[a][b+1] == 4))) {
 						if (go == true) {
-							hulp = true;
-							rechts(32);
+							rechts(true);
 						}
 					}
 					else if (b > 0) {
 						if (nrlinks == true && !((map[a][b-1] == 0) || (map[a][b-1] == 4))) {
 							if (go == true) {
-								hulp = true;
-								links();
+								links(true);
 							}
 						}
 					}
 				}
 				
 				else if (nronder == false) {
-					hulp = false;
-					boven();
+					boven(false);
 					if (nrrechts == true && !((map[a][b+1] == 0) || (map[a][b+1] == 4))) {
 						if (go == true) {
-							hulp = true;
-							rechts(32);
+							rechts(true);
 						}
 					}
 					if (b > 0) {
 						if (nrlinks == true && !((map[a][b-1] == 0) || (map[a][b-1] == 4))) {
 							if (go == true) {
-								hulp = true;
-								links();
+								links(true);
 							}
 						}
 					}
 				}
 
 				else if (nrlinks == false) {
-					hulp = false;
-					rechts(32);
+					rechts(false);
 					if (nronder == true && !((map[a+1][b] == 0) || (map[a+1][b] == 4))) {
 						if (go == true) {
-							hulp = true;
-							onder(32);	
+							onder(true);	
 						}
 					}
 					if (a > 0) {
 						if (nrboven == true && !((map[a-1][b] == 0) || (map[a-1][b] == 4))) {
 							if (go == true) {
-								hulp = true;
-								boven();
+								boven(true);
 							}
 						}
 					}
 				}
 				
 				else if (nrrechts == false) {
-					hulp = false;
-					links();
+					links(false);
 					if (nronder == true && !((map[a+1][b] == 0) || (map[a+1][b] == 4))) {
 						if (go == true) {
-							hulp = true;
-							onder(32);
+							onder(true);
 						}
 					}
 					if (a > 0) {
 						if (nrboven == true && !((map[a-1][b] == 0) || (map[a-1][b] == 4))) {
 							if (go == true) {
-								hulp = true;
-								boven();
+								boven(true);
 							}
 						}
 					}
@@ -263,12 +249,10 @@ public class Enemy {
 			}
 			
 			if (map[a][b] == 5) {
-				verplaatsenx = 0;
-				verplaatseny = 0;
-				System.out.println("einde");
+				System.out.println("einde"); //voorlopig
 			}
-			y = y + verplaatseny*snelheid;
-			x = x + verplaatsenx*snelheid;
+			y += verplaatseny*snelheid;
+			x += verplaatsenx*snelheid;
 		}  // kan simpeler
 
 	public double getX() {

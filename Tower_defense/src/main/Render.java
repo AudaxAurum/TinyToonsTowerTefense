@@ -29,7 +29,7 @@ public class Render {
 			
 			break;
 		case SETTINGS:
-			game.getSettings().render(g);
+				game.getSettings().render(g);
 			break;
 			
 		}

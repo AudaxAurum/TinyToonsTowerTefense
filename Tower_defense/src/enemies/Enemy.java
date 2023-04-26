@@ -34,8 +34,6 @@ public class Enemy {
 	}
 	//nog functies voor de movement
 		void onder(float hoeveel) {
-			this.verplaatsenx = 0;
-			this.verplaatseny = 0;
 			if (y < a*64 + hoeveel - 52) {
 				verplaatseny = 1;
 				go = false;
@@ -55,8 +53,6 @@ public class Enemy {
 			}
 		}
 		void boven() {
-			this.verplaatsenx = 0;
-			this.verplaatseny = 0;
 			if (y > a*64 - 18) {
 				verplaatseny = -1;
 				go = false;
@@ -75,8 +71,6 @@ public class Enemy {
 			}
 		}
 		void rechts(float hoeveel) {
-			this.verplaatsenx = 0;
-			this.verplaatseny = 0;
 			if (x < b*64 + hoeveel - 32) {
 				verplaatsenx = 1;
 				go = false;
@@ -96,8 +90,6 @@ public class Enemy {
 			
 		}
 		void links() {
-			this.verplaatsenx = 0;
-			this.verplaatseny = 0;
 			if (x > b*64) {
 				verplaatsenx = -1;
 				go = false;

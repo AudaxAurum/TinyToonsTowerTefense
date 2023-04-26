@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 
 import main.Game;
 import managers.EnemyManager;
+import managers.ProjectileManager;
 import managers.TowerManager;
 import maplayers.MapLayer1;
 import helpz.LevelBuilder;
@@ -23,6 +24,7 @@ public class Playing extends GameScene implements SceneMethods {
 	private EnemyManager enemyManager;
 	private LevelBuilder levelBuilder;
 	private TowerManager towerManager;
+	private ProjectileManager projManager;
 	
 	private int xMatrix = 16;
 	private int yMatrix = 9;
@@ -39,10 +41,12 @@ public class Playing extends GameScene implements SceneMethods {
 		enemyManager = new EnemyManager(this);
 		levelBuilder = new LevelBuilder();
 		towerManager = new TowerManager(this);
+		projManager = new ProjectileManager(this);
 	}
 	public void update() {
 		enemyManager.update();
 		towerManager.update();
+		projManager.update();
 	}
 
 	@Override
@@ -51,6 +55,7 @@ public class Playing extends GameScene implements SceneMethods {
 		levelBuilder.DrawMap(g, sprites, xMatrix, yMatrix, DimSprite);
 		enemyManager.draw(g);
 		towerManager.draw(g);
+		projManager.draw(g);
 	}
 	
 private void importImg() {
@@ -86,4 +91,3 @@ public void mouseMoved(int x, int y) {
 
 
 }
-

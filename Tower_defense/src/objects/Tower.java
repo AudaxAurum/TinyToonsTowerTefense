@@ -3,7 +3,7 @@ package objects;
 public class Tower {
 	private int x, y, id, TowerType;
 	
-	public Tower(int x, int y, int id, int TowerType) {
+	public Tower(int x, int y, int id, int TowerType, int TowerLevel) {
 		this.x = x;
 		this.y = y;
 		this.id = id;

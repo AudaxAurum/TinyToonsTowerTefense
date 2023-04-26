@@ -26,6 +26,8 @@ public class Enemy {
 		// tot hier algemene variablen voor de movenemnt
 		int timer = 0;
 		public int timerhelp = 0;
+		
+		int stap = 32;
 	
 	public Enemy(int Id, int enemyType) {
 		this.ID = ID;
@@ -54,6 +56,8 @@ public class Enemy {
 
 			}
 		}
+		
+			
 		void boven() {
 			this.verplaatsenx = 0;
 			this.verplaatseny = 0;
@@ -131,6 +135,10 @@ public class Enemy {
 				timerhelp = 0;
 			}
 			
+			
+			
+			
+			
 			if (map[a][b] == 0 & startcheck == 1 & a < ymatrix) {
 				b = 0;
 				a = a + 1;
@@ -146,6 +154,10 @@ public class Enemy {
 				x = (b * 64);
 				y = (a * 64) - 64;
 			}
+			
+			
+			
+			
 			if (a == 0) {
 				nrboven = 0;
 			}
@@ -158,6 +170,10 @@ public class Enemy {
 			if (b == 15) {
 				nrrechts = 0;
 			}
+			
+			
+			
+			
 			if (map[a][b] == 1 || map[a][b] == 3) {
 				if (!(nronder == 0) && !((map[a+1][b] == 0) || (map[a+1][b] == 4)) && nrboven == 0) {
 					hulp = 1;
@@ -178,6 +194,11 @@ public class Enemy {
 					links();
 				}}
 			}
+			
+			
+			
+			
+			
 			if (map[a][b] == 2) {
 				if (!(nrrechts == 0) && !((map[a][b+1] == 0) || (map[a][b+1] == 4)) && nrboven == 0) {
 					hulp = 0;

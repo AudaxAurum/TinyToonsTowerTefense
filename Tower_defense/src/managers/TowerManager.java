@@ -36,7 +36,7 @@ public class TowerManager {
 		//tower = new Tower(3*64, 6*64, 0, 0);// geef de benodigdheden voor de toren in
 		
 	}
-
+	
 	private void loadTowerImgs() {
 		BufferedImage atlas = LoadSave.getSpriteAtlas();
 		towerImgs = new BufferedImage[3];

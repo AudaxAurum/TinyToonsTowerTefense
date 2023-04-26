@@ -1,7 +1,7 @@
 package objects;
 
 public class Tower {
-	private int x, y, id, TowerType;
+	private int x, y, id, TowerType; //lvl toevoegen 
 	
 	public Tower(int x, int y, int id, int TowerType) {
 		this.x = x;

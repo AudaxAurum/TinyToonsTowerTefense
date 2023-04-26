@@ -11,7 +11,7 @@ public class Tower {
 		this.TowerLevel = TowerLevel;
 	}
 	
-	
+	//hier komt nog iets
 
 	public int getX() {
 		return x;

@@ -1,14 +1,17 @@
 package objects;
 
 public class Tower {
-	private int x, y, id, TowerType; //lvl toevoegen 
+	private int x, y, id, TowerType, TowerLevel;
 	
 	public Tower(int x, int y, int id, int TowerType, int TowerLevel) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
 		this.TowerType = TowerType;
+		this.TowerLevel = TowerLevel;
 	}
+	
+	
 
 	public int getX() {
 		return x;
@@ -42,5 +45,12 @@ public class Tower {
 		TowerType = towerType;
 	}
 	
+	public int getTowerLevel() {
+		return TowerLevel;
+	}
+
+	public void setTowerLevel(int towerLevel) {
+		TowerLevel = towerLevel;
+	}
 
 }

@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import enemies.Enemy;
+import helpz.Constants;
 import helpz.LoadSave;
 import maplayers.MapLayer1;
 import scenes.Playing;
@@ -24,10 +25,10 @@ public class EnemyManager {
 	
 	private void loadEnemyImgs() {
 		BufferedImage atlas  =  LoadSave.getSpriteAtlas();
-		enemyImgs[0] = atlas.getSubimage(2*64, 2*64, 64, 64);
-		enemyImgs[1] = atlas.getSubimage(3*64, 2*64, 64, 64);
-		enemyImgs[2] = atlas.getSubimage(4* 64, 2*64, 64, 64);
-		//enemyImgs[3] = atlas.getSubimage(3* 64, 2*64, 64, 64);
+		enemyImgs[0] = atlas.getSubimage(2*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[1] = atlas.getSubimage(3*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[2] = atlas.getSubimage(4* Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		//enemyImgs[3] = atlas.getSubimage(3* Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
 		// coordinaten van afbeeldingen invullen
 	}
 

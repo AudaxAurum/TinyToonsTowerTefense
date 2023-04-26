@@ -15,6 +15,7 @@ import managers.EnemyManager;
 import managers.ProjectileManager;
 import managers.TowerManager;
 import maplayers.MapLayer1;
+import helpz.Constants;
 import helpz.LevelBuilder;
 
 public class Playing extends GameScene implements SceneMethods {
@@ -25,13 +26,6 @@ public class Playing extends GameScene implements SceneMethods {
 	private LevelBuilder levelBuilder;
 	private TowerManager towerManager;
 	private ProjectileManager projManager;
-	
-	private int xMatrix = 16;
-	private int yMatrix = 9;
-	
-	private int DimSprite = 64;
-
-	
 	
 	public Playing(Game game) {
 		super(game);
@@ -52,9 +46,9 @@ public class Playing extends GameScene implements SceneMethods {
 	@Override
 	public void render(Graphics g) {
 		
-		levelBuilder.DrawMap(g, sprites, xMatrix, yMatrix, DimSprite);
-		enemyManager.draw(g);
+		levelBuilder.DrawMap(g, sprites, Constants.xMatrix, Constants.yMatrix, Constants.DimSprite);
 		towerManager.draw(g);
+		enemyManager.draw(g);
 		projManager.draw(g);
 	}
 	
@@ -72,9 +66,9 @@ private void importImg() {
 
 private void loadSprites() {
 	
-	for (int y = 0; y < 3; y++) {
-		for (int x = 0; x < 5; x++) {
-			sprites.add(img.getSubimage(x*DimSprite, y*DimSprite, DimSprite, DimSprite));
+	for (int y = 0; y < 4; y++) {
+		for (int x = 0; x < 6; x++) {
+			sprites.add(img.getSubimage(x*Constants.DimSprite, y*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite));
 		}
 	}
 }

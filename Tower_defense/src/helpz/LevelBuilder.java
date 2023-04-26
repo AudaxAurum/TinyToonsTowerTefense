@@ -14,12 +14,7 @@ import maplayers.MapLayer1;
 public class LevelBuilder {
 	
 	private BufferedImage img;
-	
-	private int xMatrix = 16;
-	private int yMatrix = 9;
-	
-	private int DimSprite = 64;
-	
+		
 	public static BufferedImage rotateImage(BufferedImage src, int rotationAngle) {
 	    double theta = (Math.PI * 2) / 360 * rotationAngle;
 	    int width = src.getWidth();

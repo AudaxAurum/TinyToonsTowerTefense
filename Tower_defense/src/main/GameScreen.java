@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
-//import Helpz;
+import helpz.Constants;
 
 import javax.swing.JPanel;
 
@@ -47,7 +47,7 @@ public class GameScreen extends JPanel{
 
 	
 	private void setPanelSize() {
-		size = new Dimension(16*64,9*64);
+		size = new Dimension(Constants.xMatrix*Constants.DimSprite,Constants.yMatrix*Constants.DimSprite);
 		setMinimumSize(size);
 		setPreferredSize(size);
 		setMaximumSize(size);

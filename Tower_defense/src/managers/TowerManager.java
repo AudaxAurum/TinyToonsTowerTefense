@@ -16,6 +16,7 @@ public class TowerManager {
 	private BufferedImage[] towerImgs;
 	private Tower tower;
 	private ArrayList<Tower> towers = new ArrayList<>();
+	private int towerLevel;
 	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
@@ -29,7 +30,7 @@ public class TowerManager {
 			for(int x = 0; x < 16; x++) {
 				int i = MapLayer1.Level1[y][x];
 				if (i==4) {
-					towers.add(tower = new Tower(x*64, y*64, 0, 0));
+					towers.add(tower = new Tower(x*64, y*64, 0, 0, towerLevel));
 				}
 			}
 		}

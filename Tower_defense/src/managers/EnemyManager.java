@@ -4,10 +4,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import enemies.Enemy;
 import helpz.Constants;
 import helpz.LoadSave;
 import maplayers.MapLayer1;
+import objects.Enemy;
 import scenes.Playing;
 
 public class EnemyManager {
@@ -35,7 +35,9 @@ public class EnemyManager {
 	public void update() {
 		
 		for (Enemy e : enemies)
-			e.movement(0.7, MapLayer1.Level1);
+			if (e.getAlive()) {
+				e.movement(0.7, MapLayer1.Level1);
+			}
 		
 	}
 	public void addEnemy() {
@@ -44,8 +46,9 @@ public class EnemyManager {
 	
 	public void draw(Graphics g) {
 		for (Enemy e : enemies)
-		drawEnemy(e,g);
-		
+			if (e.getAlive()) {
+				drawEnemy(e,g);
+			}
 	}
 
 	private void drawEnemy(Enemy e, Graphics g) {

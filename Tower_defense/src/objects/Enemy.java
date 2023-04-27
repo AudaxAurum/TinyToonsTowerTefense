@@ -1,4 +1,4 @@
-package enemies;
+package objects;
 
 import java.awt.Rectangle;
 
@@ -10,21 +10,23 @@ public class Enemy {
 	private int enemyType;   // wss is oververving beter verschillen in subclasses 
 	private int ID;
 	// algemene variablen voor de movement
-		int a = 0;   //a en b voor de het pad in de map af te lopen
-		int b = 0;
-		double x;
-		double y;
-		int verplaatsenx = 0;
-		int verplaatseny = 0;
-		boolean nrboven = true;
-		boolean nronder = true;
-		boolean nrrechts = true;
-		boolean nrlinks = true;
-		boolean go = false;
-		boolean startcheck = true;
-		// tot hier algemene variablen voor de movenemnt
-		int timer = 0;
-		public int timerhelp = 0;
+	private int a = 0;   //a en b voor de het pad in de map af te lopen
+	private int b = 0;
+	private double x;
+	private double y;
+	private int verplaatsenx = 0;
+	private int verplaatseny = 0;
+	private boolean nrboven = true;
+	private boolean nronder = true;
+	private boolean nrrechts = true;
+	private boolean nrlinks = true;
+	private boolean go = false;
+	private boolean startcheck = true;
+	// tot hier algemene variablen voor de movenemnt
+	public int timer = 0;
+	public int timerhelp = 0;
+	
+	private boolean alive = true;
 	
 	public Enemy(int Id, int enemyType) {
 		this.ID = ID;
@@ -124,7 +126,7 @@ public class Enemy {
 			}
 			
 			
-			
+			//start zoeken
 			if (map[a][b] == 0 & startcheck == true & a < Constants.yMatrix - 1) {
 				b = 0;
 				a = a + 1;
@@ -142,7 +144,7 @@ public class Enemy {
 			}
 			
 			
-			
+			//randen checken
 			if (a == 0) {
 				nrboven = false;
 			}
@@ -158,7 +160,7 @@ public class Enemy {
 			
 			
 			
-			
+			//movement code
 			if (map[a][b] == 1 || map[a][b] == 3) {
 				if (nrboven == false && !((map[a+1][b] == 0) || (map[a+1][b] == 4))) {
 					onder(true);
@@ -247,10 +249,11 @@ public class Enemy {
 			
 			if (map[a][b] == 5) {
 				System.out.println("einde"); //voorlopig
+				alive = false;
 			}
 			y += verplaatseny*snelheid;
 			x += verplaatsenx*snelheid;
-		}  // kan simpeler
+		}
 
 	public double getX() {
 		return x;
@@ -299,5 +302,7 @@ public class Enemy {
 	public void setId(int ID) {
 		ID = ID;
 	}
-
+	public boolean getAlive() {
+		return alive;
+	}
 }

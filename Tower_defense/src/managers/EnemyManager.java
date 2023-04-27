@@ -25,9 +25,9 @@ public class EnemyManager {
 	
 	private void loadEnemyImgs() {
 		BufferedImage atlas  =  LoadSave.getSpriteAtlas();
-		enemyImgs[0] = atlas.getSubimage(2*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
-		enemyImgs[1] = atlas.getSubimage(3*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
-		enemyImgs[2] = atlas.getSubimage(4* Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[0] = atlas.getSubimage(0*Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[1] = atlas.getSubimage(1*Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[2] = atlas.getSubimage(2* Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
 		//enemyImgs[3] = atlas.getSubimage(3* Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
 		// coordinaten van afbeeldingen invullen
 	}

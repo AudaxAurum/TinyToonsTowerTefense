@@ -1,8 +1,6 @@
 package managers;
 
 import static helpz.Constants.Towers.*;
-import static main.GameStates.PLAYING;
-import static main.GameStates.SetGameState;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -13,7 +11,6 @@ import helpz.LoadSave;
 import maplayers.MapLayer1;
 import objects.Tower;
 import scenes.Playing;
-import scenes.SceneMethods;
 
 public class TowerManager {
 	
@@ -21,7 +18,6 @@ public class TowerManager {
 	private BufferedImage[] towerImgs;
 	private Tower tower;
 	public  ArrayList<Tower> towers = new ArrayList<>();
-	private int towerLevel;
 	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
@@ -32,16 +28,10 @@ public class TowerManager {
 }
 
 	
-	
-	
-
-	public void changeTower(int x, int y) {
+	public void changeTower(int i) {
 		
-		for (int i = 0; i < towers.size(); i++) {
-			if (towers.get(i).getX() <= x && x <= (towers.get(i).getX() + 64) && towers.get(i).getY() <= y && y <= (towers.get(i).getY() + 64)) {
-				towers.get(i).setTowerType(ARCHER);
-			}
-		}
+		towers.get(i).setTowerType(ARCHER);
+	
 	}
 
 
@@ -50,7 +40,7 @@ public class TowerManager {
 			for(int x = 0; x < Constants.xMatrix; x++) {
 				int i = MapLayer1.Level1[y][x];
 				if (i==4) {
-					towers.add(tower = new Tower(x*Constants.DimSprite, y*Constants.DimSprite, 0, UNBUILD, towerLevel));
+					towers.add(tower = new Tower(x*Constants.DimSprite, y*Constants.DimSprite, 0, UNBUILD, 0));
 				}
 			}
 		}

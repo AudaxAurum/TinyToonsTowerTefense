@@ -1,6 +1,8 @@
 package scenes;
 
 import static helpz.Constants.Towers.ARCHER;
+import static main.GameStates.PLAYING;
+import static main.GameStates.SetGameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,12 +13,16 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import main.Game;
 import managers.EnemyManager;
 import managers.ProjectileManager;
 import managers.TowerManager;
 import maplayers.MapLayer1;
+import ui.MyButton;
+import ui.UpgradeBar;
 import helpz.Constants;
 import helpz.LevelBuilder;
 
@@ -28,12 +34,15 @@ public class Playing extends GameScene implements SceneMethods {
 	private LevelBuilder levelBuilder;
 	private TowerManager towerManager;
 	private ProjectileManager projManager;
+	private MyButton bUpgraden;
+	//private UpgradeBar upgradeBar;
 	
 	public Playing(Game game) {
 		super(game);
 		importImg();
 		loadSprites();
 		
+		//upgradeBar = new UpgradeBar(0,Constants.yMatrix*Constants.DimSprite,Constants.xMatrix*Constants.DimSprite,100);
 		enemyManager = new EnemyManager(this);
 		levelBuilder = new LevelBuilder();
 		towerManager = new TowerManager(this);
@@ -48,10 +57,12 @@ public class Playing extends GameScene implements SceneMethods {
 	@Override
 	public void render(Graphics g) {
 		
+		//upgradeBar.draw(g);
 		levelBuilder.DrawMap(g, sprites, Constants.xMatrix, Constants.yMatrix, Constants.DimSprite);
 		towerManager.draw(g);
 		enemyManager.draw(g);
 		projManager.draw(g);
+
 	}
 	
 private void importImg() {
@@ -78,8 +89,23 @@ private void loadSprites() {
 @Override
 public void mouseClicked(int x, int y) {
 	// doet nog niks
-	
-	towerManager.changeTower(x,y);
+	for (int i = 0; i < towerManager.towers.size(); i++) {
+		if (towerManager.towers.get(i).getX() <= x && x <= (towerManager.towers.get(i).getX() + 64) && towerManager.towers.get(i).getY() <= y && y <= (towerManager.towers.get(i).getY() + 64)) {
+			towerManager.changeTower(i);
+			
+			
+			
+			/*JFrame f = new JFrame();
+			f.setSize(500,500);
+			f.setTitle("Tower upgraden");
+			f.setLocation(100, 100);
+			JPanel hoofdpaneel = new JPanel();
+			f.add(hoofdpaneel);
+			f.setVisible(true);*/
+			//bUpgraden = new MyButton(100, 100, 100, 100 ,"Upgraden");
+
+		}
+	}
 			
 }
 	

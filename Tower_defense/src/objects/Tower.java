@@ -9,6 +9,8 @@ public class Tower {
 		this.id = id;
 		this.TowerType = TowerType;
 		this.TowerLevel = TowerLevel;
+		
+		
 	}
 	
 	//hier komt nog iets

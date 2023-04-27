@@ -12,4 +12,6 @@ public enum GameStates {
 	
 	public static GameStates gameState = MENU;
 	
+	
+	
 }

@@ -1,5 +1,7 @@
 package scenes;
 
+import static helpz.Constants.Towers.ARCHER;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -77,7 +79,11 @@ private void loadSprites() {
 public void mouseClicked(int x, int y) {
 	// doet nog niks
 	
+	towerManager.changeTower(x,y);
+			
 }
+	
+
 public void mouseMoved(int x, int y) {
 	// doet nog niks
 	}

@@ -22,4 +22,12 @@ public class Constants {
 			return 0f;
 		}
 	}
+	
+	public static class Towers{
+		public static final int UNBUILD = 0;
+		public static final int ARCHER = 1;
+//		public static final int 
+//		public static final int 
+
+	}
 }

@@ -2,6 +2,8 @@ package enemies;
 
 import java.awt.Rectangle;
 
+import helpz.Constants;
+
 public class Enemy {
 	private Rectangle bounds;
 	private int health;
@@ -18,10 +20,7 @@ public class Enemy {
 		boolean nronder = true;
 		boolean nrrechts = true;
 		boolean nrlinks = true;
-		boolean hulp = false;
 		boolean go = false;
-		int ymatrix = 8;
-		int xmatrix = 15;
 		boolean startcheck = true;
 		// tot hier algemene variablen voor de movenemnt
 		int timer = 0;
@@ -30,39 +29,38 @@ public class Enemy {
 	public Enemy(int Id, int enemyType) {
 		this.ID = ID;
 		this.enemyType = enemyType;
-		bounds = new Rectangle((int) x, (int) y , 32, 32);	
+		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);	
 	}
 	//nog functies voor de movement
 		void onder(boolean hulp) {
-			if (y < a*64 - 20) {
+			if (y < a*Constants.DimSprite - 20) {
 				verplaatseny = 1;
 				go = false;
 				timer++;
 			} 
 			else {
+				if (hulp == true) {
+					a++;
+				}
 				go = true;
 				nrboven = false;
 				nronder = true;
 				nrrechts = true;
 				nrlinks = true;
 				verplaatseny = 0;
-				if (hulp == true) {
-					a++;
-				}
-
 			}
 		}
 		void boven(boolean hulp) {
-			if (y > a*64 - 18) {
+			if (y > a*Constants.DimSprite - 18) {
 				verplaatseny = -1;
 				go = false;
 				timer++;
 			} 
 			else {
-				go = true;
 				if (hulp == true) {
 					a--;
 				}
+				go = true;
 				nrboven = true;
 				nronder = false;
 				nrrechts = true;
@@ -71,16 +69,16 @@ public class Enemy {
 			}
 		}
 		void rechts(boolean hulp) {
-			if (x < b*64) {
+			if (x < b*Constants.DimSprite) {
 				verplaatsenx = 1;
 				go = false;
 				timer++;
 			} 
 			else {
-				go = true;
 				if (hulp == true) {
 					b++;
 				}
+				go = true;
 				nrboven = true;
 				nronder = true;
 				nrrechts = true;
@@ -90,16 +88,16 @@ public class Enemy {
 			
 		}
 		void links(boolean hulp) {
-			if (x > b*64) {
+			if (x > b*Constants.DimSprite + 3) {
 				verplaatsenx = -1;
 				go = false;
 				timer++;
 			} 
 			else {
-				go = true;
 				if (hulp == true) {
 					b--;
 				}
+				go = true;
 				nrboven = true;
 				nronder = true;
 				nrrechts = false;
@@ -127,20 +125,20 @@ public class Enemy {
 			
 			
 			
-			if (map[a][b] == 0 & startcheck == true & a < ymatrix) {
+			if (map[a][b] == 0 & startcheck == true & a < Constants.yMatrix - 1) {
 				b = 0;
 				a = a + 1;
-				x = (b * 64) - 64;
-				y = (a * 64) - 22;
+				x = (b-1 * Constants.DimSprite);
+				y = (a * Constants.DimSprite) - 22;
 			}
-			if (map[a][b] == 0 & a == ymatrix) {
+			if (map[a][b] == 0 & a == Constants.yMatrix - 1) {
 				a = 0;
 				startcheck = false;
 			}
-			if (map[a][b] == 0 & b < xmatrix & startcheck == false) {
+			if (map[a][b] == 0 & b < Constants.xMatrix - 1 & startcheck == false) {
 				b = b + 1;
-				x = (b * 64);
-				y = (a * 64) - 64;
+				x = (b * Constants.DimSprite);
+				y = (a * Constants.DimSprite) - Constants.DimSprite;
 			}
 			
 			
@@ -151,10 +149,10 @@ public class Enemy {
 			if (b == 0) {
 				nrlinks = false;
 			}
-			if (a == ymatrix) {
+			if (a == Constants.yMatrix - 1) {
 				nronder = false;
 			}
-			if (b == xmatrix) {
+			if (b == Constants.xMatrix - 1) {
 				nrrechts = false;
 			}
 			
@@ -179,8 +177,7 @@ public class Enemy {
 					}
 				}
 			}
-			
-			
+
 			
 			if (map[a][b] == 2) {
 				if (nrboven == false) {

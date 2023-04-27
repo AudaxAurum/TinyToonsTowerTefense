@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import helpz.Constants;
 import main.Game;
 import ui.MyButton;
 import static main.GameStates.*;
@@ -28,8 +29,8 @@ public class Menu extends GameScene implements SceneMethods {
 		
 		int w = 105;
 		int h= w/3;
-		int x = 500/2-w/2;
-		int y = 100;
+		int x = Constants.xScherm/2 - w;
+		int y = Constants.yScherm/2 - h;
 
 		bPlaying = new MyButton(x, y, w, h ,"play");
 		

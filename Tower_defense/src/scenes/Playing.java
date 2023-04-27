@@ -94,7 +94,6 @@ public void mouseClicked(int x, int y) {
 			towerManager.changeTower(i);
 			
 			
-			
 			/*JFrame f = new JFrame();
 			f.setSize(500,500);
 			f.setTitle("Tower upgraden");
@@ -105,9 +104,12 @@ public void mouseClicked(int x, int y) {
 			//bUpgraden = new MyButton(100, 100, 100, 100 ,"Upgraden");
 
 		}
+		else if (x <= 64 && x >= 0 && y <= 64 && y >= 0)
+			enemyManager.addEnemy();
+		}//effe voorlopig
 	}
 			
-}
+
 	
 
 public void mouseMoved(int x, int y) {

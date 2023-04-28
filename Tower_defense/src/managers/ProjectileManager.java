@@ -4,8 +4,11 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import helpz.Constants;
 import helpz.LoadSave;
+import objects.Enemy;
 import objects.Projectile;
+import objects.Tower;
 import scenes.Playing;
 
 public class ProjectileManager {
@@ -13,7 +16,6 @@ public class ProjectileManager {
 	private Playing playing;
 	private ArrayList<Projectile> projectiles = new ArrayList<>();
 	private BufferedImage[] proj_imgs;
-	
 	public ProjectileManager(Playing playing) {
 		this.playing = playing;
 		importImgs();
@@ -24,13 +26,30 @@ public class ProjectileManager {
 		proj_imgs = new BufferedImage[3];
 		
 		for(int i = 0; i < 3; i++)
-			proj_imgs[i] = atlas.getSubimage(i,1,32,32); // verander waardes voor werkelijke loc
+			proj_imgs[i] = atlas.getSubimage(i,1,Constants.DimSprite, Constants.DimSprite); // verander waardes voor werkelijke loc
+	}
+	
+	public void newProjectile(Tower t, Enemy e) {
+		
+		projectiles.add (new Projectile(0,0,1,0,0));
 	}
 	public void update() {
-		
+		for(Projectile p : projectiles)
+			if (p.alive) {
+				//p.move(EnemyManager.enemies);
+			}
 	}
 	public void draw(Graphics g) {
-		for (BufferedImage i : proj_imgs)
-			g.drawImage(i,  300,  300,  null);
+		for(Projectile p : projectiles)
+			if (p.alive) {
+				//drawProjectile();
+			}
+	}
+	
+	private int getProjectileType(Tower t) {
+		switch(t.getTowerType()) {
+		// doet nog niks
+		}
+		return 0;
 	}
 }

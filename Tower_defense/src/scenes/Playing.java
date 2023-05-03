@@ -89,8 +89,11 @@ private void loadSprites() {
 @Override
 public void mouseClicked(int x, int y) {
 	// doet nog niks
+	
 	for (int i = 0; i < towerManager.towers.size(); i++) {
-		if (towerManager.towers.get(i).getX() <= x && x <= (towerManager.towers.get(i).getX() + 64) && towerManager.towers.get(i).getY() <= y && y <= (towerManager.towers.get(i).getY() + 64)) {
+		if (towerManager.towers.get(i).getX() <= x && x <= (towerManager.towers.get(i).getX() + Constants.DimSprite) && 
+			towerManager.towers.get(i).getY() <= y && y <= (towerManager.towers.get(i).getY() + Constants.DimSprite)) {
+			
 			towerManager.changeTower(i);
 			
 			

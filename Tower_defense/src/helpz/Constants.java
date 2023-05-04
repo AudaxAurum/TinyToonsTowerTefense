@@ -30,6 +30,42 @@ public class Constants {
 //		public static final int 
 //		public static final int 
 
+		public static int GetStartDmg(int towerType) {
+			switch (towerType) {
+			case ARCHER:
+				return 5;
+			
+			case UNBUILD:
+				return 0;
+
+			}
+
+			return 0;
+		}
+
+		public static float GetDefaultRange(int towerType) {
+			switch (towerType) {
+			case ARCHER:
+				return 120;
+			
+			case UNBUILD:
+				return 0;
+			}
+
+			return 0;
+		}
+
+		public static float GetDefaultCooldown(int towerType) {
+			switch (towerType) {
+
+			case ARCHER:
+				return 35;
+			
+			case UNBUILD:
+				return 0;
+			}
+
+			return 0;
 	}
 	
 	public static class Enemies {

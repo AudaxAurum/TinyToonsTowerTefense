@@ -1,7 +1,12 @@
 package objects;
 
 public class Tower {
+	
 	private int x, y, id, TowerType, TowerLevel;
+	
+	private float defaultDmg;
+	private float defaultRange;
+	private float defaultCooldown;
 	
 	public Tower(int x, int y, int id, int TowerType, int TowerLevel) {
 		this.x = x;
@@ -10,7 +15,20 @@ public class Tower {
 		this.TowerType = TowerType;
 		this.TowerLevel = TowerLevel;
 		
+
 		
+	}
+	
+	public void setDefaultDmg() {
+		defaultDmg = helpz.Constants.Towers.GetStartDmg(TowerType);
+	}
+	
+	public void setDefaultRange() {
+		defaultRange = helpz.Constants.Towers.GetDefaultRange(TowerType);
+	}
+	
+	public void setDefaultCooldown() {
+		defaultCooldown = helpz.Constants.Towers.GetDefaultCooldown(TowerType);
 	}
 	
 	//hier komt nog iets
@@ -54,5 +72,19 @@ public class Tower {
 	public void setTowerLevel(int towerLevel) {
 		TowerLevel = towerLevel;
 	}
+
+	public float getDefaultDmg() {
+		return defaultDmg;
+	}
+
+	public float getDefaultRange() {
+		return defaultRange;
+	}
+
+	public float getDefaultCooldown() {
+		return defaultCooldown;
+	}
+	
+	
 
 }

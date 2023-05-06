@@ -41,7 +41,7 @@ public class EnemyManager {
 		
 	}
 	public void addEnemy() {
-		enemies.add (new Enemy(0, 0, 0, //EnemyManager?));
+		enemies.add (new Enemy(0, 0, 0, 0)); //EnemyManager?));
 	}
 	
 	public void draw(Graphics g) {

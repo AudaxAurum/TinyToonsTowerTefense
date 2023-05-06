@@ -29,7 +29,7 @@ public class Enemy {
 	
 	private boolean alive = true;
 	
-	public Enemy(float x, float y, int ID, EnemyManager eM) {
+	public Enemy(float x, float y, int ID, int enemyType) {
 		this.ID = ID;
 		this.enemyType = enemyType;
 		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);	
@@ -111,6 +111,7 @@ public class Enemy {
 		}
 		//hieronder de echte movement
 		public void movement(double snelheid, int[][] map) { //vragen hoe zei tit zouden aanpakken
+
 			
 			// temaken met de animation
 			if (timer % 25 == 0 & timerhelp == 0) {
@@ -256,6 +257,11 @@ public class Enemy {
 			x += verplaatsenx*snelheid;
 		}
 
+		
+	protected void setStartHealth() {
+		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
+	}
+		
 	public double getX() {
 		return x;
 	}

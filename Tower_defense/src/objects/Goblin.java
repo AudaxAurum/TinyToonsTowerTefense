@@ -7,7 +7,9 @@ import static helpz.Constants.Enemies.*;
 public class Goblin extends Enemy{
 	
 	public Goblin(float x, float y, int ID, EnemyManager em) {		//EnemyManager?
-		super(x, y, GOBLIN, em);
+		super(x, y, ID, GOBLIN);
+		
+		setStartHealth();
 		
 	}
 

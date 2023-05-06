@@ -30,7 +30,7 @@ public class Constants {
 //		public static final int 
 //		public static final int 
 
-		public static int GetStartDmg(int towerType) {
+		public static float GetStartDmg(int towerType) {
 			switch (towerType) {
 			case ARCHER:
 				return 5;

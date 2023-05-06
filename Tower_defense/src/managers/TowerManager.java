@@ -2,6 +2,7 @@
 
 import static helpz.Constants.Towers.*;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class TowerManager {
 	private BufferedImage[] towerImgs;
 	private Tower tower;
 	public  ArrayList<Tower> towers = new ArrayList<>();
+	public Tower selectedTower;
 	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
@@ -28,10 +30,26 @@ public class TowerManager {
 }
 
 	
-	public void changeTower(int i) {
-		
-		towers.get(i).setTowerType(ARCHER);
+	public void changeTower(Tower tower) {
+		if (tower.getTowerType() == UNBUILD) {
+			tower.setTowerType(ARCHER);
+		}
 	
+	}
+	
+	
+	public void drawSelectedTower(Graphics g, Tower tower) {
+		if (selectedTower != null) {
+			drawRange(g, selectedTower);
+		}
+	}
+
+
+	public void drawRange(Graphics g, Tower tower) {
+		g.setColor(Color.WHITE);
+		g.drawOval( tower.getX() - (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType())/2 + helpz.Constants.DimSprite/2,
+					tower.getY() - (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType())/2 + helpz.Constants.DimSprite/2,
+					(int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType()), (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType()));		
 	}
 
 

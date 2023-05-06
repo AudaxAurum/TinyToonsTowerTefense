@@ -21,6 +21,7 @@ import managers.EnemyManager;
 import managers.ProjectileManager;
 import managers.TowerManager;
 import maplayers.MapLayer1;
+import objects.Tower;
 import ui.MyButton;
 import ui.UpgradeBar;
 import helpz.Constants;
@@ -62,6 +63,7 @@ public class Playing extends GameScene implements SceneMethods {
 		towerManager.draw(g);
 		enemyManager.draw(g);
 		projManager.draw(g);
+		towerManager.drawSelectedTower(g, towerManager.selectedTower);
 
 	}
 	
@@ -87,14 +89,15 @@ private void loadSprites() {
 }
 
 @Override
-public void mouseClicked(int x, int y) {
+public void mouseLeftClicked(int x, int y) {
 	// doet nog niks
 	
-	for (int i = 0; i < towerManager.towers.size(); i++) {
-		if (towerManager.towers.get(i).getX() <= x && x <= (towerManager.towers.get(i).getX() + Constants.DimSprite) && 
-			towerManager.towers.get(i).getY() <= y && y <= (towerManager.towers.get(i).getY() + Constants.DimSprite)) {
+	for (Tower t : towerManager.towers) {
+		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
+			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) {
 			
-			towerManager.changeTower(i);
+			towerManager.changeTower(t);
+			towerManager.selectedTower = t;
 			
 			
 			/*JFrame f = new JFrame();
@@ -107,12 +110,18 @@ public void mouseClicked(int x, int y) {
 			//bUpgraden = new MyButton(100, 100, 100, 100 ,"Upgraden");
 
 		}
-		else if (x <= 64 && x >= 0 && y <= 64 && y >= 0)
+		else if (x <= 64 && x >= 0 && y <= 64 && y >= 0) {
 			enemyManager.addEnemy();
+		}
+		
+		
 		}//effe voorlopig
+	
 	}
 			
-
+public void mouseRightClicked(int x, int y) {
+	towerManager.selectedTower = null;
+}
 	
 
 public void mouseMoved(int x, int y) {

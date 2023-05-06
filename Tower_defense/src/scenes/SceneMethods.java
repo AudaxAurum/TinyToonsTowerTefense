@@ -6,5 +6,5 @@ public interface SceneMethods {
 
 	
 	public void render(Graphics g);
-	public void mouseClicked(int x ,int y);
+	public void mouseLeftClicked(int x ,int y);
 }

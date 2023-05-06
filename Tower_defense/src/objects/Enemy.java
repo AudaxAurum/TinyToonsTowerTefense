@@ -3,6 +3,7 @@ package objects;
 import java.awt.Rectangle;
 
 import helpz.Constants;
+import managers.EnemyManager;
 
 public class Enemy {
 	private Rectangle bounds;
@@ -28,7 +29,7 @@ public class Enemy {
 	
 	private boolean alive = true;
 	
-	public Enemy(int Id, int enemyType) {
+	public Enemy(float x, float y, int ID, EnemyManager eM) {
 		this.ID = ID;
 		this.enemyType = enemyType;
 		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);	

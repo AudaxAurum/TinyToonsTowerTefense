@@ -32,7 +32,9 @@ public class Enemy {
 	public Enemy(float x, float y, int ID, int enemyType) {
 		this.ID = ID;
 		this.enemyType = enemyType;
-		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);	
+		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);
+		
+		setStartHealth();
 	}
 	//nog functies voor de movement
 		void onder(boolean hulp) {

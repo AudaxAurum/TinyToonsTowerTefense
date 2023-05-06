@@ -260,7 +260,7 @@ public class Enemy {
 		}
 
 		
-	protected void setStartHealth() {
+	private void setStartHealth() {
 		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
 	}
 		

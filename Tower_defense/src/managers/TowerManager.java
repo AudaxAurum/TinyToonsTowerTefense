@@ -41,7 +41,7 @@ public class TowerManager {
 	private void attackEnemy(Tower tower) {
 		for (Enemy e : playing.getEnemyManager().getEnemies()) {
 			if(e.getAlive())
-				if (isEnemyInRange(Tower tower, Enemy e)) {
+				if (isEnemyInRange( tower, e)) {
 					if(tower.isCooldownOver()) {
 						tower.resetCooldown();
 						//damage enemy en reset cooldown

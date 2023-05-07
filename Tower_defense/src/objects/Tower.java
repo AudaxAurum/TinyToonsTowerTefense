@@ -46,6 +46,10 @@ public class Tower {
 	}
 	//hier komt nog iets
 
+	public int getId() {
+		return id;
+	}
+
 	public int getX() {
 		return x;
 	}
@@ -60,10 +64,6 @@ public class Tower {
 
 	public void setY(int y) {
 		this.y = y;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public void setId(int id) {

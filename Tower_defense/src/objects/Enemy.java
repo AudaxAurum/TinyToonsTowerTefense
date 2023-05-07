@@ -13,8 +13,8 @@ public class Enemy {
 	// algemene variablen voor de movement
 	private int a = 0;   //a en b voor de het pad in de map af te lopen
 	private int b = 0;
-	private double x;
-	private double y;
+	private float x;
+	private float y;
 	private int verplaatsenx = 0;
 	private int verplaatseny = 0;
 	private boolean nrboven = true;
@@ -264,7 +264,7 @@ public class Enemy {
 		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
 	}
 		
-	public double getX() {
+	public float getX() {
 		return x;
 	}
 
@@ -272,7 +272,7 @@ public class Enemy {
 		this.x = x;
 	}
 
-	public double getY() {
+	public float getY() {
 		return y;
 	}
 

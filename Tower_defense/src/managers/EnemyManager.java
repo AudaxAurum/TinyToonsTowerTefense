@@ -14,7 +14,10 @@ public class EnemyManager {
 	
 	private Playing playing;
 	private BufferedImage[] enemyImgs;
+	
 	private ArrayList<Enemy> enemies = new ArrayList<>();
+	private ArrayList<Integer> deadEnemies = new ArrayList<>();
+
 	 
 	public EnemyManager(Playing playing) {
 		this.playing = playing;
@@ -39,16 +42,25 @@ public class EnemyManager {
 				e.movement(4, MapLayer1.Level1);
 			}
 			
-			enemies.removeIf(n -> (n.getHealth() <= 0));
+			else {
+				deadEnemies.add(enemies.indexOf(e));
+				for (int i : deadEnemies) {
+					enemies.remove(i);
+				}
+			}
+			//enemies.removeIf(n -> (n.getHealth() <= 0));
+			//enemies.removeIf(n -> (n.getAlive() == false));
 				
-			System.out.println("enemy dood");
-			System.out.println(enemies);
+			//System.out.println("enemy dood");
+			//System.out.println(enemies);
 
 		}
 		
+		
+		
 	}
 	public void addEnemy() {
-		enemies.add (new Enemy(0, 0, 0, 0));
+		enemies.add (new Enemy(0, 0, 0, 3));
 		enemies.size();
 	}
 	

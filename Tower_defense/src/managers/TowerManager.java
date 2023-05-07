@@ -41,11 +41,17 @@ public class TowerManager {
 	public void drawSelectedTower(Graphics g, Tower tower) {
 		if (selectedTower != null) {
 			drawRange(g, selectedTower);
+			drawUpgradeButton();
 		}
 	}
 
 
-	public void drawRange(Graphics g, Tower tower) {
+	private void drawUpgradeButton() {
+		
+	}
+
+
+	private void drawRange(Graphics g, Tower tower) {
 		g.setColor(Color.WHITE);
 		g.drawOval( tower.getX() - (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType())/2 + helpz.Constants.DimSprite/2,
 					tower.getY() - (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType())/2 + helpz.Constants.DimSprite/2,

@@ -33,15 +33,23 @@ public class EnemyManager {
 	}
 
 	public void update() {
-		
-		for (Enemy e : enemies)
+				
+		for (Enemy e : enemies) {
 			if (e.getAlive()) {
-				e.movement(0.7, MapLayer1.Level1);
+				e.movement(4, MapLayer1.Level1);
 			}
+			
+			enemies.removeIf(n -> (n.getHealth() <= 0));
+				
+			System.out.println("enemy dood");
+			System.out.println(enemies);
+
+		}
 		
 	}
 	public void addEnemy() {
-		enemies.add (new Enemy(0, 0, 0, 0)); //EnemyManager?));
+		enemies.add (new Enemy(0, 0, 0, 0));
+		enemies.size();
 	}
 	
 	public void draw(Graphics g) {

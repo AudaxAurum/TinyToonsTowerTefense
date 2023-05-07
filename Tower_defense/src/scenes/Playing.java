@@ -99,15 +99,6 @@ public void mouseLeftClicked(int x, int y) {
 			towerManager.changeTower(t);
 			towerManager.selectedTower = t;
 			
-			
-			/*JFrame f = new JFrame();
-			f.setSize(500,500);
-			f.setTitle("Tower upgraden");
-			f.setLocation(100, 100);
-			JPanel hoofdpaneel = new JPanel();
-			f.add(hoofdpaneel);
-			f.setVisible(true);*/
-			//bUpgraden = new MyButton(100, 100, 100, 100 ,"Upgraden");
 
 		}
 		else if (x <= 64 && x >= 0 && y <= 64 && y >= 0) {

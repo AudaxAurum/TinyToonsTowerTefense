@@ -2,7 +2,7 @@ package objects;
 
 public class Tower {
 	
-	private int x, y, id, TowerType, TowerLevel;
+	private int x, y, id, TowerType, TowerLevel,cdTick;
 	
 	private float defaultDmg;
 	private float defaultRange;
@@ -19,6 +19,10 @@ public class Tower {
 		
 	}
 	
+	public void update() {
+		cdTick++;
+	}
+	
 	public void setDefaultDmg() {
 		defaultDmg = helpz.Constants.Towers.GetStartDmg(TowerType);
 	}
@@ -31,6 +35,15 @@ public class Tower {
 		defaultCooldown = helpz.Constants.Towers.GetDefaultCooldown(TowerType);
 	}
 	
+	public boolean isCooldownOver() {
+
+		return cdTick >= defaultCooldown;
+	}
+	
+
+	public void resetCooldown() {
+		cdTick = 0;
+	}
 	//hier komt nog iets
 
 	public int getX() {

@@ -26,6 +26,7 @@ import ui.MyButton;
 import ui.UpgradeBar;
 import helpz.Constants;
 import helpz.LevelBuilder;
+import objects.Enemy;
 
 public class Playing extends GameScene implements SceneMethods {
 
@@ -107,6 +108,9 @@ public void mouseLeftClicked(int x, int y) {
 		
 		
 		}//effe voorlopig
+	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
+	//	projManager.newProjectile(tower, e);
+//	}
 	
 	}
 			

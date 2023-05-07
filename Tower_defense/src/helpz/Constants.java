@@ -46,7 +46,7 @@ public class Constants {
 		public static float GetDefaultRange(int towerType) {
 			switch (towerType) {
 			case ARCHER:
-				return 120;
+				return 240;
 			
 			case UNBUILD:
 				return 0;

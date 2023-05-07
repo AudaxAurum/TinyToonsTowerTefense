@@ -110,6 +110,48 @@ public void mouseLeftClicked(int x, int y) {
 	
 	}
 			
+public BufferedImage getImg() {
+	return img;
+}
+public void setImg(BufferedImage img) {
+	this.img = img;
+}
+public ArrayList<BufferedImage> getSprites() {
+	return sprites;
+}
+public void setSprites(ArrayList<BufferedImage> sprites) {
+	this.sprites = sprites;
+}
+public EnemyManager getEnemyManager() {
+	return enemyManager;
+}
+public void setEnemyManager(EnemyManager enemyManager) {
+	this.enemyManager = enemyManager;
+}
+public LevelBuilder getLevelBuilder() {
+	return levelBuilder;
+}
+public void setLevelBuilder(LevelBuilder levelBuilder) {
+	this.levelBuilder = levelBuilder;
+}
+public TowerManager getTowerManager() {
+	return towerManager;
+}
+public void setTowerManager(TowerManager towerManager) {
+	this.towerManager = towerManager;
+}
+public ProjectileManager getProjManager() {
+	return projManager;
+}
+public void setProjManager(ProjectileManager projManager) {
+	this.projManager = projManager;
+}
+public MyButton getbUpgraden() {
+	return bUpgraden;
+}
+public void setbUpgraden(MyButton bUpgraden) {
+	this.bUpgraden = bUpgraden;
+}
 public void mouseRightClicked(int x, int y) {
 	towerManager.selectedTower = null;
 }

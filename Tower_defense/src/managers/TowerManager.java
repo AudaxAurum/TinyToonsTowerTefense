@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import helpz.Constants;
 import helpz.LoadSave;
 import maplayers.MapLayer1;
+import objects.Enemy;
 import objects.Tower;
 import scenes.Playing;
 
@@ -37,6 +38,21 @@ public class TowerManager {
 	
 	}
 	
+	private void attackEnemy(Tower tower) {
+		for (Enemy e : playing.getEnemyManager().getEnemies()) {
+			if(e.getAlive())
+				if (isEnemyInRange(Tower tower, Enemy e)) {
+					if(tower.getDefaultCooldown()) {
+						//damage enemy en reset cooldown
+					}
+					
+				}
+		}
+	}
+	private boolean isEnemyInRange(Tower tower, Enemy e) {
+		int range = helpz.Constants.GetRange(tower.getX(), tower.getY(), e.getX(), e.getY());
+		return range <  tower.getDefaultRange();
+	}
 	
 	public void drawSelectedTower(Graphics g, Tower tower) {
 		if (selectedTower != null) {

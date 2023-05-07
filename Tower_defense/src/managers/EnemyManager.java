@@ -26,6 +26,38 @@ public class EnemyManager {
 		loadEnemyImgs();
 	}
 	
+	public Playing getPlaying() {
+		return playing;
+	}
+
+	public void setPlaying(Playing playing) {
+		this.playing = playing;
+	}
+
+	public BufferedImage[] getEnemyImgs() {
+		return enemyImgs;
+	}
+
+	public void setEnemyImgs(BufferedImage[] enemyImgs) {
+		this.enemyImgs = enemyImgs;
+	}
+
+	public ArrayList<Enemy> getEnemies() {
+		return enemies;
+	}
+
+	public void setEnemies(ArrayList<Enemy> enemies) {
+		this.enemies = enemies;
+	}
+
+	public ArrayList<Integer> getDeadEnemies() {
+		return deadEnemies;
+	}
+
+	public void setDeadEnemies(ArrayList<Integer> deadEnemies) {
+		this.deadEnemies = deadEnemies;
+	}
+
 	private void loadEnemyImgs() {
 		BufferedImage atlas  =  LoadSave.getSpriteAtlas();
 		enemyImgs[0] = atlas.getSubimage(0*Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);

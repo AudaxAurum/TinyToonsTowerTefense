@@ -71,15 +71,15 @@ public class EnemyManager {
 				
 		for (Enemy e : enemies) {
 			if (e.getAlive()) {
-				e.movement(4, MapLayer1.Level1);
+				e.movement(0.7, MapLayer1.Level1);
 			}
 			
-			else {
-				deadEnemies.add(enemies.indexOf(e));
-				for (int i : deadEnemies) {
-					enemies.remove(i);
-				}
-			}
+			//else {
+			//	deadEnemies.add(enemies.indexOf(e));
+			//	for (int i : deadEnemies) {
+			//		enemies.remove(i);
+			//	}
+			//}
 			//enemies.removeIf(n -> (n.getHealth() <= 0));
 			//enemies.removeIf(n -> (n.getAlive() == false));
 				

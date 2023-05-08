@@ -35,6 +35,7 @@ public class ProjectileManager {
 	}
 	public void update() {
 		for(Projectile p : projectiles)
+			for (enemy p : enemies)
 			if (p.alive) {
 				//p.move(EnemyManager.enemies);
 			}

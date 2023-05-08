@@ -4,12 +4,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import enemy.Enemy;
 import helpz.Constants;
 import helpz.LoadSave;
-import objects.Enemy;
 import objects.Projectile;
-import objects.Tower;
 import scenes.Playing;
+import tower.Tower;
 
 public class ProjectileManager {
 	

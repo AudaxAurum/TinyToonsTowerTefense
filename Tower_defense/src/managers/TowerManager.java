@@ -7,12 +7,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import enemy.Enemy;
 import helpz.Constants;
 import helpz.LoadSave;
 import maplayers.MapLayer1;
-import objects.Enemy;
-import objects.Tower;
 import scenes.Playing;
+import tower.Tower;
 
 public class TowerManager {
 	

@@ -16,17 +16,17 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import enemy.Enemy;
 import main.Game;
 import managers.EnemyManager;
 import managers.ProjectileManager;
 import managers.TowerManager;
 import maplayers.MapLayer1;
-import objects.Tower;
 import ui.MyButton;
 import ui.UpgradeBar;
 import helpz.Constants;
 import helpz.LevelBuilder;
-import objects.Enemy;
+import tower.Tower;
 
 public class Playing extends GameScene implements SceneMethods {
 

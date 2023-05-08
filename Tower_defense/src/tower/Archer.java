@@ -1,4 +1,4 @@
-package objects;
+package tower;
 
 public class Archer extends Tower{
 

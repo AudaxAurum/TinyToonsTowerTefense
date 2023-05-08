@@ -1,4 +1,4 @@
-package objects;
+package enemy;
 
 import managers.EnemyManager;
 

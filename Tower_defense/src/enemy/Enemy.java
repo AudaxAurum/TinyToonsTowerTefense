@@ -38,7 +38,6 @@ public class Enemy {
 	}
 	public void dmg(int dmg) {
 		this.health -= dmg;
-		System.out.println(health);
 		if (health <= 0) {
 			alive = false;
 		}
@@ -319,7 +318,7 @@ public class Enemy {
 	}
 
 	public void setId(int ID) {
-		ID = ID;
+		this.ID = ID;
 	}
 	public boolean getAlive() {
 		return alive;

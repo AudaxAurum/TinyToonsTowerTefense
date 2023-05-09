@@ -59,7 +59,7 @@ public class TowerManager {
 	}
 	private boolean isEnemyInRange(Tower tower, Enemy e) {
 		int distancetoenemy = helpz.Constants.GetRange(tower.getX(), tower.getY(), e.getX(), e.getY());
-		return distancetoenemy <=  tower.getDefaultRange();
+		return distancetoenemy <=  100; //tower.getDefaultRange();
 		}
 	
 	public void drawSelectedTower(Graphics g, Tower tower) {

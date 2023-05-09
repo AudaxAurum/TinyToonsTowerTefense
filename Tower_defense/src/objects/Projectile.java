@@ -23,8 +23,7 @@ public class Projectile {
 	}
 	
 	public void move() {
-		if(x == target.getX() & y == target.getY()) {
-			System.out.println("raak");
+		if(Math.abs(x - target.getX()) <= 10 & Math.abs(y - target.getY()) <= 10) { // kan properder
 			target.dmg(1); // dmg aanpassen
 			alive = false;
 		}    //allemaal voorlopig voor te testen

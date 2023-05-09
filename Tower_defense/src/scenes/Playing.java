@@ -101,6 +101,9 @@ public void mouseLeftClicked(int x, int y) {
 			towerManager.selectedTower = t;
 			
 			}
+		else if (x<Constants.DimSprite & y<Constants.DimSprite){
+			enemyManager.addEnemy();
+		}
 		} //effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);

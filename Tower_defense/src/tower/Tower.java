@@ -28,7 +28,6 @@ public class Tower {
 	
 	public void setDefaultRange() {
 		defaultRange = helpz.Constants.Towers.GetDefaultRange(TowerType);
-		System.out.println(defaultRange);
 	}
 	
 	public void setDefaultCooldown() {

@@ -38,6 +38,7 @@ public class Enemy {
 	}
 	public void dmg(int dmg) {
 		this.health -= dmg;
+		System.out.println(health);
 		if (health <= 0) {
 			alive = false;
 		}
@@ -308,6 +309,9 @@ public class Enemy {
 
 	public void setEnemyType(int enemyType) {
 		this.enemyType = enemyType;
+	}
+	public void setAlive(boolean alive) {
+		this.alive = alive;
 	}
 
 	public int getId() {

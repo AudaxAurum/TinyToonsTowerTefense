@@ -2,47 +2,51 @@ package objects;
 
 import java.awt.geom.Point2D;
 
+import enemy.Enemy;
+
 public class Projectile {
 	
 	private Point2D.Float position;
 	private int ID, projectileType;
-	private float x, y, Speed, xgo, ygo;
+	private float x, y, Speed;
 	private boolean active = true;
 	public boolean alive = true;
+	private Enemy target;
 	
-	public Projectile(float x, float y, float Speed, int ID, int projectileType, float xgo, float ygo) {
-		position = new Point2D.Float (x,y);
+	public Projectile(float x, float y, float Speed, int ID, int projectileType, Enemy e) {
+		this.x = x;
+		this.y = y;
 		this.Speed = Speed;
 		this.ID = ID;
 		this.projectileType = projectileType;
-		this.xgo = xgo;
-		this.ygo = ygo;
+		this.target = e;
 	}
 	
 	public void move() {
-		/*if(x == xgo & y == ygo) {
+		if(x == target.getX() & y == target.getY()) {
+			System.out.println("raak");
+			target.dmg(1); // dmg aanpassen
 			alive = false;
-		}*/     //allemaal voorlopig voor te testen
-		if (x < xgo) {
+		}    //allemaal voorlopig voor te testen
+		else if (x < target.getX()) {
 			x += Speed;
 		}
-		else if (x > xgo) {
+		else if (x > target.getX()) {
 			x -= Speed;
 		}
-		if (y < ygo) {
+		if (y < target.getY()) {
 			y += Speed;
 		}
-		else if (y < ygo) {
+		else if (y > target.getY()) {
 			y -= Speed;
 		}
 	}
 
-	public Point2D.Float getPosition() {
-		return position;
+	public float getX() {
+		return x;
 	}
-
-	public void setPosition(Point2D.Float position) {
-		this.position = position;
+	public float getY() {
+		return y;
 	}
 
 	public int getID() {

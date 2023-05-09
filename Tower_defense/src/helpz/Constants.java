@@ -49,9 +49,8 @@ public class Constants {
 				return 240;
 			
 			case UNBUILD:
-				return 0;
+				return 0; // hier zit het probleem
 			}
-
 			return 0;
 		}
 

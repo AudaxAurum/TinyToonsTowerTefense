@@ -100,18 +100,10 @@ public void mouseLeftClicked(int x, int y) {
 			towerManager.changeTower(t);
 			towerManager.selectedTower = t;
 			
-
-		}
-		else {
-				projManager.newProjectile(x,y,0,0); //allemaal voorlopig voor te testen
-		}
-		
-		
-		}//effe voorlopig
+			}
+		} //effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);
-//	}
-	
 	}
 			
 public BufferedImage getImg() {

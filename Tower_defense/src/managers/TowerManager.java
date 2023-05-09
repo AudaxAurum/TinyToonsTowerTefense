@@ -12,6 +12,7 @@ import helpz.Constants;
 import helpz.LoadSave;
 import maplayers.MapLayer1;
 import scenes.Playing;
+import tower.Archer;
 import tower.Tower;
 
 public class TowerManager {
@@ -34,29 +35,32 @@ public class TowerManager {
 	public void changeTower(Tower tower) {
 		if (tower.getTowerType() == UNBUILD) {
 			tower.setTowerType(ARCHER);
+			tower = new Archer(tower.getX(), tower.getY(), tower.getId(), tower.getTowerType(), tower.getTowerLevel());
 		}
 	
 	}
 	
-	private void attackEnemy(Tower tower) {
-		for (Enemy e : playing.getEnemyManager().getEnemies()) {
-			if(e.getAlive())
-				if (isEnemyInRange( tower, e)) {
-					if(tower.isCooldownOver()) {
-						tower.resetCooldown();
-						playing.shoot(tower,e);
+	private void attackEnemy() {
+		for (Tower t: towers) {
+			for (Enemy e : playing.getEnemyManager().getEnemies()) {
+				if(e.getAlive()) {
+					if (isEnemyInRange(t, e)) {
+						if(tower.isCooldownOver()) {
+							tower.resetCooldown();
+							playing.shoot(t,e);
 						//System.out.println("check");
 						//Werkt nog ni blijkbaar
 						//damage enemy en reset cooldown
+						}
 					}
-					
 				}
+			}
 		}
 	}
 	private boolean isEnemyInRange(Tower tower, Enemy e) {
-		int range = helpz.Constants.GetRange(tower.getX(), tower.getY(), e.getX(), e.getY());
-		return range <  tower.getDefaultRange();
-	}
+		int distancetoenemy = helpz.Constants.GetRange(tower.getX(), tower.getY(), e.getX(), e.getY());
+		return distancetoenemy <=  tower.getDefaultRange();
+		}
 	
 	public void drawSelectedTower(Graphics g, Tower tower) {
 		if (selectedTower != null) {
@@ -88,10 +92,6 @@ public class TowerManager {
 				}
 			}
 		}
-		
-		
-		//tower = new Tower(3*64, 6*64, 0, 0, 0);// geef de benodigdheden voor de toren in
-		
 	}
 	
 	private void loadTowerImgs() {
@@ -101,11 +101,13 @@ public class TowerManager {
 			towerImgs[i] = atlas.getSubimage(i*Constants.DimSprite, 1*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite); //voer plaats van tower img in
 	}
 	public void update() {
-		
+		attackEnemy();
 	}
 	public void draw(Graphics g) {
 		for (int i = 0; i < towers.size(); i++) {
-			if (towers.get(i).getTowerType() != UNBUILD) {g.drawImage(towerImgs[2], towers.get(i).getX(), towers.get(i).getY(), null);}
+			if (towers.get(i).getTowerType() != UNBUILD) {
+				g.drawImage(towerImgs[2], towers.get(i).getX(), towers.get(i).getY(), null);
+			}
 		}
 	}
 

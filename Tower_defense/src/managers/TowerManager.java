@@ -44,6 +44,9 @@ public class TowerManager {
 				if (isEnemyInRange( tower, e)) {
 					if(tower.isCooldownOver()) {
 						tower.resetCooldown();
+						playing.shoot(tower,e);
+						//System.out.println("check");
+						//Werkt nog ni blijkbaar
 						//damage enemy en reset cooldown
 					}
 					

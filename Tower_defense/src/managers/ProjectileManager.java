@@ -26,25 +26,29 @@ public class ProjectileManager {
 		proj_imgs = new BufferedImage[3];
 		
 		for(int i = 0; i < 3; i++)
-			proj_imgs[i] = atlas.getSubimage(i,1,Constants.DimSprite, Constants.DimSprite); // verander waardes voor werkelijke loc
+			proj_imgs[i] = atlas.getSubimage(i,0,Constants.DimSprite, Constants.DimSprite); // verander waardes voor werkelijke loc
 	}
 	
-	public void newProjectile(Tower t, Enemy e) {
-		
-		projectiles.add (new Projectile(0,0,1,0,0));
+	//public void newProjectile(Tower t, Enemy e) {	
+	//	projectiles.add (new Projectile(t.getX(),t.getY(),1,0,0,e.getX(),e.getY()));
+	//}
+	public void newProjectile(int x, int y, int xe, int ye) {	
+		projectiles.add (new Projectile(x,y,1,0,0,xe,ye));
+		//allemaal voorlopig voor te testen
 	}
 	public void update() {
-		for(Projectile p : projectiles)
-			for (enemy p : enemies)
+		for(Projectile p : projectiles) {
 			if (p.alive) {
-				//p.move(EnemyManager.enemies);
+				p.move();
 			}
+		}
 	}
 	public void draw(Graphics g) {
-		for(Projectile p : projectiles)
+		for(Projectile p : projectiles) {
 			if (p.alive) {
-				//drawProjectile();
+				g.drawImage(proj_imgs[0], (int)p.getPosition().x, (int)p.getPosition().y, null );
 			}
+		}
 	}
 	
 	private int getProjectileType(Tower t) {

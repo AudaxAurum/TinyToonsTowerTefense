@@ -6,22 +6,24 @@ public class Projectile {
 	
 	private Point2D.Float position;
 	private int ID, projectileType;
-	private float x, y, Speed;
+	private float x, y, Speed, xgo, ygo;
 	private boolean active = true;
 	public boolean alive = true;
 	
-	public Projectile(float x, float y,float Speed, int ID, int projectileType) {
+	public Projectile(float x, float y, float Speed, int ID, int projectileType, float xgo, float ygo) {
 		position = new Point2D.Float (x,y);
 		this.Speed = Speed;
 		this.ID = ID;
 		this.projectileType = projectileType;
+		this.xgo = xgo;
+		this.ygo = ygo;
 	}
 	
-	public void move(float xgo, float ygo) {
-		if(x == xgo & y == ygo) {
+	public void move() {
+		/*if(x == xgo & y == ygo) {
 			alive = false;
-		}
-		else if (x < xgo) {
+		}*/     //allemaal voorlopig voor te testen
+		if (x < xgo) {
 			x += Speed;
 		}
 		else if (x > xgo) {

@@ -36,6 +36,12 @@ public class Enemy {
 		
 		setStartHealth();
 	}
+	public void dmg(int dmg) {
+		this.health -= dmg;
+		if (health <= 0) {
+			alive = false;
+		}
+	}
 	//nog functies voor de movement
 		void onder(boolean hulp) {
 			if (y < a*Constants.DimSprite - 20) {
@@ -314,4 +320,5 @@ public class Enemy {
 	public boolean getAlive() {
 		return alive;
 	}
+	
 }

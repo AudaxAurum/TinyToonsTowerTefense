@@ -102,8 +102,8 @@ public void mouseLeftClicked(int x, int y) {
 			
 
 		}
-		else if (x <= 64 && x >= 0 && y <= 64 && y >= 0) {
-			enemyManager.addEnemy();
+		else {
+				projManager.newProjectile(x,y,0,0); //allemaal voorlopig voor te testen
 		}
 		
 		
@@ -159,11 +159,14 @@ public void setbUpgraden(MyButton bUpgraden) {
 public void mouseRightClicked(int x, int y) {
 	towerManager.selectedTower = null;
 }
-	
 
 public void mouseMoved(int x, int y) {
 	// doet nog niks
 	}
+public void shoot(Tower t, Enemy e) {
+	projManager.newProjectile(t, e);
+	
+}
 
 
 

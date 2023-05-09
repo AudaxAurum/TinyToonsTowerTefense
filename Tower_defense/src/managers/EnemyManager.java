@@ -60,9 +60,11 @@ public class EnemyManager {
 
 	private void loadEnemyImgs() {
 		BufferedImage atlas  =  LoadSave.getSpriteAtlas();
-		enemyImgs[0] = atlas.getSubimage(0*Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
-		enemyImgs[1] = atlas.getSubimage(1*Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
-		enemyImgs[2] = atlas.getSubimage(2* Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		for (Enemy e: enemies) {
+			enemyImgs[0] = atlas.getSubimage(e.getSpriteX()*Constants.DimSprite, e.getSpriteY()*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+			enemyImgs[1] = atlas.getSubimage((e.getSpriteX()+1)*Constants.DimSprite, e.getSpriteY()*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+			enemyImgs[2] = atlas.getSubimage((e.getSpriteX()+2)* Constants.DimSprite, e.getSpriteY()*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		}
 		//enemyImgs[3] = atlas.getSubimage(3* Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
 		// coordinaten van afbeeldingen invullen
 	}
@@ -71,7 +73,7 @@ public class EnemyManager {
 				
 		for (Enemy e : enemies) {
 			if (e.getAlive()) {
-				e.movement(0.7, MapLayer1.Level1);
+				e.movement(MapLayer1.Level1);
 			}
 			
 			//else {

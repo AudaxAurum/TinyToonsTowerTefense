@@ -37,7 +37,10 @@ public class Playing extends GameScene implements SceneMethods {
 	private TowerManager towerManager;
 	private ProjectileManager projManager;
 	private MyButton bUpgraden;
+	private Tower tower;
 	//private UpgradeBar upgradeBar;
+	public int gold;
+	public int castle_health = 20;
 	
 	public Playing(Game game) {
 		super(game);

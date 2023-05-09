@@ -4,17 +4,17 @@ import java.awt.Rectangle;
 
 import helpz.Constants;
 import managers.EnemyManager;
+import scenes.Playing;
 
 public class Enemy {
 	private Rectangle bounds;
-	private int health;
-	private int enemyType;   // wss is oververving beter verschillen in subclasses 
-	private int ID;
+	private int health, ID, value, spriteX, spriteY;
+	private int enemyType;// wss is oververving beter verschillen in subclasses 
+	
 	// algemene variablen voor de movement
 	private int a = 0;   //a en b voor de het pad in de map af te lopen
 	private int b = 0;
-	private float x;
-	private float y;
+	private float x, y, speed;
 	private int verplaatsenx = 0;
 	private int verplaatseny = 0;
 	private boolean nrboven = true;
@@ -35,11 +35,15 @@ public class Enemy {
 		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);
 		
 		setStartHealth();
+		setValue();
+		setSpeed();
+		setSprite();
 	}
 	public void dmg(int dmg) {
 		this.health -= dmg;
 		if (health <= 0) {
 			alive = false;
+			//Playing.gold += value; voor gold generation
 		}
 	}
 	//nog functies voor de movement
@@ -118,7 +122,7 @@ public class Enemy {
 			
 		}
 		//hieronder de echte movement
-		public void movement(double snelheid, int[][] map) { //vragen hoe zei tit zouden aanpakken
+		public void movement(int[][] map) { //vragen hoe zei tit zouden aanpakken
 
 			
 			// temaken met de animation
@@ -259,17 +263,27 @@ public class Enemy {
 			
 			if (map[a][b] == 5) {
 				System.out.println("einde"); //voorlopig
+				//Playing.castle_health -= dmg; voor dmg op het einde
 				alive = false;
 			}
-			y += verplaatseny*snelheid;
-			x += verplaatsenx*snelheid;
+			y += verplaatseny*speed;
+			x += verplaatsenx*speed;
 		}
 
 		
 	private void setStartHealth() {
 		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
 	}
-		
+	private void setValue() {
+		value = helpz.Constants.Enemies.GetReward(enemyType);
+	}	
+	private void setSpeed() {
+		speed = helpz.Constants.Enemies.GetSpeed(enemyType);
+	}	
+	private void setSprite() {
+		spriteX = helpz.Constants.Enemies.GetSpriteX(enemyType);
+		spriteY = helpz.Constants.Enemies.GetSpriteY(enemyType);
+	}	
 	public float getX() {
 		return x;
 	}
@@ -323,5 +337,10 @@ public class Enemy {
 	public boolean getAlive() {
 		return alive;
 	}
-	
+	public int getSpriteX() {
+		return spriteX;
+	}
+	public int getSpriteY() {
+		return spriteY;
+	}
 }

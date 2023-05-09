@@ -61,7 +61,7 @@ public class Constants {
 				return 35;
 			
 			case UNBUILD:
-				return 0;
+				return 20; // voorlopig voor te showen da het werkt
 			}
 
 			return 0;
@@ -101,6 +101,24 @@ public class Constants {
 				return 85;
 			case GOBLIN:
 				return 100;
+			}
+			return 0;
+		}
+		public static int GetSpriteY(int enemyType) {
+			switch (enemyType) {
+			case ORC:
+				return 3;
+			case GOBLIN:
+				return 2;
+			}
+			return 0;
+		}
+		public static int GetSpriteX(int enemyType) {
+			switch (enemyType) {
+			case ORC:
+				return 0;
+			case GOBLIN:
+				return 0;
 			}
 			return 0;
 		}

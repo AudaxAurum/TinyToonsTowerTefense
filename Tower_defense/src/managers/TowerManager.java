@@ -102,6 +102,9 @@ public class TowerManager {
 	}
 	public void update() {
 		attackEnemy();
+		for (Tower t: towers) {
+			t.setCD(); 
+		}
 	}
 	public void draw(Graphics g) {
 		for (int i = 0; i < towers.size(); i++) {

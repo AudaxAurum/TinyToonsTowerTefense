@@ -1,23 +1,49 @@
 package objects;
 
+import static helpz.Constants.Tiles.*;
+
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+import helpz.Constants;
+import maplayers.MapLayer1;
+import tower.Tower;
 
 public class Tile {
 	
-	public Tile(BufferedImage Sprite) {
+	int x, y, TowerType;
+	
+	public Tile(int x, int y, int TileType) {
 		
-		this.Sprite = Sprite;
-		
+		this.x = x;
+		this.y = y;
+		this.TowerType = TowerType;
+				
 	}
 	
-	private BufferedImage Sprite;
-	
-	public BufferedImage GetSprite() {
-		
-		return Sprite;
-		
+
+	public int getX() {
+		return x;
 	}
 
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getTileType() {
+		return TowerType;
+	}
+
+	public void setTileType(int towerType) {
+		TowerType = towerType;
+	}
 
 }
-// wss verwijderen

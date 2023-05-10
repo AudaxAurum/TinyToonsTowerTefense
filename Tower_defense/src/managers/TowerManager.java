@@ -1,6 +1,7 @@
 	package managers;
 
 import static helpz.Constants.Towers.*;
+import static helpz.Constants.Tiles.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,6 +12,7 @@ import enemy.Enemy;
 import helpz.Constants;
 import helpz.LoadSave;
 import maplayers.MapLayer1;
+import objects.Tile;
 import scenes.Playing;
 import tower.Archer;
 import tower.Tower;
@@ -27,15 +29,14 @@ public class TowerManager {
 		this.playing = playing;
 		
 		loadTowerImgs();
-		initTowers();
 
 }
 
 	
-	public void changeTower(Tower tower) {
-		if (tower.getTowerType() == UNBUILD) {
-			tower.setTowerType(ARCHER);
-			tower = new Archer(tower.getX(), tower.getY(), tower.getId(), tower.getTowerType(), tower.getTowerLevel());
+	public void changeTower(Tile tile) {
+		if (tile.getTileType() == BUILDABLE) {
+			tile.setTileType(UNBUILDABLE);
+			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER, 0));
 		}
 	
 	}
@@ -55,7 +56,7 @@ public class TowerManager {
 	}
 	private boolean isEnemyInRange(Tower tower, Enemy e) {
 		int distancetoenemy = helpz.Constants.GetRange(tower.getX(), tower.getY(), e.getX(), e.getY());
-		return distancetoenemy <=  1000; //tower.getDefaultRange();
+		return distancetoenemy <=  tower.getDefaultRange();
 		}
 	
 	public void drawSelectedTower(Graphics g, Tower tower) {
@@ -77,18 +78,6 @@ public class TowerManager {
 					tower.getY() - (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType())/2 + helpz.Constants.DimSprite/2,
 					(int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType()), (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType()));		
 	}
-
-
-	private void initTowers() {
-		for(int y = 0; y < Constants.yMatrix; y++) {
-			for(int x = 0; x < Constants.xMatrix; x++) {
-				int i = MapLayer1.Level1[y][x];
-				if (i==4) {
-					towers.add(tower = new Tower(x*Constants.DimSprite, y*Constants.DimSprite, 0, UNBUILD, 0));
-				}
-			}
-		}
-	}
 	
 	private void loadTowerImgs() {
 		BufferedImage atlas = LoadSave.getSpriteAtlas();
@@ -96,16 +85,18 @@ public class TowerManager {
 		for (int i = 0; i<6 ; i++) 
 			towerImgs[i] = atlas.getSubimage(i*Constants.DimSprite, 1*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite); //voer plaats van tower img in
 	}
+	
 	public void update() {
 		attackEnemy();
 		for (Tower t: towers) {
 			t.update();
 		}
 	}
+	
 	public void draw(Graphics g) {
-		for (int i = 0; i < towers.size(); i++) {
-			if (towers.get(i).getTowerType() != UNBUILD) {
-				g.drawImage(towerImgs[2], towers.get(i).getX(), towers.get(i).getY(), null);
+		for (Tower t : towers) {
+			if (t.getTowerType() != UNBUILD) {
+				g.drawImage(towerImgs[2], t.getX(), t.getY(), null);
 			}
 		}
 	}

@@ -24,6 +24,11 @@ public class Constants {
 		}
 	}
 	
+	public static class Tiles{
+		public static final int BUILDABLE = 0;
+		public static final int UNBUILDABLE = 1;
+	}
+	
 	public static class Towers{
 		public static final int UNBUILD = 0;
 		public static final int ARCHER = 1;

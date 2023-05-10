@@ -20,8 +20,10 @@ import enemy.Enemy;
 import main.Game;
 import managers.EnemyManager;
 import managers.ProjectileManager;
+import managers.TileManager;
 import managers.TowerManager;
 import maplayers.MapLayer1;
+import objects.Tile;
 import ui.MyButton;
 import ui.UpgradeBar;
 import helpz.Constants;
@@ -36,6 +38,7 @@ public class Playing extends GameScene implements SceneMethods {
 	private LevelBuilder levelBuilder;
 	private TowerManager towerManager;
 	private ProjectileManager projManager;
+	private TileManager tileManager;
 	private MyButton bUpgraden;
 	private Tower tower;
 	//private UpgradeBar upgradeBar;
@@ -52,6 +55,8 @@ public class Playing extends GameScene implements SceneMethods {
 		levelBuilder = new LevelBuilder();
 		towerManager = new TowerManager(this);
 		projManager = new ProjectileManager(this);
+		tileManager = new TileManager(this);
+		
 	}
 	public void update() {
 		enemyManager.update();
@@ -95,18 +100,19 @@ private void loadSprites() {
 @Override
 public void mouseLeftClicked(int x, int y) {
 	// doet nog niks
-	
-	for (Tower t : towerManager.towers) {
+	int i = 0;
+	for (Tile t : tileManager.towerPlace) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
 			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) {
 			
 			towerManager.changeTower(t);
-			towerManager.selectedTower = t;
+			towerManager.selectedTower = towerManager.towers.get(i);
 			
 			}
 		else if (x<Constants.DimSprite & y<Constants.DimSprite){
 			enemyManager.addEnemy();
 		}
+		i++;
 		} //effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);

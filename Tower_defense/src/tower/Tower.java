@@ -8,6 +8,7 @@ public class Tower {
 	private float defaultDmg;
 	private float defaultRange;
 	private float defaultCooldown;
+	private int timer = 0;
 	
 	public Tower(int x, int y, int id, int TowerType, int TowerLevel) {
 		this.x = x;
@@ -19,8 +20,16 @@ public class Tower {
 		setDefaultRange();
 		setDefaultCooldown();
 	}
-	
-	
+	public void update() {
+		timer ++;
+	}
+	public boolean cooldowncheck() {
+		if (timer >= defaultCooldown) {
+			timer = 0;
+			return true;
+		}
+		return false;
+	}
 	public void setDefaultDmg() {
 		defaultDmg = helpz.Constants.Towers.GetStartDmg(TowerType);
 	}
@@ -36,11 +45,7 @@ public class Tower {
 	public boolean isCooldownOver() {
 		return cdTick >= defaultCooldown;
 	}
-	
 
-	public void resetCooldown() {
-		cdTick = 0;
-	}
 	//hier komt nog iets
 
 	public int getId() {
@@ -93,8 +98,5 @@ public class Tower {
 
 	public float getDefaultCooldown() {
 		return defaultCooldown;
-	}
-	public void setCD() {
-		cdTick ++;
 	}
 }

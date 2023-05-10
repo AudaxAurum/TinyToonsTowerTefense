@@ -45,12 +45,8 @@ public class TowerManager {
 			for (Enemy e : playing.getEnemyManager().getEnemies()) {
 				if(e.getAlive()) {
 					if (isEnemyInRange(t, e)) {
-						if(tower.isCooldownOver()) {
-							tower.resetCooldown();
+						if(t.cooldowncheck()) {
 							playing.shoot(t,e);
-						//System.out.println("check");
-						//Werkt nog ni blijkbaar
-						//damage enemy en reset cooldown
 						}
 					}
 				}
@@ -59,7 +55,7 @@ public class TowerManager {
 	}
 	private boolean isEnemyInRange(Tower tower, Enemy e) {
 		int distancetoenemy = helpz.Constants.GetRange(tower.getX(), tower.getY(), e.getX(), e.getY());
-		return distancetoenemy <=  100; //tower.getDefaultRange();
+		return distancetoenemy <=  1000; //tower.getDefaultRange();
 		}
 	
 	public void drawSelectedTower(Graphics g, Tower tower) {
@@ -103,7 +99,7 @@ public class TowerManager {
 	public void update() {
 		attackEnemy();
 		for (Tower t: towers) {
-			t.setCD(); 
+			t.update();
 		}
 	}
 	public void draw(Graphics g) {

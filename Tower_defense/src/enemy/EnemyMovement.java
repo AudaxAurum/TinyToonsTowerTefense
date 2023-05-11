@@ -1,6 +1,7 @@
 package enemy;
 
 import helpz.Constants;
+import managers.EnemyManager;
 
 public class EnemyMovement {
 	private int a = 0;   //a en b voor de het pad in de map af te lopen
@@ -17,6 +18,8 @@ public class EnemyMovement {
 	public int timer = 0;
 	public int timerhelp = 0;
 	public boolean running = true;
+	private int dmg; 
+	private EnemyManager em;
 	void onder(boolean hulp) {
 		if (y < a*Constants.DimSprite - 20) {
 			verplaatseny = 1;
@@ -92,7 +95,9 @@ public class EnemyMovement {
 		
 	}
 	//hieronder de echte movement
-	public void movement(int[][] map, float speed) { //vragen hoe zei tit zouden aanpakken
+	public void movement(int[][] map, float speed, int dmg, EnemyManager em) { //vragen hoe zei tit zouden aanpakken
+		this.dmg = dmg;
+		this.em = em;
 		// temaken met de animation
 		if (timer % 25 == 0 & timerhelp == 0) {
 			timerhelp ++;
@@ -231,7 +236,7 @@ public class EnemyMovement {
 		
 		if (map[a][b] == 5) {
 			System.out.println("einde"); //voorlopig
-			//Playing.castle_health -= dmg; voor dmg op het einde
+			castledmg(dmg);
 			running = false;
 		}
 		y += verplaatseny*speed;
@@ -242,6 +247,9 @@ public class EnemyMovement {
 	}
 	public float getY() {
 		return y;
+	}
+	public void castledmg(int dmg) {
+		em.castledmg(dmg);
 	}
 }
 

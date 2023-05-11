@@ -42,7 +42,7 @@ public class Playing extends GameScene implements SceneMethods {
 	private MyButton bUpgraden;
 	private Tower tower;
 	//private UpgradeBar upgradeBar;
-	public int gold;
+	public int gold = 200; //starting value
 	public int castle_health = 20;
 	
 	public Playing(Game game) {
@@ -73,7 +73,8 @@ public class Playing extends GameScene implements SceneMethods {
 		enemyManager.draw(g);
 		projManager.draw(g);
 		towerManager.drawSelectedTower(g, towerManager.selectedTower);
-
+		DrawGold(g);
+		DrawCastlehp(g);
 	}
 	
 private void importImg() {
@@ -103,16 +104,16 @@ public void mouseLeftClicked(int x, int y) {
 	//int i = 0;
 	for (Tile t : tileManager.towerPlace) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
-			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) {
+			t.getY() <= y && y <= (t.getY() + Constants.DimSprite) && (gold >= helpz.Constants.Towers.Getprice(ARCHER))) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
 			
 			towerManager.changeTower(t);
 			
 			for (Tower i: towerManager.towers) {
-				if (t.getX() == i.getX() & t.getY() == i.getY()) {
-					
-					towerManager.selectedTower = i;
+					if (t.getX() == i.getX() & t.getY() == i.getY()) {
+						towerManager.selectedTower = i;
+						gold -= i.getPrice();
+					}
 				}
-			}
 			
 			
 			
@@ -179,7 +180,20 @@ public void shoot(Tower t, Enemy e) {
 	projManager.newProjectile(t, e);
 	
 }
-
+public void DrawGold(Graphics g) {
+	g.drawString("Gold: " + gold, 10, 15);
+	
+}
+public void DrawCastlehp(Graphics g) {
+	g.drawString("CastleHealth: " + castle_health, 10, 25);
+	
+}
+public void GoldReward(int reward) {
+	gold += reward;
+}
+public void Castledmg(int dmg) {
+	castle_health -= dmg;
+}
 
 
 }

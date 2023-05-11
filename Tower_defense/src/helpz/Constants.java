@@ -54,7 +54,7 @@ public class Constants {
 				return 240;
 			
 			case UNBUILD:
-				return 0; // hier zit het probleem
+				return 0;
 			}
 			return 0;
 		}
@@ -66,7 +66,19 @@ public class Constants {
 				return 35;
 			
 			case UNBUILD:
-				return 20; // voorlopig voor te showen da het werkt
+				return 0;
+			}
+
+			return 0;
+		}
+		public static int Getprice(int towerType) {
+			switch (towerType) {
+			case ARCHER:
+				return 20;
+			
+			case UNBUILD:
+				return 0;
+
 			}
 
 			return 0;
@@ -82,7 +94,7 @@ public class Constants {
 		public static int GetReward(int enemyType) {
 			switch (enemyType) {
 			case ORC:
-				return 5;
+				return 10;
 			case GOBLIN:
 				return 5;
 			}
@@ -124,6 +136,15 @@ public class Constants {
 				return 0;
 			case GOBLIN:
 				return 0;
+			}
+			return 0;
+		}
+		public static int Getdmg(int enemyType) {
+			switch (enemyType) {
+			case ORC:
+				return 2;
+			case GOBLIN:
+				return 1;
 			}
 			return 0;
 		}

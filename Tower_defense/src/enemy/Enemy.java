@@ -8,28 +8,35 @@ import scenes.Playing;
 
 public class Enemy {
 	private Rectangle bounds;
-	private int health, ID, value, spriteX, spriteY;
+	private int health, ID, reward, spriteX, spriteY, dmg;
 	private int enemyType;// wss is oververving beter verschillen in subclasses 
 	
 	// algemene variablen voor de movement
 	private float x, y;
 	private float speed;
 	private EnemyMovement enemymovement;
+	private EnemyManager enemymanager;
 	private boolean alive = true;
 	// tot hier algemene variablen voor de movenemnt
 	public int timerhelp;
 	
 	
-	public Enemy(float x, float y, int ID, int enemyType) {
+	public Enemy(float x, float y, int ID, int enemyType, EnemyManager enemymanager) {
 		this.ID = ID;
 		this.enemyType = enemyType;
+		this.enemymanager = enemymanager;
 		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);
 		
 		enemymovement = new EnemyMovement();
 		setStartHealth();
-		setValue();
 		setSpeed();
 		setSprite();
+		setReward();
+		setdmg();
+	}
+	private void setdmg() {
+		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
+		
 	}
 	public void dmg(int dmg) {
 		this.health -= dmg;
@@ -37,13 +44,13 @@ public class Enemy {
 			if (enemymovement.running)	{
 				alive = false;
 			}
-			//Playing.gold += value; voor gold generation
+			enemymanager.RewardGold(reward);
 		}
 	}
 	
 		public void movement(int[][] map) { //vragen hoe zei dit zouden aanpakken
 			if (alive) {
-				enemymovement.movement(map, speed);
+				enemymovement.movement(map, speed, dmg, enemymanager);
 				alive = enemymovement.running;
 				timerhelp = enemymovement.timerhelp;
 				x = enemymovement.getX();
@@ -53,17 +60,17 @@ public class Enemy {
 
 		
 	private void setStartHealth() {
-		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
+		dmg = helpz.Constants.Enemies.Getdmg(enemyType);
 	}
-	private void setValue() {
-		value = helpz.Constants.Enemies.GetReward(enemyType);
-	}	
 	private void setSpeed() {
 		speed = helpz.Constants.Enemies.GetSpeed(enemyType);
 	}	
 	private void setSprite() {
 		spriteX = helpz.Constants.Enemies.GetSpriteX(enemyType);
 		spriteY = helpz.Constants.Enemies.GetSpriteY(enemyType);
+	}	
+	private void setReward() {
+		reward = helpz.Constants.Enemies.GetReward(enemyType);
 	}	
 	public float getX() {
 		return x;
@@ -120,5 +127,11 @@ public class Enemy {
 	}
 	public int getSpriteY() {
 		return spriteY;
+	}
+	public int getReward() {
+		return reward;
+	}
+	public int getdmg() {
+		return dmg;
 	}
 }

@@ -94,7 +94,7 @@ public class EnemyManager {
 		
 	}
 	public void addEnemy() {
-		enemies.add (new Enemy(0, 0, 0, 3));
+		enemies.add (new Enemy(0, 0, 0, 3, this));
 		enemies.size();
 	}
 	
@@ -116,7 +116,14 @@ public class EnemyManager {
 		g.drawImage(enemyImgs[0 + 2], (int) e.getX(), (int) e.getY(), null);
 		}
 	}
+
+	public void RewardGold(int reward) {
+		playing.GoldReward(reward);
+	}
 	
+	public void castledmg(int dmg) {
+		playing.Castledmg(dmg);
+	}
 
 
 }

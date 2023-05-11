@@ -21,7 +21,7 @@ public class EnemyManager {
 	 
 	public EnemyManager(Playing playing) {
 		this.playing = playing;
-		enemyImgs = new BufferedImage[4];
+		enemyImgs = new BufferedImage[9];
 		addEnemy(helpz.Constants.Enemies.ORC);
 		loadEnemyImgs();
 	}
@@ -60,11 +60,15 @@ public class EnemyManager {
 
 	private void loadEnemyImgs() {
 		BufferedImage atlas  =  LoadSave.getSpriteAtlas();
-		for (Enemy e: enemies) {
-			enemyImgs[0] = atlas.getSubimage(e.getSpriteX()*Constants.DimSprite, e.getSpriteY()*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
-			enemyImgs[1] = atlas.getSubimage((e.getSpriteX()+1)*Constants.DimSprite, e.getSpriteY()*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
-			enemyImgs[2] = atlas.getSubimage((e.getSpriteX()+2)* Constants.DimSprite, e.getSpriteY()*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
-		}
+		enemyImgs[0] = atlas.getSubimage(0*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[1] = atlas.getSubimage(1*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[2] = atlas.getSubimage(2*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[3] = atlas.getSubimage(3*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[4] = atlas.getSubimage(4*Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[5] = atlas.getSubimage(5* Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[6] = atlas.getSubimage(0*Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[7] = atlas.getSubimage(1*Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
+		enemyImgs[8] = atlas.getSubimage(2* Constants.DimSprite, 3*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
 		//enemyImgs[3] = atlas.getSubimage(3* Constants.DimSprite, 2*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite);
 		// coordinaten van afbeeldingen invullen
 	}
@@ -107,13 +111,13 @@ public class EnemyManager {
 
 	private void drawEnemy(Enemy e, Graphics g) {
 		if (e.timerhelp == 0) {
-		g.drawImage(enemyImgs[0], (int) e.getX(), (int) e.getY(), null);
+		g.drawImage(enemyImgs[e.getSprite()], (int) e.getX(), (int) e.getY(), null);
 		}
-		if (e.timerhelp == 1 || e.timerhelp == 3) {
-		g.drawImage(enemyImgs[0 + 1], (int) e.getX(), (int) e.getY(), null);
+		else if (e.timerhelp == 1 || e.timerhelp == 3) {
+		g.drawImage(enemyImgs[e.getSprite() + 1], (int) e.getX(), (int) e.getY(), null);
 		}
-		if (e.timerhelp == 2) {
-		g.drawImage(enemyImgs[0 + 2], (int) e.getX(), (int) e.getY(), null);
+		else if (e.timerhelp == 2) {
+		g.drawImage(enemyImgs[e.getSprite() + 2], (int) e.getX(), (int) e.getY(), null);
 		}
 	}
 

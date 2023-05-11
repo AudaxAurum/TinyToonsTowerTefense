@@ -127,21 +127,10 @@ public class Constants {
 			}
 			return 0;
 		}
-		public static int GetSpriteY(int enemyType) {
+		public static int GetSprite(int enemyType) {
 			switch (enemyType) {
 			case ORC:
-				return 3;
-			case GOBLIN:
-				return 2;
-			case BOMBER:
-				return 2;
-			}
-			return 0;
-		}
-		public static int GetSpriteX(int enemyType) {
-			switch (enemyType) {
-			case ORC:
-				return 0;
+				return 6;
 			case GOBLIN:
 				return 0;
 			case BOMBER:

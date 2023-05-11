@@ -8,7 +8,7 @@ import scenes.Playing;
 
 public class Enemy {
 	private Rectangle bounds;
-	private int health, ID, reward, spriteX, spriteY, dmg; //alles van ID is denk ik overbodig
+	private int health, ID, reward, sprite, dmg; //alles van ID is denk ik overbodig
 	private int enemyType;// wss is oververving beter verschillen in subclasses 
 	
 	// algemene variablen voor de movement
@@ -22,7 +22,6 @@ public class Enemy {
 	
 	
 	public Enemy(int enemyType, EnemyManager enemymanager) {
-		this.ID = ID;
 		this.enemyType = enemyType;
 		this.enemymanager = enemymanager;
 		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);
@@ -56,7 +55,7 @@ public class Enemy {
 				x = enemymovement.getX();
 				y = enemymovement.getY();
 			}
-			}
+		}
 
 		
 	private void setStartHealth() {
@@ -66,8 +65,7 @@ public class Enemy {
 		speed = helpz.Constants.Enemies.GetSpeed(enemyType);
 	}	
 	private void setSprite() {
-		spriteX = helpz.Constants.Enemies.GetSpriteX(enemyType);
-		spriteY = helpz.Constants.Enemies.GetSpriteY(enemyType);
+		sprite = helpz.Constants.Enemies.GetSprite(enemyType);
 	}	
 	private void setReward() {
 		reward = helpz.Constants.Enemies.GetReward(enemyType);
@@ -122,11 +120,8 @@ public class Enemy {
 	public boolean getAlive() {
 		return alive;
 	}
-	public int getSpriteX() {
-		return spriteX;
-	}
-	public int getSpriteY() {
-		return spriteY;
+	public int getSprite() {
+		return sprite;
 	}
 	public int getReward() {
 		return reward;

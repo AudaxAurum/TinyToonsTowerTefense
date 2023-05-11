@@ -18,13 +18,11 @@ public class EnemyMovement {
 	public int timer = 0;
 	public int timerhelp = 0;
 	public boolean running = true;
-	private int dmg; 
 	private EnemyManager em;
 	void onder(boolean hulp) {
 		if (y < a*Constants.DimSprite - 20) {
 			verplaatseny = 1;
 			go = false;
-			timer++;
 		} 
 		else {
 			if (hulp == true) {
@@ -42,7 +40,6 @@ public class EnemyMovement {
 		if (y > a*Constants.DimSprite - 18) {
 			verplaatseny = -1;
 			go = false;
-			timer++;
 		} 
 		else {
 			if (hulp == true) {
@@ -60,7 +57,6 @@ public class EnemyMovement {
 		if (x < b*Constants.DimSprite) {
 			verplaatsenx = 1;
 			go = false;
-			timer++;
 		} 
 		else {
 			if (hulp == true) {
@@ -79,7 +75,6 @@ public class EnemyMovement {
 		if (x > b*Constants.DimSprite + 3) {
 			verplaatsenx = -1;
 			go = false;
-			timer++;
 		} 
 		else {
 			if (hulp == true) {
@@ -96,9 +91,8 @@ public class EnemyMovement {
 	}
 	//hieronder de echte movement
 	public void movement(int[][] map, float speed, int dmg, EnemyManager em) { //vragen hoe zei tit zouden aanpakken
-		this.dmg = dmg;
 		this.em = em;
-		// temaken met de animation
+		timer++;
 		if (timer % 25 == 0 & timerhelp == 0) {
 			timerhelp ++;
 		}
@@ -111,7 +105,6 @@ public class EnemyMovement {
 		else if (timer % 25 == 0 & timerhelp == 3) {
 			timerhelp = 0;
 		}
-		
 		
 		//start zoeken
 		if (map[a][b] == 0 & startcheck == true & a < Constants.yMatrix - 1) {
@@ -235,7 +228,6 @@ public class EnemyMovement {
 		}
 		
 		if (map[a][b] == 5) {
-			System.out.println("einde"); //voorlopig
 			castledmg(dmg);
 			running = false;
 		}

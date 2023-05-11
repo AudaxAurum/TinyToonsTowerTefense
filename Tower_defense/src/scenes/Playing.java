@@ -30,6 +30,7 @@ import helpz.Constants;
 import helpz.LevelBuilder;
 import tower.Tower;
 import ui.UpgradeBar;
+import levels.level1;
 
 public class Playing extends GameScene implements SceneMethods {
 
@@ -43,7 +44,8 @@ public class Playing extends GameScene implements SceneMethods {
 	private MyButton bUpgraden;
 	private Tower tower;
 	private UpgradeBar upgradeBar;
-	//private UpgradeBar upgradeBar;
+	private level1 level1;
+		
 	public int gold = 200; //starting value
 	public int castle_health = 20;
 	
@@ -59,6 +61,7 @@ public class Playing extends GameScene implements SceneMethods {
 		projManager = new ProjectileManager(this);
 		tileManager = new TileManager(this);
 		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this);
+		
 		
 	}
 	public void update() {

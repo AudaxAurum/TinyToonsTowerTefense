@@ -17,12 +17,13 @@ public class EnemyManager {
 	
 	private ArrayList<Enemy> enemies = new ArrayList<>();
 	private ArrayList<Integer> deadEnemies = new ArrayList<>();
-
+	
+	public int timer = 1;
+	private boolean check = true;
 	 
 	public EnemyManager(Playing playing) {
 		this.playing = playing;
 		enemyImgs = new BufferedImage[9];
-		addEnemy(helpz.Constants.Enemies.ORC);
 		loadEnemyImgs();
 	}
 	
@@ -74,7 +75,10 @@ public class EnemyManager {
 	}
 
 	public void update() {
-				
+		timer++;
+		if (this.check) {
+			basicwave();
+		}
 		for (Enemy e : enemies) {
 			if (e.getAlive()) {
 				e.movement(MapLayer1.Level1);
@@ -128,6 +132,24 @@ public class EnemyManager {
 	public void castledmg(int dmg) {
 		playing.Castledmg(dmg);
 	}
-
+	
+	public void basicwave() {
+		if (timer == 2) {
+			addEnemy(helpz.Constants.Enemies.BOMBER);
+		}
+		if (timer % 65 == 0) {
+			addEnemy(helpz.Constants.Enemies.BOMBER);
+		}
+		if (timer % 150 == 0) {
+			addEnemy(helpz.Constants.Enemies.ORC);
+			this.check = false;
+		}
+	}
+	public void simpelwave() {
+		
+	}
+	public void hardwave() {
+		
+	}
 
 }

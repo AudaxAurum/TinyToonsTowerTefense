@@ -8,17 +8,25 @@ import scenes.Playing;
 public class UpgradeBar {
 	
 	private int x, y, width, height;
+	private Playing playing;
 	
-	public UpgradeBar(int x, int y, int width, int height) {
+	public UpgradeBar(int x, int y, int width, int height, Playing playing) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.playing = playing;
 		
 	}
 	
-	public void draw(Graphics g) {
+	public void drawbar(Graphics g) {
 		g.setColor(new Color(46,25,13));
 		g.fillRect(x, y, width, height);
 	}
+	public void drawvalues(Graphics g) {
+		g.setColor(new Color(255,255,255));
+		g.drawString("Health = " + playing.castle_health, x, y + 15);
+		g.drawString("Gold = " + playing.gold, x, y + 30 );
+	}
+	
 }

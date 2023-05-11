@@ -58,7 +58,7 @@ public class Playing extends GameScene implements SceneMethods {
 		towerManager = new TowerManager(this);
 		projManager = new ProjectileManager(this);
 		tileManager = new TileManager(this);
-		upgradeBar = new UpgradeBar(0, 576, 1024, 100);
+		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this);
 		
 	}
 	public void update() {
@@ -77,7 +77,8 @@ public class Playing extends GameScene implements SceneMethods {
 		projManager.draw(g);
 		towerManager.drawSelectedTower(g, towerManager.selectedTower);
 
-		upgradeBar.draw(g);
+		upgradeBar.drawbar(g);
+		upgradeBar.drawvalues(g);
 	}
 	
 private void importImg() {

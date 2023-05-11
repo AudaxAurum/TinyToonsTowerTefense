@@ -29,7 +29,7 @@ import ui.UpgradeBar;
 import helpz.Constants;
 import helpz.LevelBuilder;
 import tower.Tower;
-import ui.BottomBar;
+import ui.UpgradeBar;
 
 public class Playing extends GameScene implements SceneMethods {
 
@@ -42,7 +42,7 @@ public class Playing extends GameScene implements SceneMethods {
 	private TileManager tileManager;
 	private MyButton bUpgraden;
 	private Tower tower;
-	private BottomBar bottomBar;
+	private UpgradeBar upgradeBar;
 	//private UpgradeBar upgradeBar;
 	public int gold = 200; //starting value
 	public int castle_health = 20;
@@ -58,7 +58,7 @@ public class Playing extends GameScene implements SceneMethods {
 		towerManager = new TowerManager(this);
 		projManager = new ProjectileManager(this);
 		tileManager = new TileManager(this);
-		bottomBar = new BottomBar(0,576,1024,100, this);
+		upgradeBar = new UpgradeBar(0, 576, 1024, 100);
 		
 	}
 	public void update() {
@@ -77,7 +77,7 @@ public class Playing extends GameScene implements SceneMethods {
 		projManager.draw(g);
 		towerManager.drawSelectedTower(g, towerManager.selectedTower);
 
-		bottomBar.draw(g);
+		UpgradeBar.draw(g);
 	}
 	
 private void importImg() {

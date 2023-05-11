@@ -3,6 +3,8 @@ package ui;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import scenes.Playing;
+
 public class UpgradeBar {
 	
 	private int x, y, width, height;

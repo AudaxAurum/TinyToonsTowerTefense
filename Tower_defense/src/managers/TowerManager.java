@@ -30,7 +30,7 @@ public class TowerManager {
 		
 		loadTowerImgs();
 
-}
+	}
 
 	
 	public void changeTower(Tile tile) {

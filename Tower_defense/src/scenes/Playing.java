@@ -29,6 +29,7 @@ import ui.UpgradeBar;
 import helpz.Constants;
 import helpz.LevelBuilder;
 import tower.Tower;
+import ui.BottomBar;
 
 public class Playing extends GameScene implements SceneMethods {
 
@@ -41,6 +42,7 @@ public class Playing extends GameScene implements SceneMethods {
 	private TileManager tileManager;
 	private MyButton bUpgraden;
 	private Tower tower;
+	private BottomBar bottomBar;
 	//private UpgradeBar upgradeBar;
 	public int gold = 200; //starting value
 	public int castle_health = 20;
@@ -56,6 +58,7 @@ public class Playing extends GameScene implements SceneMethods {
 		towerManager = new TowerManager(this);
 		projManager = new ProjectileManager(this);
 		tileManager = new TileManager(this);
+		bottomBar = new BottomBar(0,576,1024,100, this);
 		
 	}
 	public void update() {
@@ -73,8 +76,8 @@ public class Playing extends GameScene implements SceneMethods {
 		enemyManager.draw(g);
 		projManager.draw(g);
 		towerManager.drawSelectedTower(g, towerManager.selectedTower);
-		DrawGold(g);
-		DrawCastlehp(g);
+
+		bottomBar.draw(g);
 	}
 	
 private void importImg() {
@@ -180,19 +183,24 @@ public void shoot(Tower t, Enemy e) {
 	projManager.newProjectile(t, e);
 	
 }
-public void DrawGold(Graphics g) {
-	g.drawString("Gold: " + gold, 10, 15);
-	
-}
-public void DrawCastlehp(Graphics g) {
-	g.drawString("CastleHealth: " + castle_health, 10, 25);
-	
-}
+
 public void GoldReward(int reward) {
 	gold += reward;
 }
 public void Castledmg(int dmg) {
 	castle_health -= dmg;
+}
+public int getGold() {
+	return gold;
+}
+public void setGold(int gold) {
+	this.gold = gold;
+}
+public int getCastle_health() {
+	return castle_health;
+}
+public void setCastle_health(int castle_health) {
+	this.castle_health = castle_health;
 }
 
 

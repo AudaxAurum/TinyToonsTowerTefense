@@ -77,7 +77,7 @@ public class Playing extends GameScene implements SceneMethods {
 		projManager.draw(g);
 		towerManager.drawSelectedTower(g, towerManager.selectedTower);
 
-		UpgradeBar.draw(g);
+		upgradeBar.draw(g);
 	}
 	
 private void importImg() {

@@ -8,7 +8,7 @@ import scenes.Playing;
 
 public class Enemy {
 	private Rectangle bounds;
-	private int health, ID, reward, spriteX, spriteY, dmg;
+	private int health, ID, reward, spriteX, spriteY, dmg; //alles van ID is denk ik overbodig
 	private int enemyType;// wss is oververving beter verschillen in subclasses 
 	
 	// algemene variablen voor de movement
@@ -21,7 +21,7 @@ public class Enemy {
 	public int timerhelp;
 	
 	
-	public Enemy(float x, float y, int ID, int enemyType, EnemyManager enemymanager) {
+	public Enemy(int enemyType, EnemyManager enemymanager) {
 		this.ID = ID;
 		this.enemyType = enemyType;
 		this.enemymanager = enemymanager;

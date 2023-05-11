@@ -89,7 +89,7 @@ public class Constants {
 		
 		public static final int ORC = 3;
 		public static final int GOBLIN = 4;
-		public static final int idk = 5;
+		public static final int BOMBER = 5;
 
 		public static int GetReward(int enemyType) {
 			switch (enemyType) {
@@ -97,6 +97,8 @@ public class Constants {
 				return 10;
 			case GOBLIN:
 				return 5;
+			case BOMBER:
+				return 7;
 			}
 			return 0;
 		}
@@ -107,6 +109,8 @@ public class Constants {
 				return 0.5f;
 			case GOBLIN:
 				return 0.7f;
+			case BOMBER:
+				return 1f;
 
 			}
 			return 0;
@@ -118,6 +122,8 @@ public class Constants {
 				return 85;
 			case GOBLIN:
 				return 100;
+			case BOMBER:
+				return 75;
 			}
 			return 0;
 		}
@@ -126,6 +132,8 @@ public class Constants {
 			case ORC:
 				return 3;
 			case GOBLIN:
+				return 2;
+			case BOMBER:
 				return 2;
 			}
 			return 0;
@@ -136,6 +144,8 @@ public class Constants {
 				return 0;
 			case GOBLIN:
 				return 0;
+			case BOMBER:
+				return 3;
 			}
 			return 0;
 		}
@@ -144,6 +154,8 @@ public class Constants {
 			case ORC:
 				return 2;
 			case GOBLIN:
+				return 1;
+			case BOMBER:
 				return 1;
 			}
 			return 0;

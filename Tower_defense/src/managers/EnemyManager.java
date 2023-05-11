@@ -22,7 +22,7 @@ public class EnemyManager {
 	public EnemyManager(Playing playing) {
 		this.playing = playing;
 		enemyImgs = new BufferedImage[4];
-		addEnemy();
+		addEnemy(helpz.Constants.Enemies.ORC);
 		loadEnemyImgs();
 	}
 	
@@ -93,8 +93,8 @@ public class EnemyManager {
 		
 		
 	}
-	public void addEnemy() {
-		enemies.add (new Enemy(0, 0, 0, 3, this));
+	public void addEnemy(int enemytype) {
+		enemies.add (new Enemy(enemytype, this));
 		enemies.size();
 	}
 	

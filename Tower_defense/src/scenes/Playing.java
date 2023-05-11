@@ -119,7 +119,7 @@ public void mouseLeftClicked(int x, int y) {
 			
 			}
 		else if (x<Constants.DimSprite & y<Constants.DimSprite){
-			enemyManager.addEnemy();
+			enemyManager.addEnemy(helpz.Constants.Enemies.GOBLIN);
 		}
 		//i++;
 		} //effe voorlopig

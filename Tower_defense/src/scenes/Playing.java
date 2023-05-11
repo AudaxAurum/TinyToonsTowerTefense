@@ -100,19 +100,27 @@ private void loadSprites() {
 @Override
 public void mouseLeftClicked(int x, int y) {
 	// doet nog niks
-	int i = 0;
+	//int i = 0;
 	for (Tile t : tileManager.towerPlace) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
 			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) {
 			
 			towerManager.changeTower(t);
-			towerManager.selectedTower = towerManager.towers.get(i);
+			
+			for (Tower i: towerManager.towers) {
+				if (t.getX() == i.getX() & t.getY() == i.getY()) {
+					
+					towerManager.selectedTower = i;
+				}
+			}
+			
+			
 			
 			}
 		else if (x<Constants.DimSprite & y<Constants.DimSprite){
 			enemyManager.addEnemy();
 		}
-		i++;
+		//i++;
 		} //effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);

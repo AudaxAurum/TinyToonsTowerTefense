@@ -45,15 +45,23 @@ public class Tower {
 		defaultDmg = helpz.Constants.Towers.GetStartDmg(towerType);
 	}
 	
-	
+	public float getCurrentRange() {
+		if (towerLevel % 5 == 0) {
+			Range = defaultRange + helpz.Constants.Towers.GetRangeUpgradeFactor(towerType)*towerLevel;
+		}
+		return Range;
+	}
+	public float getCurrentDmg() {
+		Dmg = defaultDmg + towerLevel*helpz.Constants.Towers.GetDmgUpgradeFactor(towerType);
+		return Dmg;
+	}
+	public void setCurrentDmg() {
+		Dmg = defaultDmg + towerLevel*helpz.Constants.Towers.GetDmgUpgradeFactor(towerType);
+	}
 	
 	public float getDefaultDmg() {
 		return defaultDmg;
 	}
-	
-	
-	
-	
 	
 	//instellingen Range
 	public void setDefaultRange() {

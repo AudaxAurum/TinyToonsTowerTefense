@@ -12,6 +12,7 @@ import scenes.Menu;
 import scenes.Playing;
 import scenes.Settings;
 import inputs.KeyboardListener;
+import static helpz.Constants.levels.*;
 
 public class Game extends JFrame implements Runnable{
 	
@@ -27,6 +28,8 @@ public class Game extends JFrame implements Runnable{
 	private Playing playing;
 	private Settings settings;
 	
+	private int level;
+	
 	
 
 	
@@ -39,6 +42,8 @@ public class Game extends JFrame implements Runnable{
         setTitle("4T");
         setLocationRelativeTo(null); //standaard in de hoek van het scherm
     	
+        setLevel();
+        
         initClasses();
 
 
@@ -53,7 +58,7 @@ public class Game extends JFrame implements Runnable{
         render = new Render(this);	        
         gameScreen = new GameScreen(this);
         menu = new Menu(this);
-        playing = new Playing(this);
+        playing = new Playing(this, level);
         		settings = new Settings(this);
 
 		
@@ -148,4 +153,7 @@ public class Game extends JFrame implements Runnable{
 		return render;
 	}
 	
+	private void setLevel() {
+		this.level = LEVEL2;
+	}
 }

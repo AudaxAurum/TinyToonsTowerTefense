@@ -1,6 +1,6 @@
 package scenes;
 
-import static helpz.Constants.Towers.ARCHER;
+import static helpz.Constants.Towers.ARCHER0;
 import static main.GameStates.PLAYING;
 import static main.GameStates.SetGameState;
 
@@ -42,24 +42,24 @@ public class Playing extends GameScene implements SceneMethods {
 	private ProjectileManager projManager;
 	private TileManager tileManager;
 	private MyButton bUpgraden;
-	private Tower tower;
+	private int[][] map;
 	private UpgradeBar upgradeBar;
-	private level1 level1;
-		
+	
 	public int gold = 200; //starting value
 	public int castle_health = 20;
 	
-	public Playing(Game game) {
+	public Playing(Game game, int level) {
 		super(game);
+		this.map = helpz.Constants.levels.GetMap(level);
 		importImg();
 		loadSprites();
 		
 		//upgradeBar = new UpgradeBar(0,Constants.yMatrix*Constants.DimSprite,Constants.xMatrix*Constants.DimSprite,100);
-		enemyManager = new EnemyManager(this);
+		enemyManager = new EnemyManager(this, level);
 		levelBuilder = new LevelBuilder();
 		towerManager = new TowerManager(this);
 		projManager = new ProjectileManager(this);
-		tileManager = new TileManager(this);
+		tileManager = new TileManager(this, map);
 		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this);
 		
 		
@@ -74,7 +74,7 @@ public class Playing extends GameScene implements SceneMethods {
 	public void render(Graphics g) {
 		
 		//upgradeBar.draw(g);
-		levelBuilder.DrawMap(g, sprites, Constants.xMatrix, Constants.yMatrix, Constants.DimSprite);
+		levelBuilder.DrawMap(g, sprites, Constants.xMatrix, Constants.yMatrix, Constants.DimSprite, map);
 		towerManager.draw(g);
 		enemyManager.draw(g);
 		projManager.draw(g);
@@ -112,7 +112,7 @@ public void mouseLeftClicked(int x, int y) {
 	//int i = 0;
 	for (Tile t : tileManager.towerPlace) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
-			t.getY() <= y && y <= (t.getY() + Constants.DimSprite) && (gold >= helpz.Constants.Towers.Getprice(ARCHER))) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
+			t.getY() <= y && y <= (t.getY() + Constants.DimSprite) && (gold >= helpz.Constants.Towers.Getprice(ARCHER0))) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
 			
 			towerManager.changeTower(t);
 			

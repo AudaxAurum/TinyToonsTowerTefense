@@ -16,11 +16,13 @@ public class TileManager {
 	
 	private Playing playing;
 	private Tile tile;
+	private int[][] map;
 	
 	public ArrayList<Tile> towerPlace = new ArrayList<>();
 	
-	public TileManager(Playing  playing) {
+	public TileManager(Playing  playing, int[][] map) {
 		this.playing = playing;
+		this.map = map;
 		
 		initTiles();
 	}
@@ -28,7 +30,7 @@ public class TileManager {
 	private void initTiles() {
 		for(int y = 0; y < Constants.yMatrix; y++) {
 			for(int x = 0; x < Constants.xMatrix; x++) {
-				int i = MapLayer1.Level1[y][x];
+				int i = map[y][x];
 				if (i==4) {
 					towerPlace.add(new Tile(x*Constants.DimSprite, y*Constants.DimSprite, BUILDABLE));
 				}

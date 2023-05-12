@@ -21,7 +21,6 @@ public class TowerManager {
 	
 	private Playing playing;
 	private BufferedImage[] towerImgs;
-	private Tower tower;
 	public  ArrayList<Tower> towers = new ArrayList<>();
 	public Tower selectedTower;
 	
@@ -36,7 +35,7 @@ public class TowerManager {
 	public void changeTower(Tile tile) {
 		if (tile.getTileType() == BUILDABLE) {
 			tile.setTileType(UNBUILDABLE);
-			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER, 0));
+			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER0, 0));
 			System.out.println(towers.get(0).getCurrentDmg());
 			System.out.println(towers.get(0).getTowerType());
 		}

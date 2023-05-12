@@ -42,11 +42,11 @@ public class LevelBuilder {
 	    return dest;
 	}
 	
-	public void DrawMap(Graphics g, ArrayList<BufferedImage> sprites, int xMatrix, int yMatrix, int DimSprite) {
+	public void DrawMap(Graphics g, ArrayList<BufferedImage> sprites, int xMatrix, int yMatrix, int DimSprite, int[][] map) {
 		for (int y = 0; y < yMatrix; y++) {
 			for (int x = 0; x < xMatrix; x++) {
 
-				int i = MapLayer1.Level1[y][x];
+				int i = map[y][x];
 				
 				if (i == 1) {
 					if (MapLayer1.Level1[y][x+1] == 0 || MapLayer1.Level1[y][x+1] == 4) {

@@ -14,6 +14,7 @@ public class EnemyManager {
 	
 	private Playing playing;
 	private BufferedImage[] enemyImgs;
+	private int[][] map;
 	
 	private ArrayList<Enemy> enemies = new ArrayList<>();
 	private ArrayList<Integer> deadEnemies = new ArrayList<>();
@@ -21,8 +22,9 @@ public class EnemyManager {
 	public int timer = 1;
 	private boolean check = true;
 	 
-	public EnemyManager(Playing playing) {
+	public EnemyManager(Playing playing, int level) {
 		this.playing = playing;
+		this.map = helpz.Constants.levels.GetMap(level);
 		enemyImgs = new BufferedImage[9];
 		loadEnemyImgs();
 	}
@@ -81,7 +83,7 @@ public class EnemyManager {
 		}
 		for (Enemy e : enemies) {
 			if (e.getAlive()) {
-				e.movement(MapLayer1.Level1);
+				e.movement(map);
 			}
 			
 			//else {

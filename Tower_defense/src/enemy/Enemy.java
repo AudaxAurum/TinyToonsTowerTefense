@@ -21,7 +21,7 @@ public class Enemy {
 	public int timerhelp;
 	
 	
-	public Enemy(int enemyType, EnemyManager enemymanager) {
+	public Enemy(int enemyType,EnemyManager enemymanager) {
 		this.enemyType = enemyType;
 		this.enemymanager = enemymanager;
 		bounds = new Rectangle((int) x, (int) y , Constants.DimSprite, Constants.DimSprite);
@@ -47,9 +47,9 @@ public class Enemy {
 		}
 	}
 	
-		public void movement(int[][] map) { //vragen hoe zei dit zouden aanpakken
+		public void movement(int[][] level) { //vragen hoe zei dit zouden aanpakken
 			if (alive) {
-				enemymovement.movement(map, speed, dmg, enemymanager);
+				enemymovement.movement(level, speed, dmg, enemymanager);
 				alive = enemymovement.running;
 				timerhelp = enemymovement.timerhelp;
 				x = enemymovement.getX();

@@ -20,7 +20,7 @@ public class Settings extends GameScene implements SceneMethods {
 	}
 
 	@Override
-	public void mouseClicked(int x, int y) {
+	public void mouseLeftClicked(int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}

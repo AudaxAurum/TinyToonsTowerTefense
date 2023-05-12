@@ -48,7 +48,7 @@ public class TowerManager {
 				if(e.getAlive()) {
 					if (isEnemyInRange(t, e)) {
 						if(t.cooldowncheck()) {
-							playing.shoot(t,e);
+							playing.shoot(t,t.GetProjectile(),e);
 						}
 					}
 				}

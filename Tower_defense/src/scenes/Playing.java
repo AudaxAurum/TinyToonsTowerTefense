@@ -197,8 +197,8 @@ public void mouseRightClicked(int x, int y) {
 public void mouseMoved(int x, int y) {
 	// doet nog niks
 	}
-public void shoot(Tower t, Enemy e) {
-	projManager.newProjectile(t, e);
+public void shoot(Tower t,int type, Enemy e) {
+	projManager.newProjectile(t, type, e);
 	
 }
 

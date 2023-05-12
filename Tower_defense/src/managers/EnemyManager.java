@@ -76,6 +76,9 @@ public class EnemyManager {
 	}
 
 	public void update() {
+		
+		updateWaveManager();
+		
 		if(isTimeForNewEnemy()) {
 			spawnEnemy();
 		}
@@ -101,15 +104,21 @@ public class EnemyManager {
 		
 		
 	}
+	private void updateWaveManager() {
+		playing.getWaveManager().update();		
+	}
+
 	private boolean isTimeForNewEnemy() {
 		if (playing.getWaveManager().isTimeForNewEnemy()){
-			
+			if(playing.getWaveManager().isThereMoreEnemies()) {
+				return true;
+			}
 		}
 		return false;
 	}
 
 	private void spawnEnemy() {
-		// TODO Auto-generated method stub
+		addEnemy(playing.getWaveManager().getNextEnemy());
 		
 	}
 

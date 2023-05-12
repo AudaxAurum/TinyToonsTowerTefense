@@ -2,7 +2,7 @@ package tower;
 
 public class Tower {
 	
-	private int x, y, id, towerType, towerLevel, price;
+	private int x, y, id, towerType, towerLevel, price, projectile;
 	private int cdTick = 0;
 	
 	private float defaultDmg;
@@ -27,6 +27,7 @@ public class Tower {
 		setDefaultRange();
 		setDefaultCooldown();
 		setPrice();
+		setProjectile();
 	}
 	public void update() {
 		timer ++;
@@ -141,5 +142,12 @@ public class Tower {
 
 	public int getPrice() {
 		return price;
+	}
+	public void setProjectile() {
+		projectile = helpz.Constants.Towers.GetProjectile(towerType);
+		System.out.println(projectile);
+	}
+	public int GetProjectile() {
+		return projectile;
 	}
 }

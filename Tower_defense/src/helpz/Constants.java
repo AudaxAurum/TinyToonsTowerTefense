@@ -13,20 +13,24 @@ public class Constants {
 	public static class Projectiles{
 		
 		public static final int ARROW = 0;
-		
-		/*public static int getProjectileDmg(int projectileType) {
-			switch (projectileType) {
-			case ARROW:
-				return Tower.getDmg
-			}
-		}*/
-		
-
-		
+		public static final int BOMB = 1;
+			
 		public static float GetSpeed(int type) {
 			switch (type) {
 			case ARROW:
 				return 3f;
+			case BOMB:
+				return 2f;
+			}
+			
+			return 0f;
+		}
+		public static float GetImpactRange(int type) {
+			switch (type) {
+			case ARROW:
+				return 5f;
+			case BOMB:
+				return 64f;
 			}
 			
 			return 0f;
@@ -45,7 +49,20 @@ public class Constants {
 		public static final int ARCHER2 = 3;
 //		public static final int 
 //		public static final int 
+		
+		public static int GetProjectile(int towerType) {
+			switch (towerType) {
+			case ARCHER0:
+				return 0;
+			
+			case UNBUILD:
+				return 0;
 
+			}
+
+			return 0;
+		}
+		
 		public static float GetStartDmg(int towerType) {
 			switch (towerType) {
 			case ARCHER0:

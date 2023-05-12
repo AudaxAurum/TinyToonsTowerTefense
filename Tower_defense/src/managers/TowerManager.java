@@ -36,7 +36,9 @@ public class TowerManager {
 	public void changeTower(Tile tile) {
 		if (tile.getTileType() == BUILDABLE) {
 			tile.setTileType(UNBUILDABLE);
-			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER, 0));
+			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER, 5));
+			System.out.println(towers.get(0).getCurrentDmg());
+			System.out.println(towers.get(0).getTowerType());
 		}
 	
 	}
@@ -56,7 +58,7 @@ public class TowerManager {
 	}
 	private boolean isEnemyInRange(Tower tower, Enemy e) {
 		int distancetoenemy = helpz.Constants.GetRange(tower.getX(), tower.getY(), e.getX(), e.getY());
-		return distancetoenemy <=  (tower.getDefaultRange()/2);
+		return distancetoenemy <=  (tower.getCurrentRange()/2);
 		}
 	
 	public void drawSelectedTower(Graphics g, Tower tower) {
@@ -74,9 +76,9 @@ public class TowerManager {
 
 	private void drawRange(Graphics g, Tower tower) {
 		g.setColor(Color.WHITE);
-		g.drawOval( tower.getX() - (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType())/2 + helpz.Constants.DimSprite/2,
-					tower.getY() - (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType())/2 + helpz.Constants.DimSprite/2,
-					(int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType()), (int) helpz.Constants.Towers.GetDefaultRange(tower.getTowerType()));		
+		g.drawOval( tower.getX() - (int) tower.getCurrentRange()/2 + helpz.Constants.DimSprite/2,
+					tower.getY() - (int) tower.getCurrentRange()/2 + helpz.Constants.DimSprite/2,
+					(int) tower.getCurrentRange(), (int) tower.getCurrentRange());
 	}
 	
 	private void loadTowerImgs() {

@@ -45,7 +45,7 @@ public class Constants {
 		public static float GetStartDmg(int towerType) {
 			switch (towerType) {
 			case ARCHER:
-				return 5;
+				return 15;
 			
 			case UNBUILD:
 				return 0;

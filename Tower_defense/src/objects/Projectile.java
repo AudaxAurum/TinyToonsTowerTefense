@@ -24,7 +24,7 @@ public class Projectile {
 	
 	public void move() {
 		if(Math.abs(x - target.getX()) <= 10 & Math.abs(y - target.getY()) <= 10) { // kan properder
-			target.dmg(1); // dmg aanpassen
+			target.dmg(10); // dmg aanpassen
 			alive = false;
 		}    //allemaal voorlopig voor te testen
 		else if (x < target.getX()) {

@@ -2,20 +2,26 @@ package tower;
 
 public class Tower {
 	
-	private int x, y, id, TowerType, TowerLevel, price;
+	private int x, y, id, towerType, towerLevel, price;
 	private int cdTick = 0;
 	
 	private float defaultDmg;
+	private float Dmg;
+	
 	private float defaultRange;
+	private float Range;
+	
 	private float defaultCooldown;
+	private float Cooldown;
+	
 	private int timer = 0;
 	
 	public Tower(int x, int y, int id, int TowerType, int TowerLevel) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
-		this.TowerType = TowerType;
-		this.TowerLevel = TowerLevel;
+		this.towerType = TowerType;
+		this.towerLevel = TowerLevel;
 		
 		setDefaultRange();
 		setDefaultCooldown();
@@ -31,19 +37,67 @@ public class Tower {
 		}
 		return false;
 	}
+	
+	
+	//instellingen Dmg
 	public void setDefaultDmg() {
-		defaultDmg = helpz.Constants.Towers.GetStartDmg(TowerType);
+		defaultDmg = helpz.Constants.Towers.GetStartDmg(towerType);
 	}
 	
+	public void setDmg() {
+		Dmg = defaultDmg + towerLevel;
+	}
+	
+	public float getDefaultDmg() {
+		return defaultDmg;
+	}
+	
+	public float getDmg() {
+		return Dmg;
+	}
+	
+	
+	
+	//instellingen Range
 	public void setDefaultRange() {
-		defaultRange = helpz.Constants.Towers.GetDefaultRange(TowerType);
+		defaultRange = helpz.Constants.Towers.GetDefaultRange(towerType);
 	}
 	
-	public void setDefaultCooldown() {
-		defaultCooldown = helpz.Constants.Towers.GetDefaultCooldown(TowerType);
+	public void setRange() {
+		Range = defaultRange + towerLevel;
 	}
+	
+	public float getDefaultRange() {
+		return defaultRange;
+	}
+	
+	public float getRange() {
+		return Range;
+	}
+	
+	
+	
+	//instellingen Cooldown/attackspeed
+	public void setDefaultCooldown() {
+		defaultCooldown = helpz.Constants.Towers.GetDefaultCooldown(towerType);
+	}
+	
+	public void setCooldown() {
+		Cooldown = defaultCooldown - towerLevel;
+	}
+	
+	public float getDefaultCooldown() {
+		return defaultCooldown;
+	}
+	
+	public float getCooldown() {
+		return Cooldown;
+	}
+	
+	
+	
 	public void setPrice() {
-		price = helpz.Constants.Towers.Getprice(TowerType);
+		price = helpz.Constants.Towers.Getprice(towerType);
 	}
 	public boolean isCooldownOver() {
 		return cdTick >= defaultCooldown;
@@ -76,32 +130,22 @@ public class Tower {
 	}
 
 	public int getTowerType() {
-		return TowerType;
+		return towerType;
 	}
 
-	public void setTowerType(int towerType) {
-		TowerType = towerType;
+	public void setTowerType(int TowerType) {
+		towerType = TowerType;
 	}
 	
 	public int getTowerLevel() {
-		return TowerLevel;
+		return towerLevel;
 	}
 
-	public void setTowerLevel(int towerLevel) {
-		TowerLevel = towerLevel;
+	public void setTowerLevel(int TowerLevel) {
+		towerLevel = TowerLevel;
 	}
 
-	public float getDefaultDmg() {
-		return defaultDmg;
-	}
 
-	public float getDefaultRange() {
-		return defaultRange;
-	}
-
-	public float getDefaultCooldown() {
-		return defaultCooldown;
-	}
 	public int getPrice() {
 		return price;
 	}

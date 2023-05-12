@@ -12,6 +12,13 @@ public class Constants {
 		
 		public static final int ARROW = 0;
 		
+		/*public static int getProjectileDmg(int projectileType) {
+			switch (projectileType) {
+			case ARROW:
+				return Tower.getDmg
+			}
+		}*/
+		
 
 		
 		public static float GetSpeed(int type) {

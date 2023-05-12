@@ -36,8 +36,6 @@ public class TowerManager {
 		if (tile.getTileType() == BUILDABLE) {
 			tile.setTileType(UNBUILDABLE);
 			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER0, 0));
-			System.out.println(towers.get(0).getCurrentDmg());
-			System.out.println(towers.get(0).getTowerType());
 		}
 	
 	}

@@ -130,7 +130,7 @@ public void mouseLeftClicked(int x, int y) {
 			}
 		}
 	if (x<Constants.DimSprite & y<Constants.DimSprite){
-		enemyManager.addEnemy(helpz.Constants.Enemies.BOMBER);
+		//waveManager.createHardWave();
 	}
 		//i++;
 		//effe voorlopig

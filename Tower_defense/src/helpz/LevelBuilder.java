@@ -60,15 +60,15 @@ public class LevelBuilder {
 				}
 				
 				else if (i == 2) {
-					if ((MapLayer1.Level1[y-1][x] != 0 && MapLayer1.Level1[y-1][x] != 4) && (MapLayer1.Level1[y][x+1] != 0 && MapLayer1.Level1[y][x+1] != 4)) {
+					if ((map[y-1][x] != 0 && map[y-1][x] != 4) && (map[y][x+1] != 0 && map[y][x+1] != 4)) {
 						BufferedImage j = LevelBuilder.rotateImage(sprites.get(i), 90);
 						g.drawImage(j, x*DimSprite, y*DimSprite, null);
 					}
-					else if ((MapLayer1.Level1[y+1][x] != 0 && MapLayer1.Level1[y+1][x] != 4) && (MapLayer1.Level1[y][x+1] != 0 && MapLayer1.Level1[y][x+1] != 4)) {
+					else if ((map[y+1][x] != 0 && map[y+1][x] != 4) && (map[y][x+1] != 0 && map[y][x+1] != 4)) {
 						BufferedImage j = LevelBuilder.rotateImage(sprites.get(i), 180);
 						g.drawImage(j, x*DimSprite, y*DimSprite, null);
 					}
-					else if ((MapLayer1.Level1[y+1][x] != 0 && MapLayer1.Level1[y+1][x] != 4) && (MapLayer1.Level1[y][x-1] != 0 && MapLayer1.Level1[y][x-1] != 4)) {
+					else if ((map[y+1][x] != 0 && map[y+1][x] != 4) && (map[y][x-1] != 0 && map[y][x-1] != 4)) {
 						BufferedImage j = LevelBuilder.rotateImage(sprites.get(i), 270);
 						g.drawImage(j, x*DimSprite, y*DimSprite, null);
 					}

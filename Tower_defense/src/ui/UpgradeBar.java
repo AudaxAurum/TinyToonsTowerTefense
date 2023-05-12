@@ -25,8 +25,9 @@ public class UpgradeBar {
 	}
 	public void drawvalues(Graphics g) {
 		g.setColor(new Color(255,255,255));
-		g.drawString("Health = " + playing.castle_health, x, y + 15);
-		g.drawString("Gold = " + playing.gold, x, y + 30 );
+		g.drawString("Health = " + playing.getCastle_health(), x, y + 15);
+		g.drawString("Gold = " + playing.getGold(), x, y + 30 );
+		g.drawString("Wave" + + playing.getCurrentWave() + "/" + playing.getWaves(), x, y + 45 );
 	}
 	
 }

@@ -19,8 +19,7 @@ public class EnemyManager {
 	private ArrayList<Enemy> enemies = new ArrayList<>();
 	private ArrayList<Integer> deadEnemies = new ArrayList<>();
 	
-	public int timer = 1;
-	private boolean check = true;
+	
 	 
 	public EnemyManager(Playing playing, int level) {
 		this.playing = playing;
@@ -77,9 +76,8 @@ public class EnemyManager {
 	}
 
 	public void update() {
-		timer++;
-		if (this.check) {
-			basicwave();
+		if(isTimeForNewEnemy()) {
+			spawnEnemy();
 		}
 		for (Enemy e : enemies) {
 			if (e.getAlive()) {
@@ -103,6 +101,18 @@ public class EnemyManager {
 		
 		
 	}
+	private boolean isTimeForNewEnemy() {
+		if (playing.getWaveManager().isTimeForNewEnemy()){
+			
+		}
+		return false;
+	}
+
+	private void spawnEnemy() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void addEnemy(int enemytype) {
 		enemies.add (new Enemy(enemytype, this));
 		enemies.size();
@@ -133,25 +143,6 @@ public class EnemyManager {
 	
 	public void castledmg(int dmg) {
 		playing.Castledmg(dmg);
-	}
-	
-	public void basicwave() {
-		if (timer == 2) {
-			addEnemy(helpz.Constants.Enemies.BOMBER);
-		}
-		if (timer % 65 == 0) {
-			addEnemy(helpz.Constants.Enemies.BOMBER);
-		}
-		if (timer % 150 == 0) {
-			addEnemy(helpz.Constants.Enemies.ORC);
-			this.check = false;
-		}
-	}
-	public void simpelwave() {
-		
-	}
-	public void hardwave() {
-		
 	}
 
 }

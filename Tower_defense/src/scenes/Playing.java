@@ -22,6 +22,7 @@ import managers.EnemyManager;
 import managers.ProjectileManager;
 import managers.TileManager;
 import managers.TowerManager;
+import managers.WaveManager;
 import maplayers.MapLayer1;
 import objects.Tile;
 import ui.MyButton;
@@ -30,7 +31,6 @@ import helpz.Constants;
 import helpz.LevelBuilder;
 import tower.Tower;
 import ui.UpgradeBar;
-import levels.level1;
 
 public class Playing extends GameScene implements SceneMethods {
 
@@ -42,15 +42,19 @@ public class Playing extends GameScene implements SceneMethods {
 	private ProjectileManager projManager;
 	private TileManager tileManager;
 	private MyButton bUpgraden;
+	private WaveManager waveManager;
 	private int[][] map;
 	private UpgradeBar upgradeBar;
 	
-	public int gold = 200; //starting value
-	public int castle_health = 20;
+	private int gold, castle_health, waves, currentwave;
 	
 	public Playing(Game game, int level) {
 		super(game);
 		this.map = helpz.Constants.levels.GetMap(level);
+		this.gold = helpz.Constants.levels.GetStartGold(level);
+		this.castle_health = helpz.Constants.levels.GetCastleHealth(level);
+		this.waves = helpz.Constants.levels.GetAmoundOfWaves(level);
+		this.currentwave = 0;
 		importImg();
 		loadSprites();
 		
@@ -61,6 +65,7 @@ public class Playing extends GameScene implements SceneMethods {
 		projManager = new ProjectileManager(this);
 		tileManager = new TileManager(this, map);
 		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this);
+		waveManager = new WaveManager(this);
 		
 		
 	}
@@ -173,6 +178,9 @@ public void setTowerManager(TowerManager towerManager) {
 public ProjectileManager getProjManager() {
 	return projManager;
 }
+public WaveManager getWaveManager() {
+		return waveManager;
+}
 public void setProjManager(ProjectileManager projManager) {
 	this.projManager = projManager;
 }
@@ -203,14 +211,14 @@ public void Castledmg(int dmg) {
 public int getGold() {
 	return gold;
 }
-public void setGold(int gold) {
-	this.gold = gold;
-}
 public int getCastle_health() {
 	return castle_health;
 }
-public void setCastle_health(int castle_health) {
-	this.castle_health = castle_health;
+public int getWaves() {
+	return waves;
+}
+public int getCurrentWave() {
+	return currentwave;
 }
 
 

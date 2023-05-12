@@ -85,7 +85,7 @@ public class Constants {
 		public static int Getprice(int towerType) {
 			switch (towerType) {
 			case ARCHER0:
-				return 20;
+				return 75;
 			
 			case UNBUILD:
 				return 0;

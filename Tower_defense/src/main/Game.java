@@ -154,6 +154,6 @@ public class Game extends JFrame implements Runnable{
 	}
 	
 	private void setLevel() {
-		this.level = LEVEL2;
+		this.level = LEVEL1;
 	}
 }

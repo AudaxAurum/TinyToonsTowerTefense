@@ -80,8 +80,7 @@ public class TowerManager {
 	
 	public void upgradeTower() {
 		if (selectedTower != null) {
-			selectedTower.setTowerLevel(selectedTower.getTowerLevel()+1);
-			
+			selectedTower.setTowerLevel(selectedTower.getTowerLevel()+1);			
 		}
 	}
 

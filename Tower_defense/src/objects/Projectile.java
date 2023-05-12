@@ -3,19 +3,21 @@ package objects;
 import java.awt.geom.Point2D;
 
 import enemy.Enemy;
+import tower.Tower;
 
 public class Projectile {
 	
 	private Point2D.Float position;
 	private int ID, projectileType;
-	private float x, y, Speed;
+	private float x, y, dmg, Speed;
 	private boolean active = true;
 	public boolean alive = true;
 	private Enemy target;
 	
-	public Projectile(float x, float y, float Speed, int ID, int projectileType, Enemy e) {
-		this.x = x;
-		this.y = y;
+	public Projectile(Tower t, float Speed, int ID, int projectileType, Enemy e) {
+		this.x = t.getX();
+		this.y = t.getY();
+		this.dmg = t.getCurrentDmg();
 		this.Speed = Speed;
 		this.ID = ID;
 		this.projectileType = projectileType;
@@ -24,7 +26,7 @@ public class Projectile {
 	
 	public void move() {
 		if(Math.abs(x - target.getX()) <= 10 & Math.abs(y - target.getY()) <= 10) { // kan properder
-			target.dmg(10); // dmg aanpassen
+			target.dmg((int)dmg); // dmg aanpassen
 			alive = false;
 		}    //allemaal voorlopig voor te testen
 		else if (x < target.getX()) {

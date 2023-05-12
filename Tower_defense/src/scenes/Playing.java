@@ -122,15 +122,13 @@ public void mouseLeftClicked(int x, int y) {
 						gold -= i.getPrice();
 					}
 				}
-			
-			
-			
 			}
-		else if (x<Constants.DimSprite & y<Constants.DimSprite){
-			enemyManager.addEnemy(helpz.Constants.Enemies.BOMBER);
 		}
+	if (x<Constants.DimSprite & y<Constants.DimSprite){
+		enemyManager.addEnemy(helpz.Constants.Enemies.BOMBER);
+	}
 		//i++;
-		} //effe voorlopig
+		//effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);
 	

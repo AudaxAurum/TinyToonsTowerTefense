@@ -30,7 +30,7 @@ public class ProjectileManager {
 	}
 	
 	public void newProjectile(Tower t, Enemy e) {	
-		projectiles.add (new Projectile(t.getX(),t.getY(),6,0,0,e));
+		projectiles.add (new Projectile(t,6,0,0,e));
 	}
 	public void update() {
 		for(Projectile p : projectiles) {

@@ -34,11 +34,11 @@ public class Enemy {
 		setdmg();
 	}
 	private void setdmg() {
-		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
+		dmg = helpz.Constants.Enemies.Getdmg(enemyType);
 		
 	}
 	public void dmg(int dmg) {
-		this.health -= dmg;
+		health -= dmg;
 		if (health <= 0) {
 			if (enemymovement.running)	{
 				alive = false;
@@ -59,7 +59,7 @@ public class Enemy {
 
 		
 	private void setStartHealth() {
-		dmg = helpz.Constants.Enemies.Getdmg(enemyType);
+		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
 	}
 	private void setSpeed() {
 		speed = helpz.Constants.Enemies.GetSpeed(enemyType);

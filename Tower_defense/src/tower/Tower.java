@@ -45,17 +45,13 @@ public class Tower {
 		defaultDmg = helpz.Constants.Towers.GetStartDmg(towerType);
 	}
 	
-	public void setCurrentDmg() {
-		Dmg = defaultDmg + towerLevel;
-	}
+	
 	
 	public float getDefaultDmg() {
 		return defaultDmg;
 	}
 	
-	public float getCurrentDmg() {
-		return Dmg;
-	}
+	
 	
 	
 	
@@ -74,9 +70,7 @@ public class Tower {
 		return defaultRange;
 	}
 	
-	public float getCurrentRange() {
-		return Range;
-	}
+	
 	
 	
 	
@@ -84,23 +78,9 @@ public class Tower {
 	public void setDefaultCooldown() {
 		defaultCooldown = helpz.Constants.Towers.GetDefaultCooldown(towerType);
 	}
-	
-	public void setCurrentCooldown() {
-		if (towerLevel % 10 == 0) {
-			Cooldown = defaultCooldown - (float) 0.2*towerLevel;
-		}
-	}
-	
 	public float getDefaultCooldown() {
 		return defaultCooldown;
 	}
-	
-	public float getCurrentCooldown() {
-		return Cooldown;
-	}
-	
-	
-	
 	public void setPrice() {
 		price = helpz.Constants.Towers.Getprice(towerType);
 	}

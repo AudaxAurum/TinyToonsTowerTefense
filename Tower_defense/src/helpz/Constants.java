@@ -126,11 +126,11 @@ public class Constants {
 		public static int GetStartHealth(int enemyType) {
 			switch (enemyType) {
 			case ORC:
-				return 85;
-			case GOBLIN:
 				return 100;
+			case GOBLIN:
+				return 85;
 			case BOMBER:
-				return 75;
+				return 16;
 			}
 			return 0;
 		}

@@ -78,10 +78,11 @@ public class Playing extends GameScene implements SceneMethods {
 		towerManager.draw(g);
 		enemyManager.draw(g);
 		projManager.draw(g);
-		towerManager.drawSelectedTower(g, towerManager.selectedTower);
 
 		upgradeBar.drawbar(g);
 		upgradeBar.drawvalues(g);
+		towerManager.drawSelectedTower(g);
+
 	}
 	
 private void importImg() {
@@ -132,7 +133,14 @@ public void mouseLeftClicked(int x, int y) {
 		} //effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);
+	
+	if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
+		(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+		
+		towerManager.upgradeTower();
+		System.out.println(towerManager.selectedTower.getTowerLevel());
 	}
+}
 			
 public BufferedImage getImg() {
 	return img;

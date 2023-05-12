@@ -36,7 +36,7 @@ public class TowerManager {
 	public void changeTower(Tile tile) {
 		if (tile.getTileType() == BUILDABLE) {
 			tile.setTileType(UNBUILDABLE);
-			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER, 5));
+			towers.add(new Archer(tile.getX(), tile.getY(), 0, ARCHER, 0));
 			System.out.println(towers.get(0).getCurrentDmg());
 			System.out.println(towers.get(0).getTowerType());
 		}
@@ -61,16 +61,28 @@ public class TowerManager {
 		return distancetoenemy <=  (tower.getCurrentRange()/2);
 		}
 	
-	public void drawSelectedTower(Graphics g, Tower tower) {
+	public void drawSelectedTower(Graphics g) {
 		if (selectedTower != null) {
 			drawRange(g, selectedTower);
-			drawUpgradeButton();
+			drawUpgradeButton(g);
 		}
 	}
 
 
-	private void drawUpgradeButton() {
-		
+	private void drawUpgradeButton(Graphics g) {
+		if (selectedTower != null) {
+			g.setColor(Color.GREEN);
+			g.fillRect(Constants.DimSprite*Constants.xMatrix - 150, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+			g.setColor(Color.BLACK);
+			g.drawString("Upgrade", Constants.DimSprite*Constants.xMatrix - 140, Constants.DimSprite*Constants.yMatrix + 55);
+		}
+	}
+	
+	public void upgradeTower() {
+		if (selectedTower != null) {
+			selectedTower.setTowerLevel(selectedTower.getTowerLevel()+1);
+			
+		}
 	}
 
 

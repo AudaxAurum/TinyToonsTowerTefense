@@ -122,7 +122,9 @@ public class TowerManager {
 		attackEnemy();
 		for (Tower t: towers) {
 			t.update();
+			
 		}
+		this.Towerselector =ui.UpgradeBar.getTowerselector(); 
 	}
 	
 	public void draw(Graphics g) {

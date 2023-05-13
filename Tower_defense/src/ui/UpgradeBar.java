@@ -19,12 +19,13 @@ public class UpgradeBar {
 	public static int Towerselector;
 	private TowerManager towerManager;
 
-	public UpgradeBar(int x, int y, int width, int height, Playing playing) {
+	public UpgradeBar(int x, int y, int width, int height, Playing playing,TowerManager towerManager ) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.playing = playing;
+		this.towerManager = towerManager;
 		initButtons() ;
 		
 	}

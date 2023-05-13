@@ -66,7 +66,7 @@ public class Playing extends GameScene implements SceneMethods {
 		towerManager = new TowerManager(this);
 		projManager = new ProjectileManager(this);
 		tileManager = new TileManager(this, map);
-		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this);
+		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this,towerManager);
 		waveManager = new WaveManager(this);
 		
 		
@@ -151,7 +151,7 @@ public void mouseLeftClicked(int x, int y) {
 	// doet nog niks
 	//int i = 0;
 	if (y>576) {
-		UpgradeBar.Clicked(x,y);
+		upgradeBar.Clicked(x,y);
 	}
 	for (Tile t : tileManager.towerPlace) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 

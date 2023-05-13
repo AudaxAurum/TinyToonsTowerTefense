@@ -55,7 +55,7 @@ public class Playing extends GameScene implements SceneMethods {
 		this.gold = helpz.Constants.levels.GetStartGold(level);
 		this.castle_health = helpz.Constants.levels.GetCastleHealth(level);
 		this.waves = helpz.Constants.levels.GetAmoundOfWaves(level);
-		this.currentwave = 0;
+		this.currentwave = 1;
 		importImg();
 		loadSprites();
 		
@@ -83,6 +83,7 @@ public class Playing extends GameScene implements SceneMethods {
 					waveManager.increaseWaveIndex();
 					enemyManager.getEnemies().clear();
 					waveManager.resetEnemyIndex();
+					currentwave ++;
 
 				}
 			}

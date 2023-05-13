@@ -3,6 +3,7 @@ package scenes;
 import static helpz.Constants.Towers.*;
 import static main.GameStates.PLAYING;
 import static main.GameStates.SetGameState;
+import static helpz.Constants.Tiles.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -119,7 +120,7 @@ public void mouseLeftClicked(int x, int y) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
 			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
 			
-			if (gold >= helpz.Constants.Towers.Getprice(ARCHER0)) {
+			if (gold >= helpz.Constants.Towers.Getprice(ARCHER0) && t.getTileType() == BUILDABLE) {
 				towerManager.changeTower(t);
 				gold -= towerManager.towers.get(towerManager.towers.size()-1).getPrice();
 			}

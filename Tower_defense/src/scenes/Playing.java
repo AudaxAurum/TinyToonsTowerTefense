@@ -74,6 +74,22 @@ public class Playing extends GameScene implements SceneMethods {
 		enemyManager.update();
 		towerManager.update();
 		projManager.update();
+		waveManager.update();
+		
+		if (isThereMoreWaves()) {
+			waveManager.startWaveTimer();
+			if (isWaveTimerOver()) {
+				waveManager.increaseWaveIndex();
+
+			}
+		}
+	}
+	private boolean isWaveTimerOver() {
+
+		return waveManager.isWaveTimerOver();
+	}
+	private boolean isThereMoreWaves() {
+		return waveManager.isThereMoreWaves();
 	}
 
 	@Override

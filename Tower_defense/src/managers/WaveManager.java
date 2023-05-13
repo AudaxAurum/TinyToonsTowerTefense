@@ -13,7 +13,7 @@ public class WaveManager {
 	private int enemySpawnTickLimit = 85;
 	private int enemySpawnTick = enemySpawnTickLimit;
 	private int enemyIndex, waveIndex;
-	private int waveTickLimit = 60 * 5;
+	private int waveTickLimit = 60 * 100;
 	private int waveTick = 0;
 	private boolean waveStartTimer, waveTickTimerOver;
 

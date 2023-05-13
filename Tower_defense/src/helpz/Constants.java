@@ -49,6 +49,9 @@ public class Constants {
 		public static final int ARCHER2 = 12;
 //		public static final int WIZARD0 = 20;
 //		public static final int WIZARD1 = 21;
+		public static final int CRUSHER0 = 13;
+		public static final int CRUSHER1 = 14;
+		public static final int CRUSHER2 = 15;
 		
 		public static int GetProjectile(int towerType) {
 			switch (towerType) {
@@ -68,6 +71,10 @@ public class Constants {
 			case ARCHER0:
 				return 15;
 			
+			case CRUSHER0:
+				
+				return 5;
+			
 			case UNBUILD:
 				return 0;
 
@@ -80,6 +87,9 @@ public class Constants {
 			switch (towerType) {
 			case ARCHER0:
 				return 240;
+				
+			case CRUSHER0:
+				return 200;
 			
 			case UNBUILD:
 				return 0;
@@ -93,6 +103,10 @@ public class Constants {
 			case ARCHER0:
 				return 35;
 			
+			case CRUSHER0:
+				
+				return 50;
+			
 			case UNBUILD:
 				return 0;
 			}
@@ -103,6 +117,10 @@ public class Constants {
 			switch (towerType) {
 			case ARCHER0:
 				return 75;
+				
+			case CRUSHER0:
+				
+				return 50;
 			
 			case UNBUILD:
 				return 0;

@@ -119,6 +119,8 @@ public class Playing extends GameScene implements SceneMethods {
 
 		upgradeBar.drawbar(g);
 		upgradeBar.drawvalues(g);
+		upgradeBar.drawArcherButton(g);
+		upgradeBar.drawCrusherButton(g);
 		towerManager.drawSelectedTower(g);
 
 	}

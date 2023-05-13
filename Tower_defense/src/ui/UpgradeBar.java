@@ -49,7 +49,7 @@ public void initButtons() {
 		g.setColor(new Color(255,255,255));
 		g.drawString("Health = " + playing.getCastle_health(), x, y + 15);
 		g.drawString("Gold = " + playing.getGold(), x, y + 30 );
-		g.drawString("Wave" + + playing.getCurrentWave() + "/" + playing.getWaves(), x, y + 45 );
+		g.drawString("Wave" + playing.getCurrentWave() + "/" + playing.getWaves(), x, y + 45 );
 	}
 
 

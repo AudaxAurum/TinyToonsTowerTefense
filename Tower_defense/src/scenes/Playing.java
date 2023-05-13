@@ -1,21 +1,15 @@
 package scenes;
 
 import static helpz.Constants.Towers.*;
-import static main.GameStates.PLAYING;
-import static main.GameStates.SetGameState;
 import static helpz.Constants.Tiles.*;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import enemy.Enemy;
 import main.Game;
@@ -24,14 +18,12 @@ import managers.ProjectileManager;
 import managers.TileManager;
 import managers.TowerManager;
 import managers.WaveManager;
-import maplayers.MapLayer1;
 import objects.Tile;
 import ui.MyButton;
 import ui.UpgradeBar;
 import helpz.Constants;
 import helpz.LevelBuilder;
 import tower.Tower;
-import ui.UpgradeBar;
 
 public class Playing extends GameScene implements SceneMethods {
 
@@ -46,7 +38,6 @@ public class Playing extends GameScene implements SceneMethods {
 	private WaveManager waveManager;
 	private int[][] map;
 	private UpgradeBar upgradeBar;
-	private MyButton bCrusher,bArcher;
 	
 	private int gold, castle_health, waves, currentwave;
 	
@@ -55,7 +46,7 @@ public class Playing extends GameScene implements SceneMethods {
 		this.map = helpz.Constants.levels.GetMap(level);
 		this.gold = helpz.Constants.levels.GetStartGold(level);
 		this.castle_health = helpz.Constants.levels.GetCastleHealth(level);
-		this.waves = helpz.Constants.levels.GetAmoundOfWaves(level);
+		this.waves = helpz.Constants.levels.getAmountOfWaves(level);
 		this.currentwave = 1;
 		importImg();
 		loadSprites();

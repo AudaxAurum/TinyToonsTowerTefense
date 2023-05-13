@@ -270,10 +270,10 @@ public class Constants {
 				}
 				return 0;
 			}
-			public static int GetAmoundOfWaves(int level) {
+			public static int getAmountOfWaves(int level) {
 				switch(level) {
 				case LEVEL1:
-					return 5;
+					return 5  ;
 				}
 				return 0;
 			}

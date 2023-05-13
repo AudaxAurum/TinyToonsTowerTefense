@@ -119,8 +119,7 @@ public class Playing extends GameScene implements SceneMethods {
 
 		upgradeBar.drawbar(g);
 		upgradeBar.drawvalues(g);
-		upgradeBar.drawArcherButton(g);
-		upgradeBar.drawCrusherButton(g);
+		upgradeBar.drawButtons(g);
 		towerManager.drawSelectedTower(g);
 
 	}
@@ -166,9 +165,7 @@ public void mouseLeftClicked(int x, int y) {
 				}
 			}
 		}
-	if (x<Constants.DimSprite & y<Constants.DimSprite){
-		waveManager.createNormalWave();
-	}
+
 		//i++;
 		//effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {

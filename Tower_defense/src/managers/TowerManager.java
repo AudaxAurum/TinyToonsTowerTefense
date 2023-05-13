@@ -23,10 +23,11 @@ public class TowerManager {
 	private BufferedImage[] towerImgs;
 	public  ArrayList<Tower> towers = new ArrayList<>();
 	public Tower selectedTower;
+	public int Towerselector;
 	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
-		
+		this.Towerselector = helpz.Constants.Towers.ARCHER0;
 		loadTowerImgs();
 
 	}
@@ -35,7 +36,7 @@ public class TowerManager {
 	public void changeTower(Tile tile) {
 		if (tile.getTileType() == BUILDABLE) {
 			tile.setTileType(UNBUILDABLE);
-			towers.add(new Tower(tile.getX(), tile.getY(), 0, ARCHER0, 0));
+			towers.add(new Tower(tile.getX(), tile.getY(), 0, Towerselector, 0));
 		}
 	
 	}

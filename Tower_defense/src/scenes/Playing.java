@@ -76,11 +76,15 @@ public class Playing extends GameScene implements SceneMethods {
 		projManager.update();
 		waveManager.update();
 		
-		if (isThereMoreWaves()) {
-			waveManager.startWaveTimer();
-			if (isWaveTimerOver()) {
-				waveManager.increaseWaveIndex();
+		if (isAllEnemiesDead()) {
+			if (isThereMoreWaves()) {
+				waveManager.startWaveTimer();
+				if (isWaveTimerOver()) {
+					waveManager.increaseWaveIndex();
+					enemyManager.getEnemies().clear();
+					waveManager.resetEnemyIndex();
 
+				}
 			}
 		}
 	}
@@ -90,6 +94,17 @@ public class Playing extends GameScene implements SceneMethods {
 	}
 	private boolean isThereMoreWaves() {
 		return waveManager.isThereMoreWaves();
+	}
+	private boolean isAllEnemiesDead() {
+
+		if (waveManager.isThereMoreEnemies())
+			return false;
+
+		for (Enemy e : enemyManager.getEnemies())
+			if (e.getAlive())
+				return false;
+
+		return true;
 	}
 
 	@Override

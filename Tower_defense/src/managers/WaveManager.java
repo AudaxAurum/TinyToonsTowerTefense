@@ -13,7 +13,7 @@ public class WaveManager {
 	private int enemySpawnTickLimit = 85;
 	private int enemySpawnTick = enemySpawnTickLimit;
 	private int enemyIndex, waveIndex;
-	private int waveTickLimit = 60 * 100;
+	private int waveTickLimit = 60 * 10;
 	private int waveTick = 0;
 	private boolean waveStartTimer, waveTickTimerOver;
 
@@ -29,6 +29,7 @@ public class WaveManager {
 		}
 		if (waveStartTimer) {
 			waveTick++;
+			System.out.print(waveTick);
 			if (waveTick >= waveTickLimit) {
 				waveTickTimerOver = true;
 			}
@@ -57,6 +58,7 @@ public class WaveManager {
 		waves.add(new Wave(new ArrayList<Integer>(Arrays.asList(3,3,4,4,4,4,4,5,5,5))));
 		waves.add(new Wave(new ArrayList<Integer>(Arrays.asList(4,4,4,4,4,4,4,4,4,4))));
 		
+		
 	}
 	//public void createHardWave() {
 	//	waves.add(new Wave(new ArrayList<Integer>(Arrays.asList(3,3,3,3,3,5,5,5,5,5))));
@@ -75,5 +77,8 @@ public class WaveManager {
 	}
 	public boolean isThereMoreWaves() {
 		return waveIndex + 1 < waves.size();
+	}
+	public void resetEnemyIndex() {
+		enemyIndex = 0;
 	}
 }

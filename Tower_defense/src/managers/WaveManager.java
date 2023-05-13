@@ -60,10 +60,6 @@ public class WaveManager {
 		
 		
 	}
-	//public void createHardWave() {
-	//	waves.add(new Wave(new ArrayList<Integer>(Arrays.asList(3,3,3,3,3,5,5,5,5,5))));
-		
-	//}
 
 	public ArrayList<Wave> GetWaves(){
 		return waves;

@@ -160,11 +160,6 @@ public void mouseLeftClicked(int x, int y) {
 				}
 			}
 		}
-
-		//i++;
-		//effe voorlopig
-	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
-	//	projManager.newProjectile(tower, e);
 }
 			
 public BufferedImage getImg() {

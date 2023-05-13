@@ -90,7 +90,7 @@ public class EnemyMovement {
 		
 	}
 	//hieronder de echte movement
-	public void movement(int[][] map, float speed, int dmg, EnemyManager em) { //vragen hoe zei tit zouden aanpakken
+	public void movement(int[][] map, float speed, int dmg, EnemyManager em) {
 		this.em = em;
 		timer++;
 		if (timer % 25 == 0 & timerhelp == 0) {

@@ -117,15 +117,16 @@ public void mouseLeftClicked(int x, int y) {
 	//int i = 0;
 	for (Tile t : tileManager.towerPlace) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
-			t.getY() <= y && y <= (t.getY() + Constants.DimSprite) && (gold >= helpz.Constants.Towers.Getprice(ARCHER0))) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
+			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
 			
-			towerManager.changeTower(t);
+			if (gold >= helpz.Constants.Towers.Getprice(ARCHER0)) {
+				towerManager.changeTower(t);
+				gold -= towerManager.towers.get(towerManager.towers.size()-1).getPrice();
+			}
 
-			
 			for (Tower i: towerManager.towers) {
 					if (t.getX() == i.getX() & t.getY() == i.getY()) {
 						towerManager.selectedTower = i;
-						gold -= i.getPrice();
 					}
 				}
 			}

@@ -44,11 +44,11 @@ public class Constants {
 	
 	public static class Towers{
 		public static final int UNBUILD = 0;
-		public static final int ARCHER0 = 1;
-		public static final int ARCHER1 = 2;
-		public static final int ARCHER2 = 3;
-//		public static final int 
-//		public static final int 
+		public static final int ARCHER0 = 10;
+		public static final int ARCHER1 = 11;
+		public static final int ARCHER2 = 12;
+//		public static final int WIZARD0 = 20;
+//		public static final int WIZARD1 = 21;
 		
 		public static int GetProjectile(int towerType) {
 			switch (towerType) {

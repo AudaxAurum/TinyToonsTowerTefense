@@ -46,6 +46,7 @@ public class Playing extends GameScene implements SceneMethods {
 	private WaveManager waveManager;
 	private int[][] map;
 	private UpgradeBar upgradeBar;
+	private MyButton bCrusher,bArcher;
 	
 	private int gold, castle_health, waves, currentwave;
 	
@@ -149,7 +150,9 @@ private void loadSprites() {
 public void mouseLeftClicked(int x, int y) {
 	// doet nog niks
 	//int i = 0;
-	
+	if (y>576) {
+		UpgradeBar.Clicked(x,y);
+	}
 	for (Tile t : tileManager.towerPlace) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
 			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.

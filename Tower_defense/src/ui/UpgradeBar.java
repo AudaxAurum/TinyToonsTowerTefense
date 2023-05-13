@@ -61,7 +61,7 @@ public void initButtons() {
 	public void setTowerselector(int towerselector) {
 		Towerselector = towerselector;
 	}
-	public void mouseLeftClicked(int x, int y) {
+	public void Clicked(int x, int y) {
 		if (bCrusher.getBounds().contains(x, y)) {
 			Towerselector =helpz.Constants.Towers.CRUSHER0;
 			System.out.print(Towerselector);

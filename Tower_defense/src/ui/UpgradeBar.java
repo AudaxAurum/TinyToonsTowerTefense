@@ -5,9 +5,6 @@ import static main.GameStates.SetGameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import ui.MyButton;
-
-import helpz.Constants;
 import scenes.Playing;
 
 public class UpgradeBar {
@@ -15,6 +12,7 @@ public class UpgradeBar {
 	private int x, y, width, height;
 	private Playing playing;
 	private MyButton bCrusher,bArcher;
+	public static int Towerselector;
 
 	public UpgradeBar(int x, int y, int width, int height, Playing playing) {
 		this.x = x;
@@ -22,6 +20,7 @@ public class UpgradeBar {
 		this.width = width;
 		this.height = height;
 		this.playing = playing;
+		initButtons() ;
 		
 	}
 public void initButtons() {
@@ -29,10 +28,10 @@ public void initButtons() {
 		int w = 80;
 		int h= 40;
 		int x = 100;
-		int y = 15;
+		int y = 600;
 
-		 this.bCrusher = new MyButton(x+100, y, w, h ,"Crusher");
-		 this.bArcher = new MyButton(x, y, w, h ,"Archer");
+		 bCrusher = new MyButton(x+100, y, w, h ,"Crusher");
+		 bArcher = new MyButton(x, y, w, h ,"Archer");
 		
 	}
 	
@@ -46,28 +45,8 @@ public void initButtons() {
 		g.drawString("Gold = " + playing.getGold(), x, y + 30 );
 		g.drawString("Wave" + + playing.getCurrentWave() + "/" + playing.getWaves(), x, y + 45 );
 	}
-	//public void drawArcherButton(Graphics g) {
 
-		//g.setColor(Color.GREEN);
-		//g.fillRect(x+100, y+15, 80, 40);
-		//g.setColor(Color.BLACK);
-		//g.drawString("Archer", x+110,y+35);
-	
-//}
-	//public void drawCrusherButton(Graphics g) {
 
-		//g.setColor(Color.GREEN);
-		//g.fillRect(x+200, y+15, 80, 40);
-		//g.setColor(Color.BLACK);
-		//g.drawString("Crusher", x+210,y+35);
-	
-//}
-	public void render(Graphics g) {
-
-		drawButtons(g);
-		 
-
-	}
 
 	public void drawButtons(Graphics g) {
 		bCrusher.draw(g);
@@ -76,11 +55,21 @@ public void initButtons() {
 		
 	}
 
+	public static int getTowerselector() {
+		return Towerselector;
+	}
+	public void setTowerselector(int towerselector) {
+		Towerselector = towerselector;
+	}
 	public void mouseLeftClicked(int x, int y) {
 		if (bCrusher.getBounds().contains(x, y)) {
-			SetGameState(PLAYING);
+			Towerselector =helpz.Constants.Towers.CRUSHER0;
+			System.out.print(Towerselector);
 		}
-		
+		if (bArcher.getBounds().contains(x, y)) {
+			Towerselector =helpz.Constants.Towers.ARCHER0;
+			System.out.print(Towerselector);
+		}
 	}
 	
 }

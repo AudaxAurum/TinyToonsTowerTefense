@@ -16,6 +16,7 @@ import objects.Tile;
 import scenes.Playing;
 import tower.Archer;
 import tower.Tower;
+import ui.UpgradeBar;
 
 public class TowerManager {
 	
@@ -25,9 +26,10 @@ public class TowerManager {
 	public Tower selectedTower;
 	public int Towerselector;
 	
+	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
-		this.Towerselector = helpz.Constants.Towers.ARCHER0;
+		this.Towerselector =ui.UpgradeBar.getTowerselector(); 
 		loadTowerImgs();
 
 	}

@@ -114,13 +114,13 @@ public class Constants {
 		public static float GetRangeUpgradeFactor(int towerType) {
 			switch (towerType) {
 			case ARCHER0:
-				return 3;
+				return 1.5f;
 				
 			case ARCHER1:
-				return 2;
+				return 3;
 			
 			case ARCHER2:
-				return 4;
+				return 0.75f;
 			
 			case UNBUILD:
 				return 0;
@@ -134,10 +134,10 @@ public class Constants {
 				return 1;
 				
 			case ARCHER1:
-				return 0.5f;
+				return 1.5f;
 			
 			case ARCHER2:
-				return 1.5f;
+				return 0.5f;
 				
 			case UNBUILD:
 				return 0;

@@ -62,23 +62,42 @@ public class TowerManager {
 		if (selectedTower != null) {
 			drawRange(g, selectedTower);
 			drawUpgradeButton(g);
+			
+			if (selectedTower.getTowerLevel() == 9) {
+				drawSpecialisationButton(g);
+
+			}
+
 		}
 	}
 
 
 	private void drawUpgradeButton(Graphics g) {
-		if (selectedTower != null) {
+
 			g.setColor(Color.GREEN);
-			g.fillRect(Constants.DimSprite*Constants.xMatrix - 150, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+			g.fillRect(Constants.DimSprite*Constants.xMatrix - 350, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
 			g.setColor(Color.BLACK);
-			g.drawString("Upgrade", Constants.DimSprite*Constants.xMatrix - 140, Constants.DimSprite*Constants.yMatrix + 55);
-		}
+			g.drawString("Upgrade", Constants.DimSprite*Constants.xMatrix - 335, Constants.DimSprite*Constants.yMatrix + 55);
+		
 	}
 	
 	public void upgradeTower() {
 		if (selectedTower != null) {
-			selectedTower.setTowerLevel(selectedTower.getTowerLevel()+1);			
+			selectedTower.setTowerLevel(selectedTower.getTowerLevel()+1);
 		}
+	}
+
+
+	private void drawSpecialisationButton(Graphics g) {
+		
+		g.setColor(Color.RED);
+		g.fillRect(Constants.DimSprite*Constants.xMatrix - 250, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+		g.fillRect(Constants.DimSprite*Constants.xMatrix - 150, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+		g.setColor(Color.BLACK);
+		g.drawString("Longbow", Constants.DimSprite*Constants.xMatrix - 235, Constants.DimSprite*Constants.yMatrix + 55);
+		g.drawString("Swiftbow", Constants.DimSprite*Constants.xMatrix - 135, Constants.DimSprite*Constants.yMatrix + 55);
+
+		
 	}
 
 

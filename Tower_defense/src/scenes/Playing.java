@@ -174,30 +174,6 @@ public void mouseLeftClicked(int x, int y) {
 		//effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);
-	if (towerManager.selectedTower != null) {
-		if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
-				(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-		
-				towerManager.upgradeTower();
-				System.out.println(towerManager.selectedTower.getTowerLevel());
-		}
-	
-		if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
-			(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-			
-				towerManager.selectedTower.setTowerType(ARCHER1);
-				towerManager.upgradeTower();
-
-		}
-	
-		if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
-			(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-			
-				towerManager.selectedTower.setTowerType(ARCHER2);
-				towerManager.upgradeTower();
-
-		}
-	}
 }
 			
 public BufferedImage getImg() {

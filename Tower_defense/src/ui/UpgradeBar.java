@@ -1,10 +1,14 @@
 package ui;
 
+import static helpz.Constants.Towers.*;
 import static main.GameStates.PLAYING;
 import static main.GameStates.SetGameState;
+import managers.TowerManager;
 
 import java.awt.Color;
 import java.awt.Graphics;
+
+import helpz.Constants;
 import scenes.Playing;
 
 public class UpgradeBar {
@@ -13,6 +17,7 @@ public class UpgradeBar {
 	private Playing playing;
 	private MyButton bCrusher,bArcher;
 	public static int Towerselector;
+	private TowerManager towerManager;
 
 	public UpgradeBar(int x, int y, int width, int height, Playing playing) {
 		this.x = x;
@@ -69,6 +74,30 @@ public void initButtons() {
 		if (bArcher.getBounds().contains(x, y)) {
 			Towerselector =helpz.Constants.Towers.ARCHER0;
 			System.out.print(Towerselector);
+		}
+		if (towerManager.selectedTower != null) {
+			if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
+					(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+			
+					towerManager.upgradeTower();
+					System.out.println(towerManager.selectedTower.getTowerLevel());
+			}
+		
+			if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
+				(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+				
+					towerManager.selectedTower.setTowerType(ARCHER1);
+					towerManager.upgradeTower();
+
+			}
+		
+			if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
+				(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+				
+					towerManager.selectedTower.setTowerType(ARCHER2);
+					towerManager.upgradeTower();
+
+			}
 		}
 	}
 	

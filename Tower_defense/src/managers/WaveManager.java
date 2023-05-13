@@ -31,7 +31,7 @@ public class WaveManager {
 		return waves.get(waveIndex).getEnemyList().get(enemyIndex++);
 	}
 	
-	private void createNormalWave() {
+	public void createNormalWave() {
 		waves.add(new Wave(new ArrayList<Integer>(Arrays.asList(3,3,4,4,4,4,4,5,5,5))));
 		
 	}

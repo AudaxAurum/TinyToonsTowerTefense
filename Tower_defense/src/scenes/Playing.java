@@ -120,6 +120,7 @@ public void mouseLeftClicked(int x, int y) {
 			t.getY() <= y && y <= (t.getY() + Constants.DimSprite) && (gold >= helpz.Constants.Towers.Getprice(ARCHER0))) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
 			
 			towerManager.changeTower(t);
+
 			
 			for (Tower i: towerManager.towers) {
 					if (t.getX() == i.getX() & t.getY() == i.getY()) {
@@ -130,35 +131,36 @@ public void mouseLeftClicked(int x, int y) {
 			}
 		}
 	if (x<Constants.DimSprite & y<Constants.DimSprite){
-		//waveManager.createHardWave();
+		waveManager.createNormalWave();
 	}
 		//i++;
 		//effe voorlopig
 	// code werkt nog niet public void shootEnemy (Tower tower, Enemy e) {
 	//	projManager.newProjectile(tower, e);
-	
-	if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
-		(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+	if (towerManager.selectedTower != null) {
+		if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
+				(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
 		
-			towerManager.upgradeTower();
-			System.out.println(towerManager.selectedTower.getTowerLevel());
+				towerManager.upgradeTower();
+				System.out.println(towerManager.selectedTower.getTowerLevel());
+		}
+	
+		if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
+			(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+			
+				towerManager.selectedTower.setTowerType(ARCHER1);
+				towerManager.upgradeTower();
+
+		}
+	
+		if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
+			(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+			
+				towerManager.selectedTower.setTowerType(ARCHER2);
+				towerManager.upgradeTower();
+
+		}
 	}
-	
-	if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
-		(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-			
-			towerManager.selectedTower.setTowerType(ARCHER1);
-			towerManager.upgradeTower();
-
-		}
-	
-	if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
-		(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-			
-			towerManager.selectedTower.setTowerType(ARCHER2);
-			towerManager.upgradeTower();
-
-		}
 }
 			
 public BufferedImage getImg() {

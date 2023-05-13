@@ -124,8 +124,14 @@ public class TowerManager {
 	
 	public void draw(Graphics g) {
 		for (Tower t : towers) {
-			if (t.getTowerType() != UNBUILD) {
+			if (t.getTowerType() == ARCHER0) {
+				g.drawImage(towerImgs[0], t.getX(), t.getY(), null);
+			}
+			else if (t.getTowerType() == ARCHER1) {
 				g.drawImage(towerImgs[2], t.getX(), t.getY(), null);
+			}
+			else if (t.getTowerType() == ARCHER2) {
+				g.drawImage(towerImgs[4], t.getX(), t.getY(), null);
 			}
 		}
 	}

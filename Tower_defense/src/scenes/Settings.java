@@ -1,10 +1,8 @@
 package scenes;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import helpz.Constants;
 import helpz.LoadSave;
 import main.Game;
 

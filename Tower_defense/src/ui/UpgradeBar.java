@@ -63,12 +63,13 @@ public void initButtons() {
 	}
 private void drawSpecialisationButton(Graphics g) {
 		
-		g.setColor(Color.RED);
-		g.fillRect(Constants.DimSprite*Constants.xMatrix - 250, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
-		g.fillRect(Constants.DimSprite*Constants.xMatrix - 150, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
-		g.setColor(Color.BLACK);
+		
 		
 		if (towerManager.selectedTower.getTowerType() == ARCHER0) {
+			g.setColor(Color.RED);
+			g.fillRect(Constants.DimSprite*Constants.xMatrix - 250, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+			g.fillRect(Constants.DimSprite*Constants.xMatrix - 150, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+			g.setColor(Color.BLACK);
 			g.drawString("Longbow", Constants.DimSprite*Constants.xMatrix - 235, Constants.DimSprite*Constants.yMatrix + 55);
 			g.drawString("Swiftbow", Constants.DimSprite*Constants.xMatrix - 135, Constants.DimSprite*Constants.yMatrix + 55);
 		}
@@ -121,10 +122,10 @@ private void drawSpecialisationButton(Graphics g) {
 			if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
 				(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
 				
-				if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType()) /4* towerManager.selectedTower.getTowerLevel()) {
+				if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType()) * towerManager.selectedTower.getTowerLevel()) {
 					
 					towerManager.upgradeTower();
-					playing.GoldCost((int) helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType())/4 * towerManager.selectedTower.getTowerLevel());
+					playing.GoldCost((int) helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType()) * towerManager.selectedTower.getTowerLevel());
 					
 					if (towerManager.selectedTower.getTowerLevel() == 4) {
 						SpecializationTime = true;
@@ -140,7 +141,7 @@ private void drawSpecialisationButton(Graphics g) {
 				if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
 					(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
 					
-					if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(ARCHER1)* helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType()/4 * towerManager.selectedTower.getTowerLevel())) {
+					if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(ARCHER1)* helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType() * towerManager.selectedTower.getTowerLevel())) {
 						
 						towerManager.selectedTower.setTowerType(ARCHER1);
 						towerManager.upgradeTower();
@@ -152,7 +153,7 @@ private void drawSpecialisationButton(Graphics g) {
 				if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
 					(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
 					
-					if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(ARCHER2)* helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType()/4 * towerManager.selectedTower.getTowerLevel())) {
+					if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(ARCHER2)* helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType() * towerManager.selectedTower.getTowerLevel())) {
 						
 						towerManager.selectedTower.setTowerType(ARCHER2);
 						towerManager.upgradeTower();

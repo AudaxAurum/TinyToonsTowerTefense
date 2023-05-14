@@ -1,14 +1,5 @@
 package objects;
 
-import static helpz.Constants.Tiles.*;
-
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
-import helpz.Constants;
-import maplayers.MapLayer1;
-import tower.Tower;
-
 public class Tile {
 	
 	int x, y, TowerType;
@@ -16,9 +7,7 @@ public class Tile {
 	public Tile(int x, int y, int TileType) {
 		
 		this.x = x;
-		this.y = y;
-		this.TowerType = TowerType;
-				
+		this.y = y;				
 	}
 	
 

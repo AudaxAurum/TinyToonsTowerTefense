@@ -1,9 +1,7 @@
 package scenes;
 
-import static helpz.Constants.Towers.*;
-import static main.GameStates.PLAYING;
+
 import static main.GameStates.ENDSCREEN;
-import static main.GameStates.SetGameState;
 import static helpz.Constants.Tiles.*;
 
 import java.awt.Graphics;

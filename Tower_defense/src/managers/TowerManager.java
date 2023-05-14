@@ -49,11 +49,23 @@ public class TowerManager {
 				if(e.getAlive()) {
 					if (isEnemyInRange(t, e)) {
 						if(t.cooldowncheck(t)) {
-							playing.shoot(t,t.GetProjectile(),e);
+							if (t.getTowerType() != CRUSHER0)
+								playing.shoot(t,t.GetProjectile(),e);
+							else {
+								pulverize(t);
+								
+							}
 						}
 					}
 				}
 			}
+		}
+	}
+	
+	private void pulverize(Tower t) {
+		System.out.println("help");
+		for (Enemy e : playing.getEnemyManager().getEnemies()) {
+			e.dmg((int) helpz.Constants.Towers.GetStartDmg(CRUSHER0));
 		}
 	}
 	private boolean isEnemyInRange(Tower tower, Enemy e) {

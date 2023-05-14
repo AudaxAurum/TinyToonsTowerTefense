@@ -28,7 +28,6 @@ public class Tower {
 		setDefaultCooldown();
 		setPrice();
 		setProjectile();
-		System.out.println(Range + "/" + defaultRange + "/" + helpz.Constants.Towers.GetRangeUpgradeFactor(towerType) + "/" + towerLevel);
 	}
 	public void update() {
 		timer ++;
@@ -46,13 +45,10 @@ public class Tower {
 	public void setDefaultDmg() {
 		defaultDmg = helpz.Constants.Towers.GetStartDmg(towerType);
 	}
-	public void setDefaultRange() {
-		defaultRange = helpz.Constants.Towers.GetDefaultRange(towerType);
-	}
+	
 	public float getCurrentRange() {
-		Range = defaultRange;
 		if (towerLevel % 5 == 0) {
-			Range = defaultRange + (helpz.Constants.Towers.GetRangeUpgradeFactor(towerType)*towerLevel);
+			Range = defaultRange + helpz.Constants.Towers.GetRangeUpgradeFactor(towerType)*towerLevel;
 		}
 		return Range;
 	}
@@ -69,7 +65,9 @@ public class Tower {
 	}
 	
 	//instellingen Range
-	
+	public void setDefaultRange() {
+		defaultRange = helpz.Constants.Towers.GetDefaultRange(towerType);
+	}
 	
 	public void setCurrentRange() {
 		if (towerLevel % 5 == 0) {

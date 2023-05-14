@@ -32,8 +32,8 @@ public class Tower {
 	public void update() {
 		timer ++;
 	}
-	public boolean cooldowncheck() {
-		if (timer >= defaultCooldown) {
+	public boolean cooldowncheck(Tower tower) {
+		if (timer >= helpz.Constants.Towers.GetDefaultCooldown(tower.getTowerType())) {
 			timer = 0;
 			return true;
 		}

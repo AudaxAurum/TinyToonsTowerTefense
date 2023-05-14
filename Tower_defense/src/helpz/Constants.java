@@ -49,9 +49,9 @@ public class Constants {
 		public static final int ARCHER2 = 12;
 //		public static final int WIZARD0 = 20;
 //		public static final int WIZARD1 = 21;
-		public static final int CRUSHER0 = 13;
-		public static final int CRUSHER1 = 14;
-		public static final int CRUSHER2 = 15;
+		public static final int CRUSHER0 = 30;
+		public static final int CRUSHER1 = 31;
+		public static final int CRUSHER2 = 32;
 		
 		public static int GetProjectile(int towerType) {
 			switch (towerType) {

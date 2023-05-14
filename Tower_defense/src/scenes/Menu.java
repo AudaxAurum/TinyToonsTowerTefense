@@ -26,7 +26,7 @@ public class Menu extends GameScene implements SceneMethods {
 		int x = 100 + Constants.xScherm/2 - w;
 		int y = Constants.yScherm/2 - h;
 
-		bPlaying = new MyButton(x, y, w, h ,"play");
+		bPlaying = new MyButton(x, y, w, h ,"   play");
 		
 	}
 

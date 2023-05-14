@@ -2,7 +2,7 @@ package tower;
 
 public class Tower {
 	
-	private int x, y, id, towerType, towerLevel, price, projectile;
+	private int x, y, id, towerType, towerLevel, price, projectile, sprite;
 	private int cdTick = 0;
 	
 	private float defaultDmg;
@@ -12,7 +12,8 @@ public class Tower {
 	private float Range;
 	
 	private float defaultCooldown;
-	private float Cooldown;
+	
+	private boolean animation;
 	
 	private int timer = 0;
 	
@@ -28,6 +29,8 @@ public class Tower {
 		setDefaultCooldown();
 		setPrice();
 		setProjectile();
+		setSprite(0);
+		
 	}
 	public void update() {
 		timer ++;
@@ -139,6 +142,14 @@ public class Tower {
 	public void setTowerLevel(int TowerLevel) {
 		towerLevel = TowerLevel;
 	}
+	
+	public void setAnimation(boolean animation) {
+		this.animation = animation;
+	}
+	
+	public boolean getAnimation() {
+		return animation;
+	}
 
 
 	public int getPrice() {
@@ -146,9 +157,14 @@ public class Tower {
 	}
 	public void setProjectile() {
 		projectile = helpz.Constants.Towers.GetProjectile(towerType);
-		System.out.println(projectile);
 	}
 	public int GetProjectile() {
 		return projectile;
+	}
+	public void setSprite(int animation) {
+		sprite = helpz.Constants.Towers.GetSprite(towerType) + animation;
+	}
+	public int GetSprite() {
+		return sprite;
 	}
 }

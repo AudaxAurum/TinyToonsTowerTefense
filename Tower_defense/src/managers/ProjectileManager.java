@@ -45,11 +45,4 @@ public class ProjectileManager {
 			}
 		}
 	}
-	
-	private int getProjectileType(Tower t) {
-		switch(t.getTowerType()) {
-		// doet nog niks
-		}
-		return 0;
-	}
 }

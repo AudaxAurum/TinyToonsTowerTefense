@@ -79,8 +79,6 @@ public class Constants {
 				return 4;
 			case CRUSHER0:
 				return 6;
-			/*case ARCHER2:
-				return 3;*/
 			}
 			return 0;
 		}

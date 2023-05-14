@@ -49,8 +49,17 @@ public class TowerManager {
 				if(e.getAlive()) {
 					if (isEnemyInRange(t, e)) {
 						if(t.cooldowncheck(t)) {
-							if (t.getTowerType() != CRUSHER0)
+							if (t.getAnimation() == false) {
+								t.setSprite(1);
+								t.setAnimation(true);
+							}
+							else if (t.getAnimation()) {
+								t.setSprite(0);
+								t.setAnimation(false);
+							}
+							if (t.getTowerType() != CRUSHER0) {
 								playing.shoot(t,t.GetProjectile(),e);
+							}
 							else {
 								pulverize(t);
 								
@@ -63,9 +72,10 @@ public class TowerManager {
 	}
 	
 	private void pulverize(Tower t) {
-		System.out.println("help");
 		for (Enemy e : playing.getEnemyManager().getEnemies()) {
-			e.dmg((int) helpz.Constants.Towers.GetStartDmg(CRUSHER0));
+			if (isEnemyInRange(t, e)) {
+				e.dmg((int) t.getCurrentDmg());
+			}
 		}
 	}
 	private boolean isEnemyInRange(Tower tower, Enemy e) {
@@ -128,7 +138,7 @@ public class TowerManager {
 	
 	public void draw(Graphics g) {
 		for (Tower t : towers) {
-			g.drawImage(towerImgs.get(Constants.Towers.GetSprite(t.getTowerType())), (int) t.getX(), (int) t.getY(), null);//nu wel en nu
+			g.drawImage(towerImgs.get(t.GetSprite()), (int) t.getX(), (int) t.getY(), null);//nu wel en nu
 		}
 	}
 

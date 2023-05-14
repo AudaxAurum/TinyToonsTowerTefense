@@ -65,8 +65,6 @@ public class TowerManager {
 		if (selectedTower != null) {
 			drawRange(g, selectedTower);
 			drawUpgradeButton(g);
-			g.setColor(Color.WHITE);
-
 		}
 	}
 

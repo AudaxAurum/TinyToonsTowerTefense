@@ -118,18 +118,7 @@ public class TowerManager {
 	
 	public void draw(Graphics g) {
 		for (Tower t : towers) {
-			if (t.getTowerType() == ARCHER0) {
-				g.drawImage(towerImgs.get(0), t.getX(), t.getY(), null);
-			}
-			else if (t.getTowerType() == ARCHER1) {
-				g.drawImage(towerImgs.get(2), t.getX(), t.getY(), null);
-			}
-			else if (t.getTowerType() == ARCHER2) {
-				g.drawImage(towerImgs.get(4), t.getX(), t.getY(), null);
-			}
-			else if (t.getTowerType() == CRUSHER0) {
-				g.drawImage(towerImgs.get(6), t.getX(), t.getY(), null);
-			}
+			g.drawImage(towerImgs.get(Constants.Towers.GetSprite(t.getTowerType())), (int) t.getX(), (int) t.getY(), null);
 		}
 	}
 

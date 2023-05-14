@@ -118,7 +118,7 @@ public class TowerManager {
 	
 	public void draw(Graphics g) {
 		for (Tower t : towers) {
-			g.drawImage(towerImgs.get(Constants.Towers.GetSprite(t.getTowerType())), (int) t.getX(), (int) t.getY(), null);
+			g.drawImage(towerImgs.get(Constants.Towers.GetSprite(t.getTowerType())), (int) t.getX(), (int) t.getY(), null);//nu wel
 		}
 	}
 

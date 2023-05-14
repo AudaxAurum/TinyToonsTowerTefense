@@ -67,6 +67,7 @@ public class Tower {
 	//instellingen Range
 	public void setDefaultRange() {
 		defaultRange = helpz.Constants.Towers.GetDefaultRange(towerType);
+		Range = defaultRange;
 	}
 	
 	public void setCurrentRange() {

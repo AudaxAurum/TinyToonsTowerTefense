@@ -85,24 +85,9 @@ public class EnemyManager {
 		for (Enemy e : enemies) {
 			if (e.getAlive()) {
 				e.movement(map);
-			}
-			
-			//else {
-			//	deadEnemies.add(enemies.indexOf(e));
-			//	for (int i : deadEnemies) {
-			//		enemies.remove(i);
-			//	}
-			//}
-			//enemies.removeIf(n -> (n.getHealth() <= 0));
-			//enemies.removeIf(n -> (n.getAlive() == false));
+			}}
+		enemies.removeIf(n -> (n.getAlive() == false));
 				
-			//System.out.println("enemy dood");
-			//System.out.println(enemies);
-
-		}
-		
-		
-		
 	}
 	private void updateWaveManager() {
 		playing.getWaveManager().update();		

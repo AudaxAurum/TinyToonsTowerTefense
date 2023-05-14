@@ -103,6 +103,12 @@ public class Constants {
 			case ARCHER0:
 				return 35;
 			
+			case ARCHER1:
+				return 50;
+				
+			case ARCHER2:
+				return 15;
+			
 			case CRUSHER0:
 				
 				return 50;
@@ -117,6 +123,12 @@ public class Constants {
 			switch (towerType) {
 			case ARCHER0:
 				return 75;
+				
+			case ARCHER1:
+				return 90;
+				
+			case ARCHER2:
+				return 80;
 				
 			case CRUSHER0:
 				
@@ -167,13 +179,13 @@ public class Constants {
 		public static float GetUpgradePriceFactor(int towerType) {
 			switch (towerType) {
 			case ARCHER0:
-				return 1.5f;
+				return 1.1f;
 				
 			case ARCHER1:
-				return 1.7f;
+				return 1.3f;
 			
 			case ARCHER2:
-				return 1.4f;
+				return 1.2f;
 				
 			case UNBUILD:
 				return 0;
@@ -284,7 +296,7 @@ public class Constants {
 			public static int GetStartGold(int level) {
 				switch(level) {
 				case LEVEL1:
-					return 200;
+					return 20000;
 				}
 				return 0;
 			}

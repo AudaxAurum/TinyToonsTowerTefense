@@ -34,5 +34,18 @@ public class LoadSave {
 		}
 		return img;
 	}
-
+		
+public static BufferedImage getVictory() {
+		
+		BufferedImage img = null;
+		InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("victory.png");
+		
+		try {
+			img = ImageIO.read(is)		;
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		return img;
+	}
 }

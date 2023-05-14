@@ -46,7 +46,6 @@ public class Game extends JFrame implements Runnable{
         
         initClasses();
 
-
         add(gameScreen);
         setResizable(false);
         pack();
@@ -59,7 +58,7 @@ public class Game extends JFrame implements Runnable{
         gameScreen = new GameScreen(this);
         menu = new Menu(this);
         playing = new Playing(this, level);
-        		settings = new Settings(this);
+        settings = new Settings(this);
 
 		
 	}

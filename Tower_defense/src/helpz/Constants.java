@@ -69,6 +69,22 @@ public class Constants {
 			return 0;
 		}
 		
+		public static int GetSprite(int towerType) {
+			switch (towerType) {
+			case ARCHER0:
+				return 0;
+			case ARCHER1:
+				return 2;
+			case ARCHER2:
+				return 4;
+			case CRUSHER0:
+				return 6;
+			/*case ARCHER2:
+				return 3;*/
+			}
+			return 0;
+		}
+		
 		public static float GetStartDmg(int towerType) {
 			switch (towerType) {
 			case ARCHER0:

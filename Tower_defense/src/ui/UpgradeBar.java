@@ -63,8 +63,6 @@ public void initButtons() {
 	}
 private void drawSpecialisationButton(Graphics g) {
 		
-		
-		
 		if (towerManager.selectedTower.getTowerType() == ARCHER0) {
 			g.setColor(Color.RED);
 			g.fillRect(Constants.DimSprite*Constants.xMatrix - 250, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
@@ -124,8 +122,8 @@ private void drawSpecialisationButton(Graphics g) {
 				
 				if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType()) * towerManager.selectedTower.getTowerLevel()) {
 					
-					towerManager.upgradeTower();
 					playing.GoldCost((int) helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType()) * towerManager.selectedTower.getTowerLevel());
+					towerManager.upgradeTower();
 					
 					if (towerManager.selectedTower.getTowerLevel() == 4) {
 						SpecializationTime = true;

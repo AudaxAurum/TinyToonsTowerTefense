@@ -57,6 +57,9 @@ public class Constants {
 			switch (towerType) {
 			case ARCHER0:
 				return 0;
+				
+			case CRUSHER0:
+				return 1;
 			
 			case UNBUILD:
 				return 0;
@@ -147,10 +150,10 @@ public class Constants {
 				return 1.5f;
 				
 			case ARCHER1:
-				return 3;
+				return 3.5f;
 			
 			case ARCHER2:
-				return 0.75f;
+				return 0.6f;
 			
 			case UNBUILD:
 				return 0;
@@ -164,10 +167,13 @@ public class Constants {
 				return 1;
 				
 			case ARCHER1:
-				return 1.5f;
+				return 2.5f;
 			
 			case ARCHER2:
 				return 0.5f;
+				
+			case CRUSHER0:
+				return 1.5f;
 				
 			case UNBUILD:
 				return 0;
@@ -186,6 +192,9 @@ public class Constants {
 			
 			case ARCHER2:
 				return 1.2f;
+				
+			case CRUSHER0:
+				return 1;
 				
 			case UNBUILD:
 				return 0;

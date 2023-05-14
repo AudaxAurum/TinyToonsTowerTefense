@@ -29,7 +29,7 @@ public class WaveManager {
 		}
 		if (waveStartTimer) {
 			waveTick++;
-			System.out.print(waveTick);
+			//System.out.print(waveTick);
 			if (waveTick >= waveTickLimit) {
 				waveTickTimerOver = true;
 			}

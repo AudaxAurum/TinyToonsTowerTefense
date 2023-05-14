@@ -59,7 +59,7 @@ public class Enemy {
 
 		
 	private void setStartHealth() {
-		health = helpz.Constants.Enemies.GetStartHealth(enemyType);
+		health = helpz.Constants.Enemies.GetStartHealth(enemyType);//*health scaling als we infinite waves doen
 	}
 	private void setSpeed() {
 		speed = helpz.Constants.Enemies.GetSpeed(enemyType);

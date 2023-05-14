@@ -23,7 +23,7 @@ public class MyButton {
 	}
 	
 	private void initBounds() {
-		this.bounds= new Rectangle(x, y ,width, height);
+		this.bounds = new Rectangle(x, y ,width, height);
 	}
 	public void draw(Graphics g) {
 		
@@ -40,7 +40,7 @@ public class MyButton {
 	private void drawText(Graphics g) {
 		int width = g.getFontMetrics().stringWidth(text);
 		int height = g.getFontMetrics().getHeight();
-		g.drawString(text, x + width , y + height);		
+		g.drawString(text, x + width/2 , y + (int) (height*1.5));		
 	}
 
 	public Rectangle getBounds() {

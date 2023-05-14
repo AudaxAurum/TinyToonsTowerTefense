@@ -24,7 +24,7 @@ public class TowerManager {
 	private ArrayList<BufferedImage> towerImgs = new ArrayList<>();
 	public  ArrayList<Tower> towers = new ArrayList<>();
 	public Tower selectedTower;
-	public float upgradeprice;
+	public float upgradePrice;
 	
 	
 	public TowerManager(Playing  playing) {
@@ -38,6 +38,8 @@ public class TowerManager {
 	public void changeTower(Tile tile, int towerselector) {
 		tile.setTileType(UNBUILDABLE);
 		towers.add(new Tower(tile.getX(), tile.getY(), 0, towerselector, 0));
+		selectedTower = towers.get(towers.size()-1);
+		upgradeTower();
 	
 	}
 	
@@ -63,19 +65,20 @@ public class TowerManager {
 		if (selectedTower != null) {
 			drawRange(g, selectedTower);
 			drawUpgradeButton(g);
+			g.setColor(Color.WHITE);
 
 		}
 	}
 
 
 	private void drawUpgradeButton(Graphics g) {
-		upgradeprice =  helpz.Constants.Towers.GetUpgradePriceFactor(selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(selectedTower.getTowerType()) /4* selectedTower.getTowerLevel();
+		upgradePrice = helpz.Constants.Towers.GetUpgradePriceFactor(selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(selectedTower.getTowerType()) /4* selectedTower.getTowerLevel();
 
 			g.setColor(Color.GREEN);
 			g.fillRect(Constants.DimSprite*Constants.xMatrix - 350, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
 			g.setColor(Color.WHITE);
-			g.drawString("Upgrade", Constants.DimSprite*Constants.xMatrix - 335, Constants.DimSprite*Constants.yMatrix + 55 - 30);
-			g.drawString(Float.toString(upgradeprice)
+			g.drawString("lvl = " + selectedTower.getTowerLevel() + " : " + "Upgrade", Constants.DimSprite*Constants.xMatrix - 350, Constants.DimSprite*Constants.yMatrix + 55 - 30);
+			g.drawString(Integer.toString((int) upgradePrice)
 						, Constants.DimSprite*Constants.xMatrix - 335, Constants.DimSprite*Constants.yMatrix + 55);
 			
 	}

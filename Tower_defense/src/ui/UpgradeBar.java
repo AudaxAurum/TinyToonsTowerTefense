@@ -69,10 +69,16 @@ private void drawSpecialisationButton(Graphics g) {
 		g.fillRect(Constants.DimSprite*Constants.xMatrix - 250, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
 		g.fillRect(Constants.DimSprite*Constants.xMatrix - 150, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
 		g.setColor(Color.BLACK);
-		g.drawString("Longbow", Constants.DimSprite*Constants.xMatrix - 235, Constants.DimSprite*Constants.yMatrix + 55);
-		g.drawString("Swiftbow", Constants.DimSprite*Constants.xMatrix - 135, Constants.DimSprite*Constants.yMatrix + 55);
-
 		
+		if (towerManager.selectedTower.getTowerType() == ARCHER0) {
+			g.drawString("Longbow", Constants.DimSprite*Constants.xMatrix - 235, Constants.DimSprite*Constants.yMatrix + 55);
+			g.drawString("Swiftbow", Constants.DimSprite*Constants.xMatrix - 135, Constants.DimSprite*Constants.yMatrix + 55);
+		}
+		
+		/*else if (towerManager.selectedTower.getTowerType() == CRUSHER0) {
+			g.drawString("Longbow", Constants.DimSprite*Constants.xMatrix - 235, Constants.DimSprite*Constants.yMatrix + 55);
+			g.drawString("Swiftbow", Constants.DimSprite*Constants.xMatrix - 135, Constants.DimSprite*Constants.yMatrix + 55);
+		}*/
 	}
 	public void draw(Graphics g) {
 		drawbar(g);
@@ -82,7 +88,7 @@ private void drawSpecialisationButton(Graphics g) {
 			drawBuildButtons(g);
 		}
 		
-		if (SpecializationTime) {
+		if (SpecializationTime && towerManager.selectedTower != null) {
 			drawSpecialisationButton(g);
 		}
 	}

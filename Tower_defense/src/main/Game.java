@@ -126,7 +126,9 @@ public class Game extends JFrame implements Runnable{
 		case PLAYING:
 			playing.update();
 			break;
-		case SETTINGS:
+		case ENDSCREEN:
+			break;
+		case VICTORY:
 			break;
 		default:
 			break;

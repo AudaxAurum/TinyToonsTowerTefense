@@ -28,7 +28,7 @@ public class Render {
 				game.getPlaying().render(g);
 			
 			break;
-		case SETTINGS:
+		case ENDSCREEN:
 				game.getSettings().render(g);
 			break;
 			

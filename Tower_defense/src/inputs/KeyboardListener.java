@@ -28,7 +28,7 @@ public class KeyboardListener implements KeyListener {
 			GameStates.gameState =PLAYING;
 	
 		else if (e.getKeyCode() == KeyEvent.VK_E)
-			GameStates.gameState =SETTINGS;
+			GameStates.gameState =ENDSCREEN;
 			
 	}
 

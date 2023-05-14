@@ -41,7 +41,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 				game.getPlaying().mouseRightClicked(e.getX(), e.getY());
 				
 				break;
-			case SETTINGS:
+			case ENDSCREEN:
 				break;
 			default:
 				break;
@@ -69,7 +69,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 			case PLAYING:
 				game.getPlaying().mouseLeftClicked(e.getX(), e.getY());
 				break;
-			case SETTINGS:
+			case ENDSCREEN:
 				break;
 			default:
 				break;

@@ -1,6 +1,10 @@
 package scenes;
 
 import static helpz.Constants.Towers.*;
+import static main.GameStates.PLAYING;
+import static main.GameStates.ENDSCREEN;
+import static main.GameStates.VICTORY;
+import static main.GameStates.SetGameState;
 import static helpz.Constants.Tiles.*;
 
 import java.awt.Graphics;
@@ -13,6 +17,7 @@ import javax.imageio.ImageIO;
 
 import enemy.Enemy;
 import main.Game;
+import main.GameStates;
 import managers.EnemyManager;
 import managers.ProjectileManager;
 import managers.TileManager;
@@ -51,14 +56,13 @@ public class Playing extends GameScene implements SceneMethods {
 		importImg();
 		loadSprites();
 		
-		//upgradeBar = new UpgradeBar(0,Constants.yMatrix*Constants.DimSprite,Constants.xMatrix*Constants.DimSprite,100);
 		enemyManager = new EnemyManager(this, level);
 		levelBuilder = new LevelBuilder();
 		towerManager = new TowerManager(this);
 		projManager = new ProjectileManager(this);
 		tileManager = new TileManager(this, map);
 		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this, towerManager);
-		waveManager = new WaveManager(this);
+		waveManager = new WaveManager(level);
 		
 		
 	}
@@ -70,7 +74,6 @@ public class Playing extends GameScene implements SceneMethods {
 		
 		if (isAllEnemiesDead()) {
 			if (isThereMoreWaves()) {
-				waveManager.startWaveTimer();
 				if (isWaveTimerOver()) {
 					waveManager.increaseWaveIndex();
 					enemyManager.getEnemies().clear();
@@ -79,6 +82,12 @@ public class Playing extends GameScene implements SceneMethods {
 
 				}
 			}
+			else {
+				GameStates.gameState =VICTORY;
+			}
+		}
+		if (castle_health <= 0) {
+			GameStates.gameState =ENDSCREEN;
 		}
 	}
 	private boolean isWaveTimerOver() {

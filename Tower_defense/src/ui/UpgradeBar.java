@@ -146,6 +146,7 @@ private void drawSpecialisationButton(Graphics g) {
 						
 						towerManager.selectedTower.setTowerType(ARCHER1);
 						towerManager.upgradeTower();
+						towerManager.selectedTower.setSprite(0);
 						SpecializationTime = false;
 					}
 				}
@@ -157,6 +158,7 @@ private void drawSpecialisationButton(Graphics g) {
 						
 						towerManager.selectedTower.setTowerType(ARCHER2);
 						towerManager.upgradeTower();
+						towerManager.selectedTower.setSprite(0);
 						SpecializationTime = false;
 					}
 				}

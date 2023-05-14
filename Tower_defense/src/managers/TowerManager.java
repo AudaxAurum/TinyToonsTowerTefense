@@ -24,11 +24,13 @@ public class TowerManager {
 	private ArrayList<BufferedImage> towerImgs = new ArrayList<>();
 	public  ArrayList<Tower> towers = new ArrayList<>();
 	public Tower selectedTower;
+	public float upgradeprice;
 	
 	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
 		loadTowerImgs();
+		
 
 	}
 
@@ -67,12 +69,15 @@ public class TowerManager {
 
 
 	private void drawUpgradeButton(Graphics g) {
+		upgradeprice = helpz.Constants.Towers.GetUpgradePriceFactor(ARCHER2)* helpz.Constants.Towers.Getprice(selectedTower.getTowerType()/4 * selectedTower.getTowerLevel());
 
 			g.setColor(Color.GREEN);
 			g.fillRect(Constants.DimSprite*Constants.xMatrix - 350, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
 			g.setColor(Color.WHITE);
 			g.drawString("Upgrade", Constants.DimSprite*Constants.xMatrix - 335, Constants.DimSprite*Constants.yMatrix + 55 - 30);
-		
+			g.drawString(Float.toString(upgradeprice)
+						, Constants.DimSprite*Constants.xMatrix - 335, Constants.DimSprite*Constants.yMatrix + 55);
+			
 	}
 	
 	public void upgradeTower() {
@@ -80,7 +85,6 @@ public class TowerManager {
 			selectedTower.setTowerLevel(selectedTower.getTowerLevel()+1);
 		}
 	}
-
 
 	
 

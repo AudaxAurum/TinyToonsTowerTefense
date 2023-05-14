@@ -164,6 +164,24 @@ public class Constants {
 
 			return 0;
 		}
+		public static float GetUpgradePriceFactor(int towerType) {
+			switch (towerType) {
+			case ARCHER0:
+				return 1.5f;
+				
+			case ARCHER1:
+				return 1.7f;
+			
+			case ARCHER2:
+				return 1.4f;
+				
+			case UNBUILD:
+				return 0;
+
+			}
+
+			return 0;
+		}
 	}
 	public static class Enemies {
 		

@@ -109,9 +109,7 @@ public class Playing extends GameScene implements SceneMethods {
 		enemyManager.draw(g);
 		projManager.draw(g);
 
-		upgradeBar.drawbar(g);
-		upgradeBar.drawvalues(g);
-		upgradeBar.drawButtons(g);
+		upgradeBar.draw(g);
 		towerManager.drawSelectedTower(g);
 
 	}
@@ -148,9 +146,11 @@ public void mouseLeftClicked(int x, int y) {
 		if (t.getX() <= x && x <= (t.getX() + Constants.DimSprite) && 
 			t.getY() <= y && y <= (t.getY() + Constants.DimSprite)) { //de gold check is effe voorlopig omdat ik nog niet exact weet hoe we dat het beste aanpakken bij verschillende torens.
 			
-			if (gold >= helpz.Constants.Towers.Getprice(ARCHER0) && t.getTileType() == BUILDABLE) {
-				towerManager.changeTower(t);
-				gold -= towerManager.towers.get(towerManager.towers.size()-1).getPrice();
+			if (t.getTileType() == BUILDABLE) {
+				upgradeBar.setTile(t);
+				upgradeBar.selectingTower();
+				//towerManager.changeTower(t);
+				//gold -= towerManager.towers.get(towerManager.towers.size()-1).getPrice();
 			}
 
 			for (Tower i: towerManager.towers) {
@@ -160,6 +160,14 @@ public void mouseLeftClicked(int x, int y) {
 				}
 			}
 		}
+}
+public void mouseRightClicked(int x, int y) {
+	towerManager.selectedTower = null;
+	upgradeBar.notselectingTower();
+}
+
+public void changeTower(Tile tile, int towertype) {
+	towerManager.changeTower(tile, towertype);
 }
 			
 public BufferedImage getImg() {
@@ -207,9 +215,7 @@ public MyButton getbUpgraden() {
 public void setbUpgraden(MyButton bUpgraden) {
 	this.bUpgraden = bUpgraden;
 }
-public void mouseRightClicked(int x, int y) {
-	towerManager.selectedTower = null;
-}
+
 
 public void mouseMoved(int x, int y) {
 	// doet nog niks
@@ -221,6 +227,9 @@ public void shoot(Tower t,int type, Enemy e) {
 
 public void GoldReward(int reward) {
 	gold += reward;
+}
+public void GoldCost(int Cost) {
+	gold -= Cost;
 }
 public void Castledmg(int dmg) {
 	castle_health -= dmg;

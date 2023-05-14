@@ -24,22 +24,18 @@ public class TowerManager {
 	private BufferedImage[] towerImgs;
 	public  ArrayList<Tower> towers = new ArrayList<>();
 	public Tower selectedTower;
-	public int Towerselector;
 	
 	
 	public TowerManager(Playing  playing) {
 		this.playing = playing;
-		this.Towerselector =ui.UpgradeBar.getTowerselector(); 
 		loadTowerImgs();
 
 	}
 
 	
-	public void changeTower(Tile tile) {
-		if (tile.getTileType() == BUILDABLE) {
-			tile.setTileType(UNBUILDABLE);
-			towers.add(new Tower(tile.getX(), tile.getY(), 0, Towerselector, 0));
-		}
+	public void changeTower(Tile tile, int towerselector) {
+		tile.setTileType(UNBUILDABLE);
+		towers.add(new Tower(tile.getX(), tile.getY(), 0, towerselector, 0));
 	
 	}
 	
@@ -124,7 +120,6 @@ public class TowerManager {
 			t.update();
 			
 		}
-		this.Towerselector =ui.UpgradeBar.getTowerselector(); 
 	}
 	
 	public void draw(Graphics g) {

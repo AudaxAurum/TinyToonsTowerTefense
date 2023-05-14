@@ -4,6 +4,7 @@ import static helpz.Constants.Towers.*;
 import static main.GameStates.PLAYING;
 import static main.GameStates.SetGameState;
 import managers.TowerManager;
+import objects.Tile;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -18,6 +19,8 @@ public class UpgradeBar {
 	private MyButton bCrusher,bArcher;
 	public static int Towerselector;
 	private TowerManager towerManager;
+	private boolean selectingTower = false;
+	private Tile tile;
 
 	public UpgradeBar(int x, int y, int width, int height, Playing playing,TowerManager towerManager ) {
 		this.x = x;
@@ -60,6 +63,13 @@ public void initButtons() {
 
 		
 	}
+	public void draw(Graphics g) {
+		drawbar(g);
+		drawvalues(g);
+		if (selectingTower) {
+			drawButtons(g);
+		}
+	}
 
 	public static int getTowerselector() {
 		return Towerselector;
@@ -68,38 +78,53 @@ public void initButtons() {
 		Towerselector = towerselector;
 	}
 	public void Clicked(int x, int y) {
-		if (bCrusher.getBounds().contains(x, y)) {
-			Towerselector =helpz.Constants.Towers.CRUSHER0;
-			System.out.print(Towerselector);
-		}
-		if (bArcher.getBounds().contains(x, y)) {
-			Towerselector =helpz.Constants.Towers.ARCHER0;
-			System.out.print(Towerselector);
-		}
-		if (towerManager.selectedTower != null) {
-			if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
-					(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+		if (selectingTower) {
+			if (bCrusher.getBounds().contains(x, y)) {
+				if (playing.getGold() >= helpz.Constants.Towers.Getprice(CRUSHER0)) {
+					playing.changeTower(tile, CRUSHER0);
+					playing.GoldCost(helpz.Constants.Towers.Getprice(CRUSHER0));
+					System.out.print("crusher");
+				}
+			}
+			if (bArcher.getBounds().contains(x, y)) {
+				if (playing.getGold() >= helpz.Constants.Towers.Getprice(ARCHER0)) {
+					playing.changeTower(tile, ARCHER0);
+					playing.GoldCost(helpz.Constants.Towers.Getprice(ARCHER0));
+					System.out.print("archer");
+				}
+			}
+		
+			if (towerManager.selectedTower != null) {
+				if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
+						(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
 			
 					towerManager.upgradeTower();
 					System.out.println(towerManager.selectedTower.getTowerLevel());
-			}
+				}
 		
-			if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
-				(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+				if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
+						(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
 				
 					towerManager.selectedTower.setTowerType(ARCHER1);
 					towerManager.upgradeTower();
-
-			}
+				}
 		
-			if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
-				(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+				if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
+						(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
 				
-					towerManager.selectedTower.setTowerType(ARCHER2);
-					towerManager.upgradeTower();
-
+						towerManager.selectedTower.setTowerType(ARCHER2);
+						towerManager.upgradeTower();
+				}
 			}
 		}
 	}
-	
+	public void selectingTower() {
+		selectingTower = true;
+	}
+	public void notselectingTower() {
+		selectingTower = false;
+	}
+	public void setTile(Tile t) {
+		this.tile = t;
+	}
 }

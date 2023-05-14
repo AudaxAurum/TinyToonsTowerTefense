@@ -21,7 +21,7 @@ import ui.UpgradeBar;
 public class TowerManager {
 	
 	private Playing playing;
-	private BufferedImage[] towerImgs;
+	private ArrayList<BufferedImage> towerImgs = new ArrayList<>();
 	public  ArrayList<Tower> towers = new ArrayList<>();
 	public Tower selectedTower;
 	
@@ -70,8 +70,8 @@ public class TowerManager {
 
 			g.setColor(Color.GREEN);
 			g.fillRect(Constants.DimSprite*Constants.xMatrix - 350, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
-			g.setColor(Color.BLACK);
-			g.drawString("Upgrade", Constants.DimSprite*Constants.xMatrix - 335, Constants.DimSprite*Constants.yMatrix + 55);
+			g.setColor(Color.WHITE);
+			g.drawString("Upgrade", Constants.DimSprite*Constants.xMatrix - 335, Constants.DimSprite*Constants.yMatrix + 55 - 30);
 		
 	}
 	
@@ -94,9 +94,11 @@ public class TowerManager {
 	
 	private void loadTowerImgs() {
 		BufferedImage atlas = LoadSave.getSpriteAtlas();
-		towerImgs = new BufferedImage[6];
-		for (int i = 0; i<6 ; i++) 
-			towerImgs[i] = atlas.getSubimage(i*Constants.DimSprite, 1*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite); //voer plaats van tower img in
+		for (int y = 0; y < 2; y++) {
+			for (int x = 0; x < 6; x++) {
+				towerImgs.add(atlas.getSubimage(x*Constants.DimSprite, (1 + y)*Constants.DimSprite, Constants.DimSprite, Constants.DimSprite));
+			}
+		}
 	}
 	
 	public void update() {
@@ -110,13 +112,16 @@ public class TowerManager {
 	public void draw(Graphics g) {
 		for (Tower t : towers) {
 			if (t.getTowerType() == ARCHER0) {
-				g.drawImage(towerImgs[0], t.getX(), t.getY(), null);
+				g.drawImage(towerImgs.get(0), t.getX(), t.getY(), null);
 			}
 			else if (t.getTowerType() == ARCHER1) {
-				g.drawImage(towerImgs[2], t.getX(), t.getY(), null);
+				g.drawImage(towerImgs.get(2), t.getX(), t.getY(), null);
 			}
 			else if (t.getTowerType() == ARCHER2) {
-				g.drawImage(towerImgs[4], t.getX(), t.getY(), null);
+				g.drawImage(towerImgs.get(4), t.getX(), t.getY(), null);
+			}
+			else if (t.getTowerType() == CRUSHER0) {
+				g.drawImage(towerImgs.get(6), t.getX(), t.getY(), null);
 			}
 		}
 	}

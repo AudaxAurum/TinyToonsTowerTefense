@@ -125,6 +125,10 @@ private void drawSpecialisationButton(Graphics g) {
 					if (towerManager.selectedTower.getTowerLevel() == 4) {
 						SpecializationTime = true;
 					}
+					
+					else {
+						SpecializationTime = false;
+					}
 				}
 			}
 			

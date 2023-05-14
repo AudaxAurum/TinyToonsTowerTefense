@@ -1,27 +1,19 @@
 package managers;
 
 import static helpz.Constants.Tiles.BUILDABLE;
-import static helpz.Constants.Tiles.UNBUILDABLE;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import helpz.Constants;
-import maplayers.MapLayer1;
 import objects.Tile;
-import scenes.Playing;
-import tower.Tower;
 
 public class TileManager {
 	
-	private Playing playing;
-	private Tile tile;
 	private int[][] map;
 	
 	public ArrayList<Tile> towerPlace = new ArrayList<>();
 	
-	public TileManager(Playing  playing, int[][] map) {
-		this.playing = playing;
+	public TileManager(int[][] map) {
 		this.map = map;
 		
 		initTiles();

@@ -11,12 +11,9 @@ import java.util.ArrayList;
 import enemy.Enemy;
 import helpz.Constants;
 import helpz.LoadSave;
-import maplayers.MapLayer1;
 import objects.Tile;
 import scenes.Playing;
-import tower.Archer;
 import tower.Tower;
-import ui.UpgradeBar;
 
 public class TowerManager {
 	

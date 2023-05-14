@@ -4,7 +4,6 @@ import java.awt.Rectangle;
 
 import helpz.Constants;
 import managers.EnemyManager;
-import scenes.Playing;
 
 public class Enemy {
 	private Rectangle bounds;

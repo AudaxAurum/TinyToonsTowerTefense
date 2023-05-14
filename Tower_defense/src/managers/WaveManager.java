@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import events.Wave;
-import scenes.Playing;
 
 public class WaveManager {
 	

@@ -1,8 +1,6 @@
 package ui;
 
 import static helpz.Constants.Towers.*;
-import static main.GameStates.PLAYING;
-import static main.GameStates.SetGameState;
 import managers.TowerManager;
 import objects.Tile;
 

@@ -3,17 +3,12 @@ package helpz;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 
 import maplayers.MapLayer1;
 
 public class LevelBuilder {
-	
-	private BufferedImage img;
 		
 	public static BufferedImage rotateImage(BufferedImage src, int rotationAngle) {
 	    double theta = (Math.PI * 2) / 360 * rotationAngle;

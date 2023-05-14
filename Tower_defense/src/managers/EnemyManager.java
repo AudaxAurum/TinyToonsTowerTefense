@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import enemy.Enemy;
 import helpz.Constants;
 import helpz.LoadSave;
-import maplayers.MapLayer1;
 import scenes.Playing;
 
 public class EnemyManager {

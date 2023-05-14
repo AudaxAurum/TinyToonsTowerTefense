@@ -59,8 +59,8 @@ public class Playing extends GameScene implements SceneMethods {
 		enemyManager = new EnemyManager(this, level);
 		levelBuilder = new LevelBuilder();
 		towerManager = new TowerManager(this);
-		projManager = new ProjectileManager(this);
-		tileManager = new TileManager(this, map);
+		projManager = new ProjectileManager();
+		tileManager = new TileManager(map);
 		upgradeBar = new UpgradeBar(0, 576, 1024, 100, this, towerManager);
 		waveManager = new WaveManager(level);
 		

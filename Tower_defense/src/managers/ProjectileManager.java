@@ -8,16 +8,13 @@ import enemy.Enemy;
 import helpz.Constants;
 import helpz.LoadSave;
 import objects.Projectile;
-import scenes.Playing;
 import tower.Tower;
 
 public class ProjectileManager {
 	
-	private Playing playing;
 	private ArrayList<Projectile> projectiles = new ArrayList<>();
 	private BufferedImage[] proj_imgs;
-	public ProjectileManager(Playing playing) {
-		this.playing = playing;
+	public ProjectileManager() {
 		importImgs();
 	}
 	

@@ -1,6 +1,5 @@
 package helpz;
 
-import managers.WaveManager;
 import maplayers.MapLayer1;
 
 public class Constants {

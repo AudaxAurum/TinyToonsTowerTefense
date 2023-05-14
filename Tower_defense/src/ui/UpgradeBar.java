@@ -19,7 +19,7 @@ public class UpgradeBar {
 	private MyButton bCrusher,bArcher;
 	public static int Towerselector;
 	private TowerManager towerManager;
-	private boolean selectingTower = false;
+	private boolean selectingTower = false, SpecializationTime = false;
 	private Tile tile;
 
 	public UpgradeBar(int x, int y, int width, int height, Playing playing,TowerManager towerManager ) {
@@ -57,17 +57,31 @@ public void initButtons() {
 
 
 
-	public void drawButtons(Graphics g) {
+	public void drawBuildButtons(Graphics g) {
 		bCrusher.draw(g);
 		bArcher.draw(g);
+
+		
+	}
+private void drawSpecialisationButton(Graphics g) {
+		
+		g.setColor(Color.RED);
+		g.fillRect(Constants.DimSprite*Constants.xMatrix - 250, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+		g.fillRect(Constants.DimSprite*Constants.xMatrix - 150, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
+		g.setColor(Color.BLACK);
+		g.drawString("Longbow", Constants.DimSprite*Constants.xMatrix - 235, Constants.DimSprite*Constants.yMatrix + 55);
+		g.drawString("Swiftbow", Constants.DimSprite*Constants.xMatrix - 135, Constants.DimSprite*Constants.yMatrix + 55);
 
 		
 	}
 	public void draw(Graphics g) {
 		drawbar(g);
 		drawvalues(g);
-		if (selectingTower) {
-			drawButtons(g);
+		if (selectingTower && (towerManager.selectedTower == null)) {
+			drawBuildButtons(g);
+		}
+		if (selectingTower && SpecializationTime) {
+			drawSpecialisationButton(g);
 		}
 	}
 
@@ -83,37 +97,45 @@ public void initButtons() {
 				if (playing.getGold() >= helpz.Constants.Towers.Getprice(CRUSHER0)) {
 					playing.changeTower(tile, CRUSHER0);
 					playing.GoldCost(helpz.Constants.Towers.Getprice(CRUSHER0));
-					System.out.print("crusher");
+					selectingTower = false;
 				}
 			}
 			if (bArcher.getBounds().contains(x, y)) {
 				if (playing.getGold() >= helpz.Constants.Towers.Getprice(ARCHER0)) {
 					playing.changeTower(tile, ARCHER0);
 					playing.GoldCost(helpz.Constants.Towers.Getprice(ARCHER0));
-					System.out.print("archer");
+					selectingTower = false;
 				}
 			}
 		
 			if (towerManager.selectedTower != null) {
 				if ((Constants.DimSprite*Constants.xMatrix - 350) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 270) &&
 						(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-			
-					towerManager.upgradeTower();
-					System.out.println(towerManager.selectedTower.getTowerLevel());
-				}
-		
-				if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
-						(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-				
-					towerManager.selectedTower.setTowerType(ARCHER1);
-					towerManager.upgradeTower();
-				}
-		
-				if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
-						(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
-				
-						towerManager.selectedTower.setTowerType(ARCHER2);
+					if (playing.getGold() >= helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType())* helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType() * towerManager.selectedTower.getTowerLevel())) {
 						towerManager.upgradeTower();
+						playing.GoldCost((int) helpz.Constants.Towers.GetUpgradePriceFactor(towerManager.selectedTower.getTowerType())* helpz.Constants.Towers.Getprice(towerManager.selectedTower.getTowerType() * towerManager.selectedTower.getTowerLevel()));
+						if (towerManager.selectedTower.getTowerLevel() == 4) {
+							SpecializationTime = true;
+						}
+						System.out.println(towerManager.selectedTower.getTowerLevel());
+					}
+				}
+				if (towerManager.selectedTower.getTowerType() == ARCHER0) {
+					if ((Constants.DimSprite*Constants.xMatrix - 250) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 170) &&
+							(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+						if (playing.getGold() >= 0) {
+							towerManager.selectedTower.setTowerType(ARCHER1);
+							towerManager.upgradeTower();
+						}
+					}
+		
+					if ((Constants.DimSprite*Constants.xMatrix - 150) <= x && x <= (Constants.DimSprite*Constants.xMatrix - 70) &&
+							(Constants.DimSprite*Constants.yMatrix + 30) <= y && y <= (Constants.DimSprite*Constants.yMatrix + 70)) {
+						if (playing.getGold() >= 0) {
+							towerManager.selectedTower.setTowerType(ARCHER2);
+							towerManager.upgradeTower();
+						}
+					}
 				}
 			}
 		}

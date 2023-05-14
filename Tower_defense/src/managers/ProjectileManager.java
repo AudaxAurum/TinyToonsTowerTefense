@@ -23,10 +23,9 @@ public class ProjectileManager {
 	
 	private void importImgs() {
 		BufferedImage atlas = LoadSave.getSpriteAtlas();
-		proj_imgs = new BufferedImage[3];
+		proj_imgs = new BufferedImage[1];
 		
-		for(int i = 0; i < 3; i++)
-			proj_imgs[i] = atlas.getSubimage(3*Constants.DimSprite,3*Constants.DimSprite,Constants.DimSprite, Constants.DimSprite); // verander waardes voor werkelijke loc
+			proj_imgs[0] = atlas.getSubimage(3*Constants.DimSprite,4*Constants.DimSprite,Constants.DimSprite, Constants.DimSprite); // verander waardes voor werkelijke loc
 	}
 	
 	public void newProjectile(Tower t, int type,Enemy e) {	

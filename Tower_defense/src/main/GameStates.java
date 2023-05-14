@@ -4,7 +4,6 @@ public enum GameStates {
 
 	PLAYING,
 	ENDSCREEN,
-	VICTORY,
 	MENU;
 	
 	public static void SetGameState(GameStates state) {

@@ -128,8 +128,6 @@ public class Game extends JFrame implements Runnable{
 			break;
 		case ENDSCREEN:
 			break;
-		case VICTORY:
-			break;
 		default:
 			break;
 		

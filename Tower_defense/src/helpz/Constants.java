@@ -320,7 +320,7 @@ public class Constants {
 			public static int GetStartGold(int level) {
 				switch(level) {
 				case LEVEL1:
-					return 20000;
+					return 200;
 				}
 				return 0;
 			}

@@ -3,7 +3,6 @@ package scenes;
 import static helpz.Constants.Towers.*;
 import static main.GameStates.PLAYING;
 import static main.GameStates.ENDSCREEN;
-import static main.GameStates.VICTORY;
 import static main.GameStates.SetGameState;
 import static helpz.Constants.Tiles.*;
 
@@ -43,6 +42,7 @@ public class Playing extends GameScene implements SceneMethods {
 	private WaveManager waveManager;
 	private int[][] map;
 	private UpgradeBar upgradeBar;
+	private boolean youlose = false;
 	
 	private int gold, castle_health, waves, currentwave;
 	
@@ -83,11 +83,11 @@ public class Playing extends GameScene implements SceneMethods {
 				}
 			}
 			else {
-				GameStates.gameState =VICTORY;
+				GameStates.gameState =ENDSCREEN;
 			}
 		}
 		if (castle_health <= 0) {
-			GameStates.gameState =ENDSCREEN;
+			youlose = true;
 		}
 	}
 	private boolean isWaveTimerOver() {
@@ -112,7 +112,7 @@ public class Playing extends GameScene implements SceneMethods {
 	@Override
 	public void render(Graphics g) {
 		
-		//upgradeBar.draw(g);
+		
 		levelBuilder.DrawMap(g, sprites, Constants.xMatrix, Constants.yMatrix, Constants.DimSprite, map);
 		towerManager.draw(g);
 		enemyManager.draw(g);
@@ -120,6 +120,9 @@ public class Playing extends GameScene implements SceneMethods {
 
 		upgradeBar.draw(g);
 		towerManager.drawSelectedTower(g);
+		if (youlose) {
+			g.drawString("ge verliest en idk he ge da gedaan hebt", 500, 300);
+		}
 
 	}
 	

@@ -1,17 +1,11 @@
 package main;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import inputs.MyMouseListener;
 import scenes.Menu;
 import scenes.Playing;
 import scenes.Settings;
-import inputs.KeyboardListener;
 import static helpz.Constants.levels.*;
 
 public class Game extends JFrame implements Runnable{

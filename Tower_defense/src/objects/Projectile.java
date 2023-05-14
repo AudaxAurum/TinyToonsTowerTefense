@@ -1,13 +1,10 @@
 package objects;
 
-import java.awt.geom.Point2D;
-
 import enemy.Enemy;
 import tower.Tower;
 
 public class Projectile {
 	
-	private Point2D.Float position;
 	private int projectileType;
 	private float x, y, dmg, speed, impactrange;
 	private boolean active = true;

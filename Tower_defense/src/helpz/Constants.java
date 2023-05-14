@@ -90,7 +90,7 @@ public class Constants {
 			
 			case CRUSHER0:
 				
-				return 5;
+				return 12;
 			
 			case UNBUILD:
 				return 0;

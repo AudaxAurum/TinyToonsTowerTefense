@@ -29,22 +29,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getButton() == MouseEvent.BUTTON1) {
-			
-			switch(GameStates.gameState) {
-			case MENU:
-				game.getMenu().mouseLeftClicked(e.getX(), e.getY());
-				break;
-			case PLAYING:
-				game.getPlaying().mouseLeftClicked(e.getX(), e.getY());
-				break;
-			case SETTINGS:
-				break;
-			default:
-				break;
-			
-			}
-		}
+
 		
 		if (e.getButton() == MouseEvent.BUTTON3) {
 			
@@ -75,7 +60,22 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getButton() == MouseEvent.BUTTON1) {
+			
+			switch(GameStates.gameState) {
+			case MENU:
+				game.getMenu().mouseLeftClicked(e.getX(), e.getY());
+				break;
+			case PLAYING:
+				game.getPlaying().mouseLeftClicked(e.getX(), e.getY());
+				break;
+			case SETTINGS:
+				break;
+			default:
+				break;
+			
+			}
+		}
 		
 	}
 

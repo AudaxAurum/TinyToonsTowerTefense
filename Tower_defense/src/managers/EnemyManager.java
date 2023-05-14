@@ -1,5 +1,6 @@
 package managers;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -110,7 +111,13 @@ public class EnemyManager {
 		for (Enemy e : enemies)
 			if (e.getAlive()) {
 				drawEnemy(e,g);
+				drawHealth(e,g);
 			}
+	}
+	
+	private void drawHealth(Enemy e, Graphics g) {
+		g.setColor(Color.RED);
+		g.fillRect((int)e.getX() + 10, (int)e.getY(), e.getHealth()/2, 5);
 	}
 
 	private void drawEnemy(Enemy e, Graphics g) {

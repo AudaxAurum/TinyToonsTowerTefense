@@ -21,5 +21,18 @@ public class LoadSave {
 		}
 		return img;
 	}
+	public static BufferedImage getJan() {
+		
+		BufferedImage img = null;
+		InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("jan.png");
+		
+		try {
+			img = ImageIO.read(is)		;
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		return img;
+	}
 
 }

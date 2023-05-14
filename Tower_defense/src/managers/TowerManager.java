@@ -69,7 +69,7 @@ public class TowerManager {
 
 
 	private void drawUpgradeButton(Graphics g) {
-		upgradeprice = helpz.Constants.Towers.GetUpgradePriceFactor(ARCHER2)* helpz.Constants.Towers.Getprice(selectedTower.getTowerType()/4 * selectedTower.getTowerLevel());
+		upgradeprice =  helpz.Constants.Towers.GetUpgradePriceFactor(selectedTower.getTowerType()) * helpz.Constants.Towers.Getprice(selectedTower.getTowerType()) /4* selectedTower.getTowerLevel();
 
 			g.setColor(Color.GREEN);
 			g.fillRect(Constants.DimSprite*Constants.xMatrix - 350, Constants.DimSprite*Constants.yMatrix + 30, 80, 40);
